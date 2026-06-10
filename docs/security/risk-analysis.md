@@ -7,6 +7,12 @@
 | Exposição de dados sensíveis     | Alto    | Autorização adequada       |
 | Dados inválidos na plataforma    | Médio   | Validação de entrada       |
 | Viés na recomendação da IA       | Alto    | Revisão humana obrigatória |
+| Exposição de credenciais no GitHub | Alto    | Variáveis de ambiente    |
+| Banco exposto à internet           | Alto    | Restrição de acesso      |
+| Falta de HTTPS                     | Alto    | TLS obrigatório          |
+| Uso indevido da API                | Médio   | Rate Limiting            |
+| Vazamento de token JWT             | Alto    | Expiração e renovação    |
+
 
 ## Considerações
 

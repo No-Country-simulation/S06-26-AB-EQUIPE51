@@ -29,7 +29,7 @@ Todas as credenciais devem ser armazenadas em variáveis de ambiente e acessadas
 
 ### Backend
 
-* Hospedagem em AWS EC2
+* Hospedagem em AWS Lightsail
 * HTTPS obrigatório
 * Controle de acesso restrito
 

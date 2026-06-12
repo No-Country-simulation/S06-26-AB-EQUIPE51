@@ -16,7 +16,7 @@ Criar uma plataforma de recrutamento inclusivo para empresas com metas ESG que p
 
 ## Infraestrutura
 
-- [ ] Repositório GitHub criado
+- [x] Repositório GitHub criado
 - [ ] GitHub Projects configurado
 - [ ] GitHub Actions configurado
 - [ ] Ambiente local funcionando
@@ -28,10 +28,10 @@ Criar uma plataforma de recrutamento inclusivo para empresas com metas ESG que p
 ## Backend
 
 - [ ] NestJS configurado
-- [ ] Prisma configurado
+- [x] Prisma configurado
 - [ ] Banco configurado
-- [ ] JWT implementado
-- [ ] bcrypt implementado
+- [x] JWT implementado
+- [x] bcrypt implementado
 
 ---
 
@@ -63,10 +63,10 @@ Ter toda a estrutura básica funcionando.
 ### Backend
 
 - [ ] Projeto NestJS criado
-- [ ] Prisma configurado
+- [x] Prisma configurado
 - [ ] Banco conectado
-- [ ] JWT funcionando
-- [ ] bcrypt funcionando
+- [x] JWT funcionando
+- [x] bcrypt funcionando
 
 ### Modelos
 
@@ -76,9 +76,9 @@ Ter toda a estrutura básica funcionando.
 
 ### APIs
 
-- [ ] Cadastro Empresa
-- [ ] Cadastro Vaga
-- [ ] Cadastro Candidato
+- [x] Cadastro Empresa
+- [x] Cadastro Vaga
+- [x] Cadastro Candidato
 - [ ] Login
 
 ### Frontend
@@ -89,8 +89,8 @@ Ter toda a estrutura básica funcionando.
 
 ### DevOps
 
-- [ ] GitHub criado
-- [ ] GitHub Projects criado
+- [x] GitHub criado
+- [/] GitHub Projects criado
 - [ ] GitHub Actions criado
 
 ### Entregável

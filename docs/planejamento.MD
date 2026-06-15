@@ -90,14 +90,11 @@ Ter toda a estrutura básica funcionando.
 ### DevOps
 
 - [x] GitHub criado
-- [/] GitHub Projects criado
-- [ ] GitHub Actions criado
 
 ### Entregável
 
 - [ ] Login funcionando
 - [ ] CRUD funcionando
-- [ ] Banco funcionando
 
 ---
 
@@ -133,6 +130,7 @@ Sistema já consegue encontrar candidatos.
 - [ ] Empresa publica vaga
 - [ ] Sistema retorna ranking
 - [ ] Score funcionando
+- [ ] Banco funcionando
 
 ---
 

@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Página ───────────────────────────────────────────────── */
+.page {
+  min-height: 100dvh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: linear-gradient(160deg, #c9c4f52d 0%, #a79fe838 30%, #8b84d95d 60%, #7b74cc93 100%);
+}
+
+/* ── Nav ──────────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.navLogo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #6c63ff;
+  letter-spacing: 0.03em;
+}
+
+.navLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.navLink {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  color: #555;
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+
+.navLink:hover {
+  border-color: #6c63ff;
+  color: #6c63ff;
+}
+
+.navLinkDestaque {
+  background: #6c63ff;
+  color: #fff;
+  border-color: #6c63ff;
+}
+
+.navLinkDestaque:hover {
+  background: #574fd6;
+  border-color: #574fd6;
+  color: #fff;
+}
+
+/* ── Conteúdo principal ───────────────────────────────────── */
+.main {
+  padding: 60px 40px;
+}

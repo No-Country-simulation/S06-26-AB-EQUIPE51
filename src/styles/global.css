@@ -1,0 +1,34 @@
+:root {
+  /* Cores principais */
+  --cor-primaria:       #6c63ff;
+  --cor-primaria-hover: #574fd6;
+  --cor-primaria-suave: #6c63ff22;
+
+  /* Textos */
+  --cor-texto:          #333;
+  --cor-texto-medio:    #555;
+  --cor-texto-suave:    #888;
+  --cor-texto-fraco:    #aaa;
+
+  /* Bordas */
+  --cor-borda:          #ccc;
+  --cor-borda-erro:     #e55;
+
+  /* Backgrounds */
+  --cor-bg-pagina:      #f7f7fb;
+  --cor-bg-card:        linear-gradient(160deg, #c9c4f52d 0%, #a79fe838 30%, #8b84d95d 60%, #7b74cc93 100%);
+
+  /* Feedback */
+  --cor-erro:           #e55;
+  --cor-sucesso:        #16a34a;
+
+  /* Raios */
+  --raio-sm:            6px;
+  --raio-md:            10px;
+  --raio-lg:            16px;
+  --raio-pill:          9999px;
+
+  /* Fonte */
+  --fonte:              'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

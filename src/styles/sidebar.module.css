@@ -1,0 +1,128 @@
+.sidebar {
+  background: #fff;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.logo {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo strong {
+  font-size: 22px;
+  color: #6c63ff;
+  display: block;
+}
+
+.logo span {
+  font-size: 10px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.nav {
+  padding: 16px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-right: 3px solid transparent;
+  text-align: left;
+  width: 100%;
+  font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+  transition: all 0.15s;
+}
+
+.item:hover {
+  background: #f3f2ff;
+  color: #6c63ff;
+}
+
+.item i {
+  font-size: 16px;
+}
+
+.ativo {
+  background: #f0effe;
+  color: #6c63ff;
+  font-weight: 600;
+  border-right: 3px solid #6c63ff;
+}
+
+.mensagem {
+  margin: 16px;
+  padding: 14px;
+  background: #f0fdf4;
+  border-radius: 10px;
+  border: 1px solid #bbf7d0;
+}
+
+.mensagem span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #16a34a;
+  display: block;
+}
+
+.mensagem p {
+  font-size: 11px;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.mensagem a {
+  font-size: 11px;
+  color: #16a34a;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.mensagem a:hover {
+  text-decoration: underline;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 240px;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  .sidebarAberta {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+  }
+}

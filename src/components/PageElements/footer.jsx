@@ -1,11 +1,11 @@
 import React from 'react'
 
 const footer = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+  return<>
+  <h1>InclusiveTech</h1>
+  </>
+    
+  
 }
 
 export default footer

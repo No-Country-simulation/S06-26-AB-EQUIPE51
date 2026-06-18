@@ -1,6 +1,6 @@
 :root {
   /* Cores principais */
-  --cor-primaria:       #6c63ff;
+  --cor-primaria:       #0d377c;
   --cor-primaria-hover: #574fd6;
   --cor-primaria-suave: #6c63ff22;
 
@@ -16,7 +16,7 @@
 
   /* Backgrounds */
   --cor-bg-pagina:      #f7f7fb;
-  --cor-bg-card:        linear-gradient(160deg, #c9c4f52d 0%, #a79fe838 30%, #8b84d95d 60%, #7b74cc93 100%);
+  --cor-bg-card:        #f7f7fb;
 
   /* Feedback */
   --cor-erro:           #e55;

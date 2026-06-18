@@ -1,6 +1,6 @@
 .sidebar {
   background: #fff;
-  border-right: 1px solid #eee;
+  border-right: 1px solid var(--cor-borda);
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
@@ -8,18 +8,18 @@
 
 .logo {
   padding: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--cor-borda);
 }
 
 .logo strong {
   font-size: 22px;
-  color: #6c63ff;
+  color: var(--cor-primaria);
   display: block;
 }
 
 .logo span {
   font-size: 10px;
-  color: #aaa;
+  color: var(--cor-texto-fraco);
   line-height: 1.4;
 }
 
@@ -36,20 +36,20 @@
   gap: 10px;
   padding: 10px 20px;
   font-size: 13px;
-  color: #666;
+  color: var(--cor-texto-suave);
   cursor: pointer;
   background: none;
   border: none;
   border-right: 3px solid transparent;
   text-align: left;
   width: 100%;
-  font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+  font-family: var(--fonte);
   transition: all 0.15s;
 }
 
 .item:hover {
-  background: #f3f2ff;
-  color: #6c63ff;
+  background: var(--cor-primaria-suave);
+  color: var(--cor-primaria);
 }
 
 .item i {
@@ -57,44 +57,44 @@
 }
 
 .ativo {
-  background: #f0effe;
-  color: #6c63ff;
+  background: var(--cor-primaria-suave);
+  color: var(--cor-primaria);
   font-weight: 600;
-  border-right: 3px solid #6c63ff;
+  border-right: 3px solid var(--cor-primaria);
 }
 
-.mensagem {
+.footer {
   margin: 16px;
   padding: 14px;
   background: #f0fdf4;
-  border-radius: 10px;
+  border-radius: var(--raio-md);
   border: 1px solid #bbf7d0;
 }
 
-.mensagem span {
+.footer span {
   font-size: 12px;
   font-weight: 700;
-  color: #16a34a;
+  color: var(--cor-sucesso);
   display: block;
 }
 
-.mensagem p {
+.footer p {
   font-size: 11px;
-  color: #555;
+  color: var(--cor-texto-medio);
   margin-top: 4px;
   line-height: 1.4;
 }
 
-.mensagem a {
+.footer a {
   font-size: 11px;
-  color: #16a34a;
+  color: var(--cor-sucesso);
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
   margin-top: 6px;
 }
 
-.mensagem a:hover {
+.footer a:hover {
   text-decoration: underline;
 }
 

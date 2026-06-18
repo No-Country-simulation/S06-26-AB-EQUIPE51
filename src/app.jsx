@@ -26,7 +26,7 @@ export default function App() {
 
       {/* Routes, Rota padrão -> tela de cadastro de empresas */}
       <Routes>
-        <Route path="/" element={<PainelPrincipal />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/empresa/cadastro" element={<CadastroEmpresa />} />
         <Route path="/vagas/cadastro" element={<CadastroVaga />} />

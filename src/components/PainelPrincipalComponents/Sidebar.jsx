@@ -5,6 +5,9 @@ const NAV_ITEMS = [
   { key: "vagas",         label: "Vagas"},
   { key: "cadastrarVaga", label: "Cadastrar Vaga"},
   { key: "shortlist",    label: "Candidatos" },
+
+  // ver como irei fazer a função de sair e limpar o localstorage
+  { key: "sair",    label: "" },
 ]
 
 export default function Sidebar({ activeView, onNavigate, aberta, onFechar }) {

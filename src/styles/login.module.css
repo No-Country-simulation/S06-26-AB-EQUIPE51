@@ -1,54 +1,47 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-
-.page{
+.page {
   height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.card{
+.card {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  border-radius: 16px;
+  border-radius: var(--raio-lg);
   padding: 40px 36px;
   width: 35%;
   height: 75%;
-  background: linear-gradient(160deg, #c9c4f52d 0%, #a79fe838 30%, #8b84d95d 60%, #7b74cc93 100%);
+  background: var(--cor-bg-card);
 }
 
-.titulo{
+.titulo {
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
-  color: #888;
+  font-family: var(--fonte);
+  color: var(--cor-texto-suave);
 }
 
-/* === Formulário === */
 .form {
   width: 100%;
   max-width: 320px;
-  
 }
 
 .inputGroup {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
   overflow: hidden;
   margin-bottom: 14px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  font-family: var(--fonte);
 }
 
 .inputIcon {
-  background: #6c63ff;
+  background: var(--cor-primaria);
   width: 44px;
   height: 44px;
   display: flex;
@@ -64,40 +57,40 @@
   padding: 0 14px;
   height: 44px;
   font-size: 14px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  font-family: var(--fonte);
 }
 
 .btnLogin {
   width: 100%;
-  background: #6c63ff;
+  background: var(--cor-primaria);
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--raio-sm);
   height: 42px;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   margin-top: 8px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  font-family: var(--fonte);
+  transition: background 0.15s;
 }
 
 .btnLogin:hover {
-  background: #574fd6;
+  background: var(--cor-primaria-hover);
 }
 
 .register {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  font-family: var(--fonte);
   font-size: 13px;
-  color: #888;
+  color: var(--cor-texto-suave);
   margin-top: 20px;
 }
 
 .register a {
-  color: #6c63ff;
+  color: var(--cor-primaria);
   text-decoration: none;
 }
 
-.icon{
+.icon {
   width: 45%;
 }
-

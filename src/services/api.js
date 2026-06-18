@@ -24,4 +24,28 @@ api.interceptors.response.use(
   }
 )
 
+//Envia automaticamente o JWT token em todas as requisições.
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+return config
+})
+
+// Trata erros de rede
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem("appbit_acess_token")
+      localStorage.removeItem("appbit_refresh_token")
+    }
+    
+    const message =
+      error.response?.data.message || 'Algo deu errado. Tente novamente.'
+
+    return Promise.reject(new Error(message))
+  }
+)
 export default api

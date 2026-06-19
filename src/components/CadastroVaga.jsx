@@ -69,17 +69,18 @@ export default function CadastroVaga() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.card}>
 
-        <div className={styles.cabecalho}>
-          <span className={styles.badge}>InclusiveTech</span>
-          <h1 className={styles.titulo}>Cadastro de Vaga</h1>
-          <p className={styles.subtitulo}>
-            Publique uma vaga e conecte-se a talentos de grupos sub-representados.
-          </p>
-        </div>
+    {/* Card branco com o formulário — TUDO igual ao que já existia */}
+    <div className={styles.card}>
+      <div className={styles.cabecalho}>
+        <span className={styles.badge}>InclusiveTech</span>
+        <h1 className={styles.titulo}>Cadastro de Vaga</h1>
+        <p className={styles.subtitulo}>
+          Publique uma vaga e conecte-se a talentos de grupos sub-representados.
+        </p>
+      </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className={styles.form} noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form} noValidate>
 
           {/* Título + Nível */}
           <div className={styles.linha}>
@@ -185,6 +186,14 @@ export default function CadastroVaga() {
           </button>
         </form>
       </div>
+
+      <div className={styles.painelLateral}>
+      <div className={styles.painelConteudo}>
+        <h2>Conecte-se a talentos diversos!</h2>
+        <p>Sua vaga pode mudar a trajetória de alguém.</p>
+      </div>
+    </div>
+    
     </div>
   )
 }

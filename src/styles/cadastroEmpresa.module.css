@@ -1,28 +1,68 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 .page {
-  min-height: 100dvh;
+  background-color: var(--cor-bg-card);
+  height: 100dvh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
-  background: var(--cor-bg-pagina);
+  padding: 2rem;
 }
 
 .card {
-  border-radius: var(--raio-lg);
-  padding: 40px 36px;
-  width: 100%;
-  max-width: 600px;
-  background: var(--cor-bg-card);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: center;
+  border-radius: 0px 0px 0px 100px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 35%;
+  min-height: 70vh;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  z-index: 1;
 }
 
+/* ── Painel lateral colorido, igual à referência ────────── */
+.painelLateral {
+  width: 30%;
+  min-height: 70%;
+  background: linear-gradient(160deg, var(--cor-primaria) 0%, var(--cor-primaria-hover) 100%);
+  border-radius: 0 var(--raio-lg) var(--raio-lg) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  color: #fff;
+  font-family: var(--fonte);
+}
+
+.painelConteudo {
+  text-align: center;
+  color: #fff;
+  font-family: var(--fonte);
+}
+
+.painelConteudo h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.painelConteudo p {
+  font-size: 13px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* ── Cabeçalho — igual ao Login ──────────────────────────── */
 .cabecalho {
   text-align: center;
   font-family: var(--fonte);
+  margin-bottom: 24px;
 }
 
 .badge {
@@ -47,50 +87,12 @@
   color: var(--cor-texto-suave);
 }
 
+/* ── Form empilhado, sem grid — igual ao Login ──────────── */
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  padding: 30px;
   width: 100%;
-}
-
-.secaoLabel {
-  font-family: var(--fonte);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--cor-primaria);
-  margin-bottom: -6px;
-}
-
-.divisor {
-  border-top: 1px solid var(--cor-borda);
-}
-
-.linha {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.grupo {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-}
-
-.label {
-  font-family: var(--fonte);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--cor-texto-medio);
-}
-
-.dica {
-  font-family: var(--fonte);
-  font-size: 12px;
-  color: var(--cor-texto-fraco);
 }
 
 .inputGroup {
@@ -99,6 +101,7 @@
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-sm);
   overflow: hidden;
+  margin-bottom: 14px;
   font-family: var(--fonte);
 }
 
@@ -113,20 +116,20 @@
   font-family: var(--fonte);
 }
 
-.inputGroup--erro {
-  border-color: var(--cor-borda-erro);
-}
-
 .erro {
   font-family: var(--fonte);
   font-size: 12px;
   color: var(--cor-erro);
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 
 .gruposGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .chip {
@@ -178,7 +181,11 @@
   cursor: not-allowed;
 }
 
+@media (max-width: 850px) {
+  .painelLateral { display: none; }
+  .card { border-radius: var(--raio-lg); }
+}
+
 @media (max-width: 500px) {
   .card { padding: 28px 20px; }
-  .linha { grid-template-columns: 1fr; }
 }

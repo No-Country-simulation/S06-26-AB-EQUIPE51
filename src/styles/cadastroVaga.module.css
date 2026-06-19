@@ -5,21 +5,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  gap: 0;
+  padding: 2rem;
   background: var(--cor-bg-pagina);
 }
 
 .card {
-  border-radius: var(--raio-lg);
+  border-radius: var(--raio-lg) 0 0 var(--raio-lg);
   padding: 40px 36px;
   width: 100%;
-  max-width: 560px;
+  max-width: 480px;
   background: var(--cor-bg-card);
   display: flex;
   flex-direction: column;
   gap: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  z-index: 1;
 }
 
+/* ── Painel lateral colorido, igual à referência ────────── */
+.painelLateral {
+  width: 380px;
+  min-height: 560px;
+  background: linear-gradient(160deg, var(--cor-primaria) 0%, var(--cor-primaria-hover) 100%);
+  border-radius: 0 var(--raio-lg) var(--raio-lg) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.painelConteudo {
+  text-align: center;
+  color: #fff;
+  font-family: var(--fonte);
+}
+
+.painelConteudo h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.painelConteudo p {
+  font-size: 13px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* ── Cabeçalho ────────────────────────────────────────────── */
 .cabecalho {
   text-align: center;
   font-family: var(--fonte);
@@ -48,6 +82,7 @@
   color: var(--cor-texto-suave);
 }
 
+/* ── Formulário — idêntico ao original ──────────────────── */
 .form {
   display: flex;
   flex-direction: column;
@@ -214,6 +249,18 @@
 .btnSubmit:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* ── Responsivo: painel lateral some no mobile ──────────── */
+@media (max-width: 850px) {
+  .painelLateral {
+    display: none;
+  }
+
+  .card {
+    border-radius: var(--raio-lg);
+    max-width: 560px;
+  }
 }
 
 @media (max-width: 500px) {

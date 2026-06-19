@@ -3,7 +3,6 @@
   border-right: 1px solid var(--cor-borda);
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
 }
 
 .logo {

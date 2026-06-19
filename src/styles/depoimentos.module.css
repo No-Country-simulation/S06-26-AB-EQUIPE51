@@ -1,0 +1,89 @@
+/* depoimentos.module.css */
+
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.tag {
+  font-family: var(--fonte);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--cor-primaria);
+}
+
+.titulo {
+  font-family: var(--fonte);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin: 10px 0 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--cor-bg-pagina);
+  border-radius: var(--raio-lg);
+  padding: 28px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.texto {
+  font-family: var(--fonte);
+  font-size: 13px;
+  color: var(--cor-texto-medio);
+  line-height: 1.7;
+}
+
+.autor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nome {
+  display: block;
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.cargo {
+  font-family: var(--fonte);
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

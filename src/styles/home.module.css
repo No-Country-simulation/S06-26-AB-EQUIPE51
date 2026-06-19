@@ -3,7 +3,7 @@
 .page {
   min-height: 100dvh;
   font-family: var(--fonte);
-  background: var(--cor-bg-card);
+  background: var(--cor-bg-pagina);
 }
 
 .nav {
@@ -56,54 +56,113 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
-  padding: 0px 100px;
+  gap: 60px;
+  min-height: 100vh;
+  padding: 0 100px;
 }
 
-.sobre{
-  width: 30%;
-  height: 30%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+/* ── Bloco das duas fotos sobrepostas ──────────────────── */
+.fotosWrap {
+  position: relative;
+  width: 45%;
+  height: 480px;
+  flex-shrink: 0;
 }
-.texto{
-  font-size: 24px;
+
+.fotoGrande {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 90%;
+  border-radius: 0px 100px 0px 100px;
+  background:
+    linear-gradient(rgba(13, 55, 124, 0.1), rgba(13, 55, 124, 0.05)),
+    url('../assets/foto-sobre.jpg') center / cover no-repeat;
+}
+
+.fotoPequena {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 55%;
+  border: 6px solid var(--cor-bg-pagina);
+  border-radius: 100px 0px 100px 0px;
+  background:
+    linear-gradient(rgba(13, 55, 124, 0.1), rgba(13, 55, 124, 0.05)),
+    url('../assets/foto-sobre-2.jpg') center / cover no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Texto ──────────────────────────────────────────────── */
+.sobre {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tag {
+  font-family: var(--fonte);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+}
+
+.texto {
+  font-size: 22px;
   font-family: var(--fonte);
   color: var(--cor-texto);
+  line-height: 1.5;
 }
 
-.texto span{
-  font-size: 50px;
-color: var(--cor-primaria);
-font-weight: 500;
+.texto span {
+  font-size: 32px;
+  color: var(--cor-primaria);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
 }
 
-button{
-  width: 70%;
-  height: 20%;
+.botaoHome {
+  align-self: flex-start;
+  padding: 14px 32px;
   border-radius: 0px 0px 30px 0px;
   background-color: var(--cor-primaria);
-  color: var(--cor-bg-card);
+  color: #fff;
   border: none;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--fonte);
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 8px;
 }
 
-button > p{
-  font-size: 16px;
-  color: var(--cor-bg-card);
- 
+.botaoHome:hover {
+  background-color: var(--cor-primaria-hover);
 }
 
-.divFoto{
-  height: 80%;
-  width: 50%;
-}
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    padding: 40px 24px;
+    gap: 40px;
+  }
 
-.foto{
-  border-radius: 0px 100px 0px 100px;
-  height: 100%;
-  width: 100%;
-  background:
-  linear-gradient(#f7f7fb10, #e1e2ef),
-  url('../assets/foto-sobre.jpg') center / cover no-repeat;
+  .fotosWrap,
+  .sobre {
+    width: 100%;
+  }
+
+  .fotosWrap {
+    height: 380px;
+  }
+
+  .texto span {
+    font-size: 26px;
+  }
 }

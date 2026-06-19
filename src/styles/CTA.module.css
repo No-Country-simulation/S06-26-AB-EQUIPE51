@@ -1,0 +1,62 @@
+/* cta.module.css */
+
+.cta {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--cor-primaria);
+  border-radius: 0px 0px 100px 0px;
+  padding: 70px 40px;
+  margin: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  font-family: var(--fonte);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.subtitulo {
+  font-family: var(--fonte);
+  font-size: 14px;
+  color: #f7f7fb;
+  opacity: 0.85;
+  max-width: 460px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.botao {
+  background: #fff;
+  color: var(--cor-primaria);
+  border: none;
+  border-radius: var(--raio-pill);
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--fonte);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.botao:hover {
+  background: #e8e8f5;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    margin: 32px 20px;
+    padding: 50px 24px;
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+  }
+}

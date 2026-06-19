@@ -1,16 +1,20 @@
-import React from 'react'
+// src/components/Banner/Banner.jsx
 import imagemBanner from "../../assets/imagem-banner.png"
 import styles from "../../styles/banner.module.css"
-import logo from "../../assets/logo-inclusive-tech.png"
 
 const Banner = () => {
-  return <>
-  <div className={styles.banner}>
-    <img src={logo} alt="" className={styles.logo}/>
-    <p>Tecnologia a serviço da inclusão.</p>
-  </div>
-  
-  </>
+  return (
+    <section className={styles.banner}>
+      <div className={styles.overlay} />
+      <div className={styles.conteudo}>
+        <h1 className={styles.titulo}>
+          Tecnologia a<br />
+          serviço da<br />
+          inclusão
+        </h1>
+      </div>
+    </section>
+  )
 }
 
 export default Banner

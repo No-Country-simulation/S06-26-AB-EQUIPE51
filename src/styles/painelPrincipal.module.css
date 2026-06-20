@@ -1,6 +1,8 @@
+/* painelPrincipal.module.css */
+
 .layout {
   display: grid;
-  grid-template-columns: 200px 1fr 240px;
+  grid-template-columns: 200px 1fr;
   min-height: 100dvh;
   background: var(--cor-bg-pagina);
 }
@@ -9,6 +11,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
 }
 
 .mainHeader {

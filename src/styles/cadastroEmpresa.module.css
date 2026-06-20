@@ -24,7 +24,6 @@
   z-index: 1;
 }
 
-/* ── Painel lateral colorido, igual à referência ────────── */
 .painelLateral {
   width: 30%;
   min-height: 70%;
@@ -58,7 +57,6 @@
   line-height: 1.6;
 }
 
-/* ── Cabeçalho — igual ao Login ──────────────────────────── */
 .cabecalho {
   text-align: center;
   font-family: var(--fonte);
@@ -87,12 +85,12 @@
   color: var(--cor-texto-suave);
 }
 
-/* ── Form empilhado, sem grid — igual ao Login ──────────── */
 .form {
   padding: 30px;
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 18px; 
 }
 
 .inputGroup {
@@ -101,8 +99,7 @@
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-sm);
   overflow: hidden;
-  margin-bottom: 14px;
-  font-family: var(--fonte);
+  font-family: var(--fonte); 
 }
 
 .inputGroup input {
@@ -179,6 +176,58 @@
 .botao:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.login {
+  font-family: var(--fonte);
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+/* ── Checkbox de termos ──────────────────────────────────── */
+.termosRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--cor-primaria);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.termosLabel {
+  font-family: var(--fonte);
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  line-height: 1.5;
+}
+
+.linkTermos {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--fonte);
+  font-size: 12px;
+  color: var(--cor-primaria);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.linkTermos:hover {
+  color: var(--cor-primaria-hover);
 }
 
 @media (max-width: 850px) {

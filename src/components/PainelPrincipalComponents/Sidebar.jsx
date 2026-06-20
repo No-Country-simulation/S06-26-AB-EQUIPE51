@@ -1,13 +1,16 @@
 import styles from "../../styles/sidebar.module.css"
 
 const NAV_ITEMS = [
-  { key: "mapa",          label: "Mapa de Talentos"},
+  {key: "dashboard", label: "Dashboard"},
   { key: "vagas",         label: "Vagas"},
+  { key: "MatchIA",    label: "Match IA" },
+  {key: "esg", label: "Relatórios ESG"},
+  { key: "mapa",          label: "Mapa de Talentos"},
   { key: "cadastrarVaga", label: "Cadastrar Vaga"},
-  { key: "shortlist",    label: "Candidatos" },
+  
 
   // ver como irei fazer a função de sair e limpar o localstorage
-  { key: "sair",    label: "" },
+  { key: "sair",    label: "Sair" },
 ]
 
 export default function Sidebar({ activeView, onNavigate, aberta, onFechar }) {
@@ -37,12 +40,6 @@ export default function Sidebar({ activeView, onNavigate, aberta, onFechar }) {
             </button>
           ))}
         </nav>
-
-        <div className={styles.mensagem}>
-          <span>🌱 Impacto que transforma</span>
-          <p>Conectamos empresas a talentos diversos em todo o Brasil.</p>
-          <a href="#">Saiba mais →</a>
-        </div>
       </aside>
     </>
   )

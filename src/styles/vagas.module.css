@@ -1,0 +1,209 @@
+/* vagas.module.css */
+
+.pagina {
+  font-family: var(--fonte);
+  background: var(--cor-bg-pagina);
+  min-height: 100%;
+}
+
+/* ── Cabeçalho ──────────────────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 32px;
+  background: #fff;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.titulo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.subtitulo {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  margin-top: 2px;
+}
+
+.btnOpcoes {
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--cor-texto-medio);
+  cursor: pointer;
+  font-family: var(--fonte);
+}
+
+/* ── Faixa empresa ──────────────────────────────────────── */
+.faixaEmpresa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--cor-primaria-suave);
+  padding: 16px 32px;
+}
+
+.empresaTitulo {
+  font-size: 14px;
+  color: var(--cor-texto);
+}
+
+.empresaNome {
+  font-size: 12px;
+  color: var(--cor-primaria);
+}
+
+.acoesEmpresa {
+  display: flex;
+  gap: 10px;
+}
+
+.btnAbrir {
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 8px 16px;
+  font-size: 12px;
+  color: var(--cor-primaria);
+  cursor: pointer;
+}
+
+.btnAdicionar {
+  border: none;
+  background: var(--cor-primaria);
+  color: #fff;
+  border-radius: var(--raio-sm);
+  padding: 8px 16px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btnAdicionar:hover {
+  background: var(--cor-primaria-hover);
+}
+
+/* ── Bloco de vagas ─────────────────────────────────────── */
+.bloco {
+  background: #fff;
+  margin: 20px 32px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: 20px;
+}
+
+.blocoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.blocoTitulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.badgeContagem {
+  background: var(--cor-primaria-suave);
+  color: var(--cor-primaria-hover);
+  border-radius: var(--raio-pill);
+  padding: 4px 12px;
+  font-size: 11px;
+}
+
+/* ── Grid de cards ──────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.vagaCard {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: 16px;
+}
+
+.vagaTopo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vagaTitulo {
+  font-size: 13px;
+  color: var(--cor-texto);
+}
+
+.statusBadge {
+  background: #dcfce7;
+  color: var(--cor-sucesso);
+  border-radius: var(--raio-pill);
+  padding: 3px 10px;
+  font-size: 10px;
+}
+
+.vagaInfo {
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+  margin: 4px 0 10px;
+}
+
+.skillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skillTag {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pill);
+  padding: 3px 10px;
+  font-size: 10px;
+  color: var(--cor-texto-medio);
+}
+
+/* ── Aviso rodapé ───────────────────────────────────────── */
+.avisoRodape {
+  background: var(--cor-primaria-suave);
+  color: var(--cor-primaria-hover);
+  border-top: 1px solid var(--cor-borda);
+  padding: 12px 32px;
+  font-size: 12px;
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header,
+  .faixaEmpresa,
+  .avisoRodape {
+    padding: 16px;
+  }
+
+  .bloco {
+    margin: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faixaEmpresa {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

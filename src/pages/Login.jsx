@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { login } from "../services/authService";
 import styles from "../styles/login.module.css";
 import icon from "../assets/icon.svg";
 
 const Login = () => {
   const [carregando, setCarregando] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -17,9 +19,9 @@ const Login = () => {
   async function onSubmit(dados) {
     try {
       setCarregando(true);
-      // TODO: chamar authService.login(dados) quando a API estiver pronta
-      console.log("dados do login:", dados);
+      await login(dados); // { email, senha } — já bate com o backend
       toast.success("Login realizado com sucesso!");
+      navigate("/painel"); // ajusta para a rota real do seu painel
     } catch (error) {
       toast.error(error.message);
     } finally {

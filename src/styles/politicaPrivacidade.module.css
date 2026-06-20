@@ -1,0 +1,82 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--raio-lg);
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--fonte);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 16px 20px;
+}
+
+.titulo {
+  font-size: 15px;
+  color: var(--cor-texto);
+}
+
+.fechar {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+.fechar:hover {
+  color: var(--cor-texto);
+}
+
+.corpo {
+  padding: 20px 24px;
+  overflow-y: auto;
+  color: var(--cor-texto-medio);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.corpo h4 {
+  font-size: 13px;
+  color: var(--cor-primaria);
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.data {
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+  margin-bottom: 12px;
+}
+
+.corpo ul {
+  margin: 6px 0 6px 18px;
+}
+
+.corpo li {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 500px) {
+  .card {
+    max-height: 90vh;
+  }
+}

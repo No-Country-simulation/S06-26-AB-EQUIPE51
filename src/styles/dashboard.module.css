@@ -1,0 +1,432 @@
+/* dashboard.module.css */
+
+.dashboard {
+  font-family: var(--fonte);
+  padding: 24px 32px;
+  background: var(--cor-bg-pagina);
+}
+
+/* ── Cabeçalho ──────────────────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.titulo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.subtitulo {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  margin-top: 2px;
+}
+
+.btnOpcoes {
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--cor-texto-medio);
+  cursor: pointer;
+  font-family: var(--fonte);
+}
+
+/* ── Saudação ───────────────────────────────────────────── */
+.saudacao h2 {
+  font-size: 1.1rem;
+  color: var(--cor-texto);
+}
+
+.saudacao p {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  margin-top: 2px;
+  margin-bottom: 20px;
+}
+
+/* ── Métricas ───────────────────────────────────────────── */
+.metricasGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.metricaCard {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricaIcone {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.azul       { background: var(--cor-primaria); }
+.verde      { background: var(--cor-sucesso); }
+.roxo       { background: #7c3aed; }
+.laranja    { background: #f59e0b; }
+.verdeClaro { background: #14b8a6; }
+
+.metricaLabel {
+  font-size: 12px;
+  color: var(--cor-texto-medio);
+}
+
+.metricaValor {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.metricaDesc {
+  font-size: 10px;
+  color: var(--cor-texto-fraco);
+}
+
+/* ── Corpo / colunas ────────────────────────────────────── */
+.corpo {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 20px;
+}
+
+.colunaPrincipal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.colunaDireita {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.duasColunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ── Bloco genérico (card branco) ──────────────────────── */
+.bloco {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: 20px;
+}
+
+.blocoHeaderFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blocoTitulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 4px;
+}
+
+.blocoSubtitulo {
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+  margin-bottom: 16px;
+}
+
+/* ── Lista de vagas ─────────────────────────────────────── */
+.listaVagas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vagaItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: 12px 16px;
+}
+
+.vagaTitulo {
+  font-size: 13px;
+  color: var(--cor-texto);
+}
+
+.vagaInfo {
+  font-size: 11px;
+  color: var(--cor-primaria);
+  margin-top: 2px;
+}
+
+.vagaSkills {
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+}
+
+.btnGerarMatch {
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  border-radius: var(--raio-sm);
+  padding: 8px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btnGerarMatch:hover {
+  background: var(--cor-primaria-hover);
+}
+
+/* ── Form Criar Vaga ────────────────────────────────────── */
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cor-texto-medio);
+  margin: 12px 0 6px;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: 0 12px;
+  height: 38px;
+  font-size: 13px;
+  font-family: var(--fonte);
+  background: transparent;
+}
+
+.skillRow {
+  display: flex;
+  gap: 8px;
+}
+
+.skillRow .input {
+  flex: 1;
+}
+
+.btnAdd {
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 0 14px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tag {
+  background: var(--cor-primaria-suave);
+  color: var(--cor-primaria-hover);
+  border-radius: var(--raio-pill);
+  padding: 4px 12px;
+  font-size: 11px;
+}
+
+.slider {
+  width: 100%;
+  margin-top: 8px;
+  accent-color: var(--cor-primaria);
+}
+
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--cor-texto-fraco);
+}
+
+.gruposGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pill);
+  padding: 5px 12px;
+  font-size: 11px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--cor-texto-suave);
+}
+
+.chipMarcado {
+  border-color: var(--cor-sucesso);
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.botoesForm {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btnPublicar {
+  flex: 1;
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btnGerarMatchPrincipal {
+  flex: 1;
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  border-radius: var(--raio-sm);
+  padding: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btnGerarMatchPrincipal:hover {
+  background: var(--cor-primaria-hover);
+}
+
+/* ── Melhores Matches ───────────────────────────────────── */
+.badgeSemMatch {
+  background: var(--cor-bg-pagina);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pill);
+  padding: 3px 10px;
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+}
+
+.avisoLgpd {
+  background: var(--cor-primaria-suave);
+  border-radius: var(--raio-sm);
+  padding: 10px 12px;
+  font-size: 11px;
+  color: var(--cor-primaria-hover);
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.semDados {
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+}
+
+/* ── Mapa / coluna direita ──────────────────────────────── */
+.mapaPlaceholder {
+  height: 160px;
+  background: var(--cor-bg-pagina);
+  border-radius: var(--raio-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-texto-fraco);
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.mapaDesc {
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+  line-height: 1.5;
+}
+
+.infoLinha {
+  font-size: 12px;
+  color: var(--cor-texto-medio);
+  margin-bottom: 6px;
+}
+
+.blocoDestaque {
+  background: #dcfce7;
+  border-radius: var(--raio-md);
+  padding: 20px;
+}
+
+.blocoTituloDestaque {
+  font-size: 13px;
+  color: var(--cor-sucesso);
+  margin-bottom: 8px;
+}
+
+.impactoValor {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--cor-sucesso);
+  display: block;
+}
+
+.impactoDesc {
+  font-size: 11px;
+  color: #15803d;
+  margin-top: 4px;
+}
+
+/* ── Responsivo ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .corpo {
+    grid-template-columns: 1fr;
+  }
+
+  .metricasGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .metricasGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .duasColunas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .metricasGrid {
+    grid-template-columns: 1fr;
+  }
+}

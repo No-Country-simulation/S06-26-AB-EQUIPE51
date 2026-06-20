@@ -1,7 +1,11 @@
+// CadastroEmpresa.jsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { criarEmpresa } from "../services/empresaService";
+import TermosUso from "../components/TermosUso";
+import PoliticaPrivacidade from "../components/politicaPrivacidade";
 import styles from "../styles/cadastroEmpresa.module.css";
 
 const GRUPOS_PRIORITARIOS = [
@@ -14,6 +18,8 @@ const GRUPOS_PRIORITARIOS = [
 export default function CadastroEmpresa() {
   const [gruposSelecionados, setGruposSelecionados] = useState([]);
   const [carregando, setCarregando] = useState(false);
+  const [termosAbertos, setTermosAbertos] = useState(false);
+  const [privacidadeAberta, setPrivacidadeAberta] = useState(false);
 
   const {
     register,
@@ -58,7 +64,7 @@ export default function CadastroEmpresa() {
 
   return (
     <div className={styles.page}>
-  
+
       <div className={styles.card}>
         <div className={styles.cabecalho}>
           <h1 className={styles.titulo}>Cadastro de Empresa</h1>
@@ -66,11 +72,9 @@ export default function CadastroEmpresa() {
             Preencha os dados para conectar sua empresa a talentos diversos.
           </p>
         </div>
-  
+
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form} noValidate>
-  
-          {/* removi o .secaoLabel e o .linha — agora tudo empilhado */}
-  
+
           <div className={styles.inputGroup}>
             <input
               placeholder="Nome do Responsável"
@@ -78,7 +82,7 @@ export default function CadastroEmpresa() {
             />
           </div>
           {errors.nome && <span className={styles.erro}>{errors.nome.message}</span>}
-  
+
           <div className={styles.inputGroup}>
             <input
               type="email"
@@ -90,7 +94,7 @@ export default function CadastroEmpresa() {
             />
           </div>
           {errors.email && <span className={styles.erro}>{errors.email.message}</span>}
-  
+
           <div className={styles.inputGroup}>
             <input
               type="password"
@@ -102,7 +106,7 @@ export default function CadastroEmpresa() {
             />
           </div>
           {errors.senha && <span className={styles.erro}>{errors.senha.message}</span>}
-  
+
           <div className={styles.inputGroup}>
             <input
               placeholder="Nome da Empresa"
@@ -110,7 +114,7 @@ export default function CadastroEmpresa() {
             />
           </div>
           {errors.nomeEmpresa && <span className={styles.erro}>{errors.nomeEmpresa.message}</span>}
-  
+
           <div className={styles.inputGroup}>
             <input
               type="number"
@@ -125,7 +129,7 @@ export default function CadastroEmpresa() {
             />
           </div>
           {errors.metaDiversidade && <span className={styles.erro}>{errors.metaDiversidade.message}</span>}
-  
+
           <div className={styles.gruposGrid}>
             {GRUPOS_PRIORITARIOS.map((grupo) => {
               const marcado = gruposSelecionados.includes(grupo.valor)
@@ -142,20 +146,52 @@ export default function CadastroEmpresa() {
               )
             })}
           </div>
-  
+
+          {/* Checkbox de termos */}
+          <div className={styles.termosRow}>
+            <input
+              type="checkbox"
+              id="aceiteTermos"
+              className={styles.checkbox}
+              {...register("aceiteTermos", {
+                required: "Você precisa aceitar os termos para continuar",
+              })}
+            />
+            <label htmlFor="aceiteTermos" className={styles.termosLabel}>
+              Li e concordo com os{" "}
+              <button type="button" className={styles.linkTermos} onClick={() => setTermosAbertos(true)}>
+                Termos de Uso
+              </button>{" "}
+              e a{" "}
+              <button type="button" className={styles.linkTermos} onClick={() => setPrivacidadeAberta(true)}>
+                Política de Privacidade
+              </button>
+            </label>
+          </div>
+          {errors.aceiteTermos && <span className={styles.erro}>{errors.aceiteTermos.message}</span>}
+
           <button type="submit" disabled={carregando} className={styles.botao}>
             {carregando ? "Cadastrando..." : "Cadastrar Empresa"}
           </button>
         </form>
+
+        <p className={styles.login}>
+          Já tem uma conta?{" "}
+          <Link to="/login">Login</Link>
+        </p>
       </div>
-  
+
       <div className={styles.painelLateral}>
         <div className={styles.painelConteudo}>
           <h2>Faça parte da mudança!</h2>
           <p>Cadastre sua empresa e amplie suas metas de diversidade com inteligência artificial.</p>
         </div>
       </div>
-  
+
+      {/* Modais de Termos e Privacidade */}
+      <TermosUso aberto={termosAbertos} onFechar={() => setTermosAbertos(false)} />
+      <PoliticaPrivacidade aberto={privacidadeAberta} onFechar={() => setPrivacidadeAberta(false)} />
+
     </div>
   )
 }

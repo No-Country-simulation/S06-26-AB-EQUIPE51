@@ -1,7 +1,7 @@
 /* depoimentos.module.css */
 
 .section {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +30,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 

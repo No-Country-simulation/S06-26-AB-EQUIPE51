@@ -1,18 +1,38 @@
 /* cta.module.css */
 
 .cta {
-  height: 100vh;
+  position: relative; /* necessário para as luzes ficarem dentro do card */
+  height: 50vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background: var(--cor-primaria);
-  border-radius: 0px 0px 100px 0px;
-  padding: 70px 40px;
-  margin: 60px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  background: var(--cor-primaria);
+  padding: 70px 40px;
+  text-align: center;
+  overflow: hidden; /* corta as luzes que passarem da borda */
+}
+
+/* ── Efeito de luzes ──────────────────────────────────────
+   3 manchas radiais sobrepostas, cada uma com cor e posição
+   diferente, criando profundidade atrás do conteúdo */
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(99, 179, 237, 0.877), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(167, 139, 250, 0.61), transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(56, 191, 248, 0.781), transparent 55%);
+  z-index: 0;
+}
+
+/* conteúdo precisa ficar acima das luzes */
+.titulo,
+.subtitulo,
+.botao {
+  position: relative;
+  z-index: 1;
 }
 
 .titulo {
@@ -34,6 +54,7 @@
 }
 
 .botao {
+  text-decoration: none;
   background: #fff;
   color: var(--cor-primaria);
   border: none;

@@ -2,6 +2,7 @@
 
 .page {
   min-height: 100dvh;
+  width: 100%;
   font-family: var(--fonte);
   background: var(--cor-bg-pagina);
 }

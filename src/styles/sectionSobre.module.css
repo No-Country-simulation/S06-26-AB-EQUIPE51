@@ -1,0 +1,130 @@
+/* src/components/SectionSobre/sectionSobre.module.css */
+
+.main {
+  position: relative; /* necessário pro gradiente funcionar */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  padding: 0 100px;
+  overflow: hidden; 
+}
+
+/* gradiente nas diagonais, atrás do conteúdo */
+.main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(13, 55, 124, 0.25), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(13, 55, 124, 0.25), transparent 40%);
+  z-index: 0;
+}
+
+
+.fotosWrap {
+  position: relative;
+  width: 45%;
+  height: 480px;
+  flex-shrink: 0;
+}
+
+.fotoGrande {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 90%;
+  border-radius: 0px 100px 0px 100px;
+  background:
+    linear-gradient(rgba(13, 55, 124, 0.1), rgba(13, 55, 124, 0.05)),
+    url('../assets/foto-sobre.jpg') center / cover no-repeat;
+}
+
+.fotoPequena {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 55%;
+  border: 6px solid var(--cor-bg-pagina);
+  border-radius: 100px 0px 100px 0px;
+  background:
+    linear-gradient(rgba(13, 55, 124, 0.1), rgba(13, 55, 124, 0.05)),
+    url('../assets/foto-sobre-2.jpg') center / cover no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.sobre {
+  position: relative;
+  z-index: 1;    
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tag {
+  font-family: var(--fonte);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--cor-primaria);
+}
+
+.titulo {
+  font-family: var(--fonte);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--cor-texto);
+  letter-spacing: 0.02em;
+}
+
+.texto {
+  font-family: var(--fonte);
+  font-size: 16px;
+  color: var(--cor-texto-medio);
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+.botaoHome {
+  text-decoration: none;
+  align-self: flex-start;
+  padding: 14px 32px;
+  border-radius: 0px 0px 30px 0px;
+  background-color: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--fonte);
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 8px;
+}
+
+.botaoHome:hover {
+  background-color: var(--cor-primaria-hover);
+}
+
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    padding: 40px 24px;
+    gap: 40px;
+  }
+
+  .fotosWrap,
+  .sobre {
+    width: 100%;
+  }
+
+  .fotosWrap {
+    height: 380px;
+  }
+
+  .titulo {
+    font-size: 1.8rem;
+  }
+}

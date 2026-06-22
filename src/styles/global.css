@@ -1,7 +1,11 @@
+html {
+  scroll-behavior: smooth; /* ← adiciona aqui */
+}
+
 :root {
   /* Cores principais */
   --cor-primaria:       #0d377c;
-  --cor-primaria-hover: #574fd6;
+  --cor-primaria-hover: #0a2653;
   --cor-primaria-suave: #6c63ff22;
 
   /* Textos */

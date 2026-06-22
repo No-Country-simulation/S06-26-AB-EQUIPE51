@@ -1,5 +1,5 @@
-
-import styles from '../../styles/CTA.module.css'
+import styles from "../../styles/CTA.module.css";
+import { Link } from "react-router-dom";
 
 export default function CTA() {
   return (
@@ -8,9 +8,12 @@ export default function CTA() {
         Pronto para encontrar os talentos certos?
       </h2>
       <p className={styles.subtitulo}>
-        Cadastre sua empresa e comece a conectar-se com profissionais diversos hoje mesmo.
+        Cadastre sua empresa e comece a conectar-se com profissionais diversos
+        hoje mesmo.
       </p>
-      <button className={styles.botao}>Cadastrar minha empresa</button>
+      <Link to="/empresa/cadastro" className={styles.botao}>
+        Cadastrar minha empresa!
+      </Link>
     </section>
-  )
+  );
 }

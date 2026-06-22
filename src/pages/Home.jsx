@@ -7,20 +7,21 @@ import SectionMapa from "../components/PageElements/SectionMapa";
 import Servicos from "../components/PageElements/Servicos";
 import CTA from "../components/PageElements/CTA";
 import Depoimentos from "../components/PageElements/Depoimentos";
+import SectionSobre from "../components/PageElements/SectionSobre";
 
 const Home = () => {
   return (
     <>
       <div className={styles.page}>
         <nav className={styles.nav}>
-          <img src={logo} alt="" className={styles.logo} />
+          <img src={logo} alt="logo" className={styles.logo} />
           <div className={styles.navLinks}>
-            <Link to="" className={styles.navLink}>
+            <a href="#sobre" className={styles.navLink}>
               Sobre
-            </Link>
-            <Link to="" className={styles.navLink}>
-              Missão
-            </Link>
+            </a>
+            <a href="#servicos" className={styles.navLink}>
+              Serviços
+            </a>
             <Link to="/empresa/cadastro" className={styles.navLink}>
               Cadastrar empresa
             </Link>
@@ -30,26 +31,12 @@ const Home = () => {
             >
               Login empresa
             </Link>
-            {/* <Link to="/vagas/cadastro" className={`${styles.navLink} ${styles.navLinkDestaque}`}>Cadastrar Vaga</Link> */}
           </div>
         </nav>
         <Banner />
-        <main className={styles.main}>
-          <div className={styles.fotosWrap}>
-            <div className={styles.fotoGrande}></div>
-            <div className={styles.fotoPequena}></div>
-          </div>
-
-          <div className={styles.sobre}>
-            <span className={styles.tag}>QUEM SOMOS</span>
-            <p className={styles.texto}>
-              <span>Conectamos empresas e talentos através da tecnologia</span>
-              promovendo inclusão e ampliando oportunidades.
-            </p>
-            <button className={styles.botaoHome}>Comece já!</button>
-          </div>
-        </main>
+       
       </div>
+      <SectionSobre />
       <Servicos />
       <SectionMapa />
       <Depoimentos />

@@ -18,10 +18,7 @@
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--cor-primaria);
-  letter-spacing: 0.04em;
+width: 10%;
 }
 
 .nav {

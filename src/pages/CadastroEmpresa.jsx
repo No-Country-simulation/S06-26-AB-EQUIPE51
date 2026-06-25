@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { criarEmpresa } from "../services/empresaService";
 import TermosUso from "../components/TermosUso";
+import { tratarErroHttp } from "../components/utils/tratarErroHTTP";
 import PoliticaPrivacidade from "../components/politicaPrivacidade";
 import styles from "../styles/cadastroEmpresa.module.css";
 
@@ -56,7 +57,7 @@ export default function CadastroEmpresa() {
       reset();
       setGruposSelecionados([]);
     } catch (error) {
-      toast.error(error.message);
+      toast.error(tratarErroHttp(error));
     } finally {
       setCarregando(false);
     }

@@ -1,8 +1,11 @@
 // Dashboard.jsx
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { buscarUltimosRegistros } from '../../services/dashboardService' // ← novo import
 import styles from '../../styles/dashboard.module.css'
 
-// dados mock — troque pelos dados reais da API quando estiver pronta
+// ⚠️ MOCK — ainda não temos o formato confirmado de /dashboard/ultimos-registros
+// para as métricas. Mantido fixo por enquanto, só a lista de vagas abaixo
+// já está puxando dado real.
 const METRICAS = [
   { label: 'Vagas da Empresa', valor: 3, cor: 'azul', desc: 'retorno autorizado do backend' },
   { label: 'Matches Realizados', valor: 0, cor: 'verde', desc: 'gere um match para visualizar' },
@@ -11,19 +14,37 @@ const METRICAS = [
   { label: 'Talentos no Match', valor: 0, cor: 'verdeClaro', desc: 'gere um match para visualizar' },
 ]
 
-const VAGAS = [
-  { titulo: 'ANALISTA DE DADOS', nivel: 'JUNIOR', regiao: 'FLORIANOPOLIS', skills: 'SQL' },
-  { titulo: 'Analista de Dados', nivel: 'PLENO', regiao: 'Florianopolis', skills: 'Python, SQL, Power BI' },
-  { titulo: 'UX Designer', nivel: 'JUNIOR', regiao: 'São Paulo', skills: 'Figma, UX Research, Design System' },
-]
-
 const GRUPOS_DISPONIVEIS = ['MULHER', 'PCD', 'NEGRO', 'INDIGENA', 'LGBTQIA+']
 
 export default function Dashboard() {
+  // ── Estado novo: dados reais da API ──────────────────────
+  const [vagas, setVagas] = useState([])
+  const [carregandoVagas, setCarregandoVagas] = useState(true)
+  const [erroVagas, setErroVagas] = useState(null)
+
+  // ── Estados que já existiam ──────────────────────────────
   const [skillInput, setSkillInput] = useState('')
   const [skills, setSkills] = useState([])
   const [gruposSelecionados, setGruposSelecionados] = useState(['MULHER', 'LGBTQIA+'])
   const [diversidadeMinima, setDiversidadeMinima] = useState(40)
+
+  // ── Busca os dados reais ao montar o componente ──────────
+  useEffect(() => {
+    async function buscarDados() {
+      try {
+        const data = await buscarUltimosRegistros()
+        // ⚠️ "ultimasVagas" é meu melhor chute de nome de campo —
+        // ajuste aqui quando você confirmar o JSON real do backend
+        setVagas(data?.ultimasVagas ?? [])
+      } catch (error) {
+        setErroVagas('Não foi possível carregar as vagas.')
+        console.error(error)
+      } finally {
+        setCarregandoVagas(false)
+      }
+    }
+    buscarDados()
+  }, [])
 
   function adicionarSkill() {
     const skill = skillInput.trim()
@@ -56,7 +77,7 @@ export default function Dashboard() {
         <p>Vaga, match e talentos conectados ao backend.</p>
       </section>
 
-      {/* Métricas */}
+      {/* Métricas — ainda mock, ver aviso no topo do arquivo */}
       <section className={styles.metricasGrid}>
         {METRICAS.map(m => (
           <div key={m.label} className={styles.metricaCard}>
@@ -68,33 +89,40 @@ export default function Dashboard() {
         ))}
       </section>
 
-      {/* Conteúdo principal: vagas + form + matches | coluna direita */}
       <div className={styles.corpo}>
 
         <div className={styles.colunaPrincipal}>
 
-          {/* Últimas vagas */}
+          {/* Últimas vagas — agora com dado real */}
           <section className={styles.bloco}>
             <h3 className={styles.blocoTitulo}>Últimas 5 vagas</h3>
             <p className={styles.blocoSubtitulo}>Vagas retornadas pela API apenas para a empresa logada.</p>
 
-            <div className={styles.listaVagas}>
-              {VAGAS.map(vaga => (
-                <div key={vaga.titulo} className={styles.vagaItem}>
-                  <div>
-                    <strong className={styles.vagaTitulo}>{vaga.titulo}</strong>
-                    <p className={styles.vagaInfo}>{vaga.nivel} | {vaga.regiao}</p>
-                    <p className={styles.vagaSkills}>{vaga.skills}</p>
+            {carregandoVagas && <p className={styles.blocoSubtitulo}>Carregando vagas...</p>}
+            {!carregandoVagas && erroVagas && <p className={styles.blocoSubtitulo}>{erroVagas}</p>}
+            {!carregandoVagas && !erroVagas && vagas.length === 0 && (
+              <p className={styles.blocoSubtitulo}>Nenhuma vaga encontrada.</p>
+            )}
+
+            {!carregandoVagas && !erroVagas && vagas.length > 0 && (
+              <div className={styles.listaVagas}>
+                {vagas.map(vaga => (
+                  <div key={vaga.id ?? vaga.titulo} className={styles.vagaItem}>
+                    <div>
+                      <strong className={styles.vagaTitulo}>{vaga.titulo}</strong>
+                      <p className={styles.vagaInfo}>{vaga.nivel} | {vaga.regiao}</p>
+                      <p className={styles.vagaSkills}>{vaga.skills?.join?.(', ') ?? vaga.skills}</p>
+                    </div>
+                    <button className={styles.btnGerarMatch}>Gerar match</button>
                   </div>
-                  <button className={styles.btnGerarMatch}>Gerar match</button>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </section>
 
           <div className={styles.duasColunas}>
 
-            {/* Criar nova vaga */}
+            {/* Criar nova vaga — sem mudanças, continua igual */}
             <section className={styles.bloco}>
               <h3 className={styles.blocoTitulo}>Criar Nova Vaga</h3>
 
@@ -164,7 +192,7 @@ export default function Dashboard() {
               </div>
             </section>
 
-            {/* Melhores matches */}
+            {/* Melhores matches — sem mudanças, continua mock */}
             <section className={styles.bloco}>
               <div className={styles.blocoHeaderFlex}>
                 <h3 className={styles.blocoTitulo}>Melhores Matches</h3>
@@ -181,7 +209,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Coluna direita */}
+        {/* Coluna direita — sem mudanças, continua mock */}
         <aside className={styles.colunaDireita}>
 
           <section className={styles.bloco}>

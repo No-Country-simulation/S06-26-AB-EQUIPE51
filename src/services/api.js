@@ -1,51 +1,79 @@
 // src/services/api.js
 //
-// Aqui fica a configuração CENTRAL do axios.
-// Todos os outros services importam essa instância — nunca o axios direto.
-// Benefício: se a baseURL ou um header mudar, você muda EM UM SÓ LUGAR.
+// Configuração central do Axios. Todas as chamadas de API passam por aqui.
+// Implementa os requisitos do documento "Integração Frontend-Backend V2":
+// - withCredentials: true (necessário pro cookie HttpOnly do refresh token)
+// - interceptor de request: injeta o Authorization Bearer automaticamente
+// - interceptor de response: trata 401 com refresh automático (com flag _retry
+//   pra não entrar em loop infinito) e padroniza os outros status codes
 
-import axios from 'axios'
+import axios from "axios"
+import { getAccessToken, setAccessToken, logout } from "./authService"
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000",
+  withCredentials: true, // permite o navegador enviar o cookie do refresh token
 })
 
-// Interceptor de resposta: trata erros globalmente.
-// Se a API retornar 4xx ou 5xx, o erro cai aqui antes de chegar no seu componente.
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    const message =
-      error.response?.data?.message || 'Algo deu errado. Tente novamente.'
-    return Promise.reject(new Error(message))
-  }
-)
-
-//Envia automaticamente o JWT token em todas as requisições.
+// ── Interceptor de REQUEST ──────────────────────────────────
+// Antes de qualquer chamada saber, anexa o token que está em memória.
+// Não lemos de localStorage — o token vive só na variável do authService.
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+  const token = getAccessToken()
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
   }
-return config
+  return config
 })
 
-// Trata erros de rede
+// ── Interceptor de RESPONSE ──────────────────────────────────
+// Trata os erros de forma centralizada, conforme a tabela do documento:
+// 400 validação, 401 renovar sessão, 403 acesso negado, 404 não encontrado,
+// 409 conflito, 429 excesso de tentativas, 500 erro genérico.
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem("appbit_acess_token")
-      localStorage.removeItem("appbit_refresh_token")
-    }
-    
-    const message =
-      error.response?.data.message || 'Algo deu errado. Tente novamente.'
+  async (error) => {
+    const originalRequest = error.config
+    const status = error.response?.status
 
-    return Promise.reject(new Error(message))
+    // 401 = token expirado. Tenta renovar UMA vez (flag _retry evita loop infinito
+    // se o refresh também falhar e continuar voltando 401 pra sempre)
+    if (status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true
+
+      try {
+        const novoAccessToken = await refreshSessao()
+        setAccessToken(novoAccessToken)
+
+        // repete a requisição original, agora com o token novo
+        originalRequest.headers.Authorization = `Bearer ${novoAccessToken}`
+        return api(originalRequest)
+      } catch (refreshError) {
+        // se o refresh falhar, a sessão realmente acabou — desloga e força login
+        logout()
+        window.location.href = "/login"
+        return Promise.reject(refreshError)
+      }
+    }
+
+    // Os outros status apenas retornam o erro — cada tela decide a mensagem
+    // exibida ao usuário (toast, texto inline, etc), usando error.response.data
+    // que normalmente já vem com uma mensagem amigável do backend.
+    return Promise.reject(error)
   }
 )
+
+// Função auxiliar separada para não criar dependência circular com authService
+// (authService importa api, e api precisa chamar refresh — então isolamos
+// a chamada de refresh aqui dentro, usando axios puro, sem passar pelos
+// interceptors de novo)
+async function refreshSessao() {
+  const response = await axios.post(
+    `${api.defaults.baseURL}/auth/refresh`,
+    {},
+    { withCredentials: true } // o refresh token vai sozinho, via cookie HttpOnly
+  )
+  return response.data.accessToken
+}
+
 export default api

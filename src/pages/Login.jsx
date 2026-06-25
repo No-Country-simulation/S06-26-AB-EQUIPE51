@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { login } from "../services/authService";
 import styles from "../styles/login.module.css";
-import icon from "../assets/icon.svg";
+import { tratarErroHttp } from "../components/utils/tratarErroHTTP";
 
 const Login = () => {
   const [carregando, setCarregando] = useState(false);
@@ -23,7 +23,7 @@ const Login = () => {
       toast.success("Login realizado com sucesso!");
       navigate("/painel"); // ajusta para a rota real do seu painel
     } catch (error) {
-      toast.error(error.message);
+      toast.error(tratarErroHttp(error));
     } finally {
       setCarregando(false);
     }

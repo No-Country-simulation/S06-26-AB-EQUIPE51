@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { criarVaga } from '../services/vagaService'
 import styles from '../styles/cadastroVaga.module.css'
+import { tratarErroHttp } from "../components/utils/tratarErroHTTP";
 
 const NIVEIS = ['Júnior', 'Pleno', 'Sênior']
 
@@ -61,7 +62,7 @@ export default function CadastroVaga() {
       reset()
       setSkills([])
     } catch (error) {
-      toast.error(error.message)
+      toast.error(tratarErroHttp(error));
     } finally {
       setCarregando(false)
     }

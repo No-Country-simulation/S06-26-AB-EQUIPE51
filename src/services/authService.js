@@ -1,37 +1,67 @@
-import api from "./api";
+// src/services/authService.js
+//
+// Gerencia login, logout e o access token.
+// IMPORTANTE: o access token NUNCA vai para localStorage/sessionStorage.
+// Ele fica só em uma variável JS em memória — se a página recarregar,
+// ele se perde, e por isso o app deve chamar /auth/refresh ao iniciar
+// (o refresh token mora num cookie HttpOnly que o backend seta,
+// o JS nem consegue ler ele diretamente).
 
-// POST auth/login
+import api from "./api"
+
+// ── Token em memória ─────────────────────────────────────────
+// Variável "privada" do módulo. Não exportamos ela direto, só
+// as funções de get/set, pra controlar quem pode alterar.
+let accessTokenEmMemoria = null
+
+export function getAccessToken() {
+  return accessTokenEmMemoria
+}
+
+export function setAccessToken(token) {
+  accessTokenEmMemoria = token
+}
+
+// ── POST /auth/login ─────────────────────────────────────────
+// O backend retorna o access token no corpo da resposta e seta
+// o refresh token como cookie HttpOnly automaticamente (por isso
+// não precisamos — e não devemos — lidar com ele aqui).
 export async function login(dados) {
-    const response = await api.post("/auth/login", dados);
+  const response = await api.post("/auth/login", dados)
 
-    const { acessToken, refreshToken } = response.data
+  const { accessToken } = response.data
+  setAccessToken(accessToken)
 
-    localStorage.setItem("appbit_acess_token", acessToken)
-    localStorage.setItem("appbit_refresh_token", refreshToken)
-
-    return response.data
+  return response.data
 }
 
+// ── POST /auth/refresh ────────────────────────────────────────
+// Usado em dois momentos:
+// 1. Ao iniciar o app, pra saber se já existe uma sessão válida
+// 2. Automaticamente pelo interceptor do api.js, quando um 401 acontece
+// Não precisamos mandar nada no body — o refresh token vai sozinho
+// via cookie, graças ao withCredentials: true.
+export async function refresh() {
+  const response = await api.post("/auth/refresh")
 
-// POST auth/refresh
-export async function refreshToken() {
-    const refreshToken = localStorage.getItem("appbit_refresh_token")
+  const { accessToken } = response.data
+  setAccessToken(accessToken)
 
-    const response = await api.post("/auth/refresh", {
-        refreshToken,
-    });
-    
-    const { acessToken } = response.data
-    
-    localStorage.setItem("appbit_acess_token", acessToken)
-    
-    return response.data
-    
+  return response.data
 }
 
-
-//Logout
-export function logout() {
-    localStorage.removeItem("appbit_acess_token")
-    localStorage.removeItem("appbit_refresh_token")
+// ── POST /auth/logout ────────────────────────────────────────
+// Avisa o backend para invalidar o refresh token no servidor
+// (importante: só limpar o token no front não basta, porque o
+// cookie ainda seria válido se alguém o reaproveitasse).
+export async function logout() {
+  try {
+    await api.post("/auth/logout")
+  } catch (error) {
+    // mesmo se a chamada falhar (ex: backend fora do ar),
+    // ainda limpamos o estado local pra não deixar o usuário travado
+    console.error("Erro ao deslogar no servidor:", error)
+  } finally {
+    setAccessToken(null)
+  }
 }

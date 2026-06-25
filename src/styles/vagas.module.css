@@ -88,6 +88,14 @@
 }
 
 /* ── Bloco de vagas ─────────────────────────────────────── */
+
+.estadoVazio {
+  text-align: center;
+  padding: 32px;
+  font-size: 13px;
+  color: var(--cor-texto-fraco);
+}
+
 .bloco {
   background: #fff;
   margin: 20px 32px;

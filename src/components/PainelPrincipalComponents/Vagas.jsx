@@ -1,14 +1,28 @@
 // Vagas.jsx
+import { useState, useEffect } from 'react'
+import { listarVagas } from '../../services/vagaService'
 import styles from '../../styles/vagas.module.css'
 
-// dados mock — troque pela chamada real ao backend (listarVagas) quando estiver pronta
-const VAGAS = [
-  { titulo: 'ANALISTA DE DADOS', nivel: 'JUNIOR', regiao: 'FLORIANOPOLIS', skills: ['SQL'], status: 'Ativo' },
-  { titulo: 'Analista de Dados', nivel: 'PLENO', regiao: 'Florianopolis', skills: ['Python', 'SQL', 'Power BI'], status: 'Ativo' },
-  { titulo: 'UX Designer', nivel: 'JUNIOR', regiao: 'São Paulo', skills: ['Figma', 'UX Research', 'Design System'], status: 'Ativo' },
-]
-
 export default function Vagas() {
+  const [vagas, setVagas] = useState([])
+  const [carregando, setCarregando] = useState(true)
+  const [erro, setErro] = useState(null)
+
+  useEffect(() => {
+    async function buscarVagas() {
+      try {
+        const data = await listarVagas()
+        setVagas(data)
+      } catch (error) {
+        setErro('Não foi possível carregar as vagas.')
+        console.error(error)
+      } finally {
+        setCarregando(false)
+      }
+    }
+    buscarVagas()
+  }, [])
+
   return (
     <div className={styles.pagina}>
 
@@ -37,25 +51,47 @@ export default function Vagas() {
       <section className={styles.bloco}>
         <div className={styles.blocoHeader}>
           <h3 className={styles.blocoTitulo}>Todas as vagas</h3>
-          <span className={styles.badgeContagem}>{VAGAS.length} cadastradas</span>
+          {!carregando && !erro && (
+            <span className={styles.badgeContagem}>{vagas.length} cadastradas</span>
+          )}
         </div>
 
-        <div className={styles.grid}>
-          {VAGAS.map(vaga => (
-            <div key={vaga.titulo} className={styles.vagaCard}>
-              <div className={styles.vagaTopo}>
-                <strong className={styles.vagaTitulo}>{vaga.titulo}</strong>
-                <span className={styles.statusBadge}>{vaga.status}</span>
+        {/* Estado de carregamento */}
+        {carregando && (
+          <p className={styles.estadoVazio}>Carregando vagas...</p>
+        )}
+
+        {/* Estado de erro */}
+        {!carregando && erro && (
+          <p className={styles.estadoVazio}>{erro}</p>
+        )}
+
+        {/* Estado vazio (sem erro, mas sem vagas) */}
+        {!carregando && !erro && vagas.length === 0 && (
+          <p className={styles.estadoVazio}>Nenhuma vaga cadastrada ainda.</p>
+        )}
+
+        {/* Grid de vagas */}
+        {!carregando && !erro && vagas.length > 0 && (
+          <div className={styles.grid}>
+            {vagas.map(vaga => (
+              <div key={vaga.id} className={styles.vagaCard}>
+                <div className={styles.vagaTopo}>
+                  <strong className={styles.vagaTitulo}>{vaga.titulo}</strong>
+                  <span className={styles.statusBadge}>
+                    {vaga.ativo ? 'Ativo' : 'Inativo'}
+                  </span>
+                </div>
+                <p className={styles.vagaInfo}>{vaga.regiao} | {vaga.nivel}</p>
+                <div className={styles.skillsRow}>
+                  {vaga.skills?.map(skill => (
+                    <span key={skill} className={styles.skillTag}>{skill}</span>
+                  ))}
+                </div>
               </div>
-              <p className={styles.vagaInfo}>{vaga.regiao} | {vaga.nivel}</p>
-              <div className={styles.skillsRow}>
-                {vaga.skills.map(skill => (
-                  <span key={skill} className={styles.skillTag}>{skill}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Aviso de rodapé */}

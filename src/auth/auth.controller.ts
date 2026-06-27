@@ -32,12 +32,12 @@ export class AuthController {
 
   @Post('refresh')
   async refresh(
-    @Body() dto: RefreshTokenDto,
+    @Body() body: Record<string, unknown>,
     @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
   ) {
     return this.authService.refresh(
-      dto,
+      body as RefreshTokenDto,
       req,
       res,
     );

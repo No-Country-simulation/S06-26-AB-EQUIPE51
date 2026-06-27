@@ -186,14 +186,19 @@ export class AuthService {
   }
 
   async refresh(
-    dto: RefreshTokenDto,
+    dto: RefreshTokenDto = {},
     req?: Request,
     res?: Response,
   ) {
     let usuarioId: string | undefined;
 
+    const refreshTokenBody =
+      typeof dto.refresh_token === 'string'
+        ? dto.refresh_token
+        : undefined;
+
     const refreshToken =
-      dto.refresh_token ??
+      refreshTokenBody ??
       req?.cookies?.appbit_refresh_token;
 
     if (!refreshToken) {

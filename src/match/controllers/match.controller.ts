@@ -8,8 +8,8 @@ import {
 import type { Request } from 'express';
 
 import { Roles } from '../../auth/decorators/roles.decorator';
-import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../auth/guards/roles.guard';
+import { UserOrIaAuthGuard } from '../../auth/guards/user-or-ia-auth.guard';
 
 import { CriarMatchDto } from '../dto/criar-match.dto';
 import { MatchService } from '../services/match.service';
@@ -21,7 +21,7 @@ export class MatchController {
   ) {}
 
   @Roles('EMPRESA', 'ADMIN')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(UserOrIaAuthGuard, RolesGuard)
   @Post()
   executar(
     @Body() dto: CriarMatchDto,

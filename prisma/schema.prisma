@@ -1,0 +1,289 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UsuarioRole {
+  EMPRESA
+  CANDIDATO
+  ADMIN
+}
+
+enum Modalidade {
+  REMOTO
+  HIBRIDO
+  PRESENCIAL
+}
+
+enum Cargo {
+  FRONTEND_DEVELOPER
+  BACKEND_DEVELOPER
+  FULLSTACK_DEVELOPER
+  MOBILE_DEVELOPER
+  DATA_ANALYST
+  DATA_ENGINEER
+  DEVOPS_ENGINEER
+  QA_ENGINEER
+  UX_DESIGNER
+  PRODUCT_MANAGER
+}
+
+model Usuario {
+  id String @id @default(uuid())
+
+  nome  String
+  email String @unique
+  senha String
+
+  role UsuarioRole @default(EMPRESA)
+
+  ativo Boolean @default(true)
+
+  empresa   Empresa?
+  candidato Candidato?
+
+  refreshTokens RefreshToken[]
+  logsAuth      LogAuth[]
+
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+
+  @@map("usuarios")
+}
+
+model LogAuth {
+  id String @id @default(uuid())
+
+  usuarioId String?
+
+  acao String
+
+  identificador String?
+  sucesso       Boolean
+  motivo        String?
+  ipOrigem      String?
+  userAgent     String?
+
+  usuario Usuario? @relation(fields: [usuarioId], references: [id])
+
+  criadoEm DateTime @default(now())
+
+  @@index([usuarioId])
+  @@map("logs_auth")
+}
+
+model RefreshToken {
+  id String @id @default(uuid())
+
+  usuarioId String
+
+  jti       String @unique
+  tokenHash String
+
+  expiraEm   DateTime
+  revogadoEm DateTime?
+
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+
+  @@index([usuarioId])
+  @@map("refresh_tokens")
+}
+
+model Empresa {
+  id String @id @default(uuid())
+
+  usuarioId String @unique
+
+  nomeEmpresa String @unique
+
+  metaDiversidade Int
+
+  gruposPrioritarios String[]
+
+  ativo Boolean @default(true)
+
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+
+  vagas Vaga[]
+
+  logs LogEmpresa[]
+
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+
+  @@map("empresas")
+}
+
+model Vaga {
+  id String @id @default(uuid())
+
+  empresaId String
+
+  titulo String
+
+  cargo      Cargo
+  modalidade Modalidade
+
+  nivel String
+
+  regiao String
+
+  latitude  Float?
+  longitude Float?
+
+  skills String[]
+
+  ativo Boolean @default(true)
+
+  empresa Empresa @relation(fields: [empresaId], references: [id])
+
+  logs LogVaga[]
+
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+
+  @@index([empresaId])
+  @@index([regiao])
+  @@map("vagas")
+}
+
+model Candidato {
+  id String @id @default(uuid())
+
+  usuarioId String @unique
+
+  skills String[]
+
+  nivel String
+
+  cargoDesejado Cargo
+
+  regiao String
+
+  grupoDiversidade String?
+
+  latitude  Float?
+  longitude Float?
+
+  ageGroup String?
+
+  incomeCluster String?
+
+  mobilityPattern String?
+
+  scoreMobilidade Float? @default(0)
+
+  ativo Boolean @default(true)
+
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+
+  logs LogCandidato[]
+
+  logsAcesso LogAcessoCandidato[]
+
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+
+  @@index([regiao])
+  @@index([grupoDiversidade])
+  @@map("candidatos")
+}
+
+model LogAcessoCandidato {
+  id String @id @default(uuid())
+
+  candidatoId String
+
+  usuarioResponsavel String
+
+  finalidade String
+
+  ipOrigem  String?
+  userAgent String?
+
+  candidato Candidato @relation(fields: [candidatoId], references: [id])
+
+  criadoEm DateTime @default(now())
+
+  @@index([candidatoId])
+  @@map("logs_acessos_candidatos")
+}
+
+model LogCandidato {
+  id String @id @default(uuid())
+
+  candidatoId String
+
+  acao String
+
+  descricao String
+
+  usuarioResponsavel String?
+  ipOrigem           String?
+  userAgent          String?
+
+  dadosAntes  Json?
+  dadosDepois Json?
+
+  criadoEm DateTime @default(now())
+
+  candidato Candidato @relation(fields: [candidatoId], references: [id])
+
+  @@index([candidatoId])
+  @@map("logs_candidatos")
+}
+
+model LogEmpresa {
+  id String @id @default(uuid())
+
+  empresaId String
+
+  acao String
+
+  descricao String
+
+  usuarioResponsavel String?
+  ipOrigem           String?
+  userAgent          String?
+
+  dadosAntes  Json?
+  dadosDepois Json?
+
+  criadoEm DateTime @default(now())
+
+  empresa Empresa @relation(fields: [empresaId], references: [id])
+
+  @@index([empresaId])
+  @@map("logs_empresas")
+}
+
+model LogVaga {
+  id String @id @default(uuid())
+
+  vagaId String
+
+  acao String
+
+  descricao String
+
+  usuarioResponsavel String?
+  ipOrigem           String?
+  userAgent          String?
+
+  dadosAntes  Json?
+  dadosDepois Json?
+
+  criadoEm DateTime @default(now())
+
+  vaga Vaga @relation(fields: [vagaId], references: [id])
+
+  @@index([vagaId])
+  @@map("logs_vagas")
+}

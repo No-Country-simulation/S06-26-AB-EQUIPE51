@@ -1,0 +1,28 @@
+CREATE TYPE "Cargo" AS ENUM (
+  'FRONTEND_DEVELOPER',
+  'BACKEND_DEVELOPER',
+  'FULLSTACK_DEVELOPER',
+  'MOBILE_DEVELOPER',
+  'DATA_ANALYST',
+  'DATA_ENGINEER',
+  'DEVOPS_ENGINEER',
+  'QA_ENGINEER',
+  'UX_DESIGNER',
+  'PRODUCT_MANAGER'
+);
+
+ALTER TYPE "ModalidadeVaga" RENAME TO "Modalidade";
+
+ALTER TABLE "vagas"
+ALTER COLUMN "cargo" TYPE "Cargo"
+USING "cargo"::"Cargo";
+
+ALTER TABLE "vagas"
+ALTER COLUMN "modalidade" DROP DEFAULT;
+
+ALTER TABLE "candidatos"
+ALTER COLUMN "cargoDesejado" TYPE "Cargo"
+USING "cargoDesejado"::"Cargo";
+
+ALTER TABLE "candidatos"
+ALTER COLUMN "cargoDesejado" SET NOT NULL;

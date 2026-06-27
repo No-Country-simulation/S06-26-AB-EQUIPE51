@@ -2,13 +2,17 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { login } from "../services/authService";
+//import { login } from "../services/authService";
+import { useAuth } from "../components/AuthContext";
 import styles from "../styles/login.module.css";
 import { tratarErroHttp } from "../components/utils/tratarErroHTTP";
 
 const Login = () => {
   const [carregando, setCarregando] = useState(false);
   const navigate = useNavigate();
+
+
+  const { login } = useAuth(); //Novo
 
   const {
     register,

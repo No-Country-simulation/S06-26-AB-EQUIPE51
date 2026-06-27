@@ -52,7 +52,7 @@ export function AuthProvider({ children }) {
     // Se o login deu certo, existe um access_token.
     // Então já consideramos o usuário autenticado.
     setUsuario({
-      autenticado: true,
+      autenticado: true
     })
     return response
   }

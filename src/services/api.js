@@ -73,7 +73,7 @@ async function refreshSessao() {
     {},
     { withCredentials: true } // o refresh token vai sozinho, via cookie HttpOnly
   )
-  return response.data.accessToken
+  return response.data.access_token
 }
 
 export default api

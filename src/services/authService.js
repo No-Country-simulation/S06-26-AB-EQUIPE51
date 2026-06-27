@@ -29,8 +29,8 @@ export function setAccessToken(token) {
 export async function login(dados) {
   const response = await api.post("/auth/login", dados)
 
-  const { accessToken } = response.data
-  setAccessToken(accessToken)
+  const { access_token } = response.data
+  setAccessToken(access_token)
 
   return response.data
 }
@@ -44,8 +44,8 @@ export async function login(dados) {
 export async function refresh() {
   const response = await api.post("/auth/refresh")
 
-  const { accessToken } = response.data
-  setAccessToken(accessToken)
+  const { access_token } = response.data
+  setAccessToken(access_token)
 
   return response.data
 }

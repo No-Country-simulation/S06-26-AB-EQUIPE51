@@ -32,10 +32,12 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     async function verificarSessao() {
       try {
-        const data = await refreshService()
+        await refreshService()
         // ⚠️ ajustar conforme o formato real da resposta do backend —
         // supondo que /auth/refresh também devolva os dados do usuário
-        setUsuario(data.usuario ?? null)
+        setUsuario({
+          autenticado: true,
+        })
       } catch {
         setUsuario(null)
       } finally {
@@ -47,9 +49,11 @@ export function AuthProvider({ children }) {
 
   async function login(dados) {
     const response = await loginService(dados)
-    // ⚠️ ajustar conforme o formato real da resposta do backend —
-    // supondo que /auth/login devolva os dados do usuário junto do token
-    setUsuario(response.usuario ?? null)
+    // Se o login deu certo, existe um access_token.
+    // Então já consideramos o usuário autenticado.
+    setUsuario({
+      autenticado: true,
+    })
     return response
   }
 

@@ -32,18 +32,17 @@ export default function Vagas() {
           <h1 className={styles.titulo}>Vagas da Empresa</h1>
           <p className={styles.subtitulo}>Acompanhe as vagas cadastradas e publique novas oportunidades.</p>
         </div>
-        <button className={styles.btnOpcoes}>Opções ▾</button>
       </header>
 
       {/* Faixa de identificação da empresa */}
       <div className={styles.faixaEmpresa}>
         <div>
           <strong className={styles.empresaTitulo}>Vagas Empresa</strong>
-          <p className={styles.empresaNome}>Inova Brasil</p>
+          <p className={styles.empresaNome}>InclusiveTech</p>
         </div>
         <div className={styles.acoesEmpresa}>
-          <button className={styles.btnAbrir}>📂 Abrir</button>
-          <button className={styles.btnAdicionar}>+ Adicionar nova vaga</button>
+          <button className={styles.btnAbrir}>Abrir</button>
+          <button className={styles.btnAdicionar}>+ Adicionar nova vaga</button> {/* Aqui poderia abrir um modal ou redirecionar para a página de cadastro de vaga */} 
         </div>
       </div>
 
@@ -96,7 +95,7 @@ export default function Vagas() {
 
       {/* Aviso de rodapé */}
       <div className={styles.avisoRodape}>
-        ⓘ Conectado como Inova Brasil. Rotas protegidas e mapa agregado ativos.
+        ⓘ Conectado como InclusiveTech. Rotas protegidas e mapa agregado ativos.
       </div>
 
     </div>

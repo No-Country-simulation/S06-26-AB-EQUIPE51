@@ -71,6 +71,13 @@
   .layout {
     grid-template-columns: 1fr;
   }
+  .linhaMenu {
+    width: 18px; /* era 100% */
+    height: 2px;
+    background: var(--cor-texto);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
 
   .menuHamburguer {
     display: flex;
@@ -90,11 +97,14 @@
     background: none;
     border: 1px solid var(--cor-borda);
     border-radius: var(--raio-sm);
-    padding: 6px 10px;
+    padding: 8px 10px;
     cursor: pointer;
-    color: var(--cor-texto-medio);
-    font-size: 18px;
+    width: 36px;
+    height: 32px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 4px;
   }
 }

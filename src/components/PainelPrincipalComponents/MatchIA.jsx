@@ -31,7 +31,6 @@ export default function MatchIA() {
           <h1 className={styles.titulo}>Match com IA</h1>
           <p className={styles.subtitulo}>Resultado inteligente com base na compatibilidade de skills, experiência e alinhamento cultural.</p>
         </div>
-        <button className={styles.btnOpcoes}>Opções ▾</button>
       </header>
 
       <div className={styles.conteudo}>
@@ -41,7 +40,7 @@ export default function MatchIA() {
           {/* Aviso de relatório não gerado */}
           {!temMatches && (
             <div className={styles.avisoRelatorio}>
-              📄 <strong>Relatório ainda não gerado</strong>
+              <strong>Relatório ainda não gerado</strong>
               <p>Volte ao Dashboard, ajuste os campos da vaga e clique em <strong>GERAR MATCH</strong>. Depois o relatório aparece aqui com dados da API.</p>
             </div>
           )}
@@ -108,10 +107,9 @@ export default function MatchIA() {
 
             {!vagaSelecionada ? (
               <div className={styles.vagaVaziaRow}>
-                <span className={styles.iconeVagaVazia}>📁</span>
                 <div>
                   <strong className={styles.vagaVaziaTitulo}>Nenhuma vaga selecionada</strong>
-                  <p className={styles.vagaVaziaDesc}>App BiT</p>
+                  <p className={styles.vagaVaziaDesc}>InclusiveTech</p>
                   <p className={styles.vagaVaziaInfo}>Sem região | API protegida</p>
                 </div>
               </div>

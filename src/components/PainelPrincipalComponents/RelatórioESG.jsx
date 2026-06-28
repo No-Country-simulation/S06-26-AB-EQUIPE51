@@ -24,7 +24,6 @@ export default function RelatorioESG() {
           <h1 className={styles.titulo}>Dashboard da Empresa</h1>
           <p className={styles.subtitulo}>Veja apenas dados da empresa logada, vagas e matches autorizados.</p>
         </div>
-        <button className={styles.btnOpcoes}>Opções ▾</button>
       </header>
 
       {/* Faixa Relatório ESG */}
@@ -33,7 +32,7 @@ export default function RelatorioESG() {
           <strong className={styles.empresaTitulo}>Relatório ESG</strong>
           <p className={styles.empresaDesc}>Indicadores baseados em empresa, vagas, candidatos e último match.</p>
         </div>
-        <span className={styles.badgeEmpresa}>Inova Brasil</span>
+        <span className={styles.badgeEmpresa}>InclusiveTech</span>
       </div>
 
       <div className={styles.conteudo}>

@@ -1,13 +1,11 @@
-
-
 .footer {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 30vh;
+  min-height: 30vh;
   background: var(--cor-bg-pagina);
   border-top: 1px solid var(--cor-borda);
-  padding: 32px 60px 20px;
+  padding: clamp(20px, 3vw, 32px) clamp(24px, 6vw, 60px) 20px;
   font-family: var(--fonte);
 }
 
@@ -15,15 +13,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .logo {
-width: 10%;
+  width: clamp(70px, 10vw, 130px);
+  height: auto;
 }
 
 .nav {
   display: flex;
-  gap: 32px;
+  gap: clamp(16px, 2vw, 32px);
+  flex-wrap: wrap;
 }
 
 .link {
@@ -52,19 +53,22 @@ width: 10%;
   text-align: center;
 }
 
+/* ===== Estrutural: empilha logo + nav ===== */
 @media (max-width: 768px) {
-  .footer {
-    padding: 28px 24px 16px;
+  .logo{
+    width: 30%;
   }
-
   .topo {
     flex-direction: column;
     gap: 20px;
     text-align: center;
   }
 
+  .link{
+    font-size: 11px;
+  }
+
   .nav {
-    flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
   }

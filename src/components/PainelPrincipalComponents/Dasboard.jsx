@@ -68,7 +68,6 @@ export default function Dashboard() {
           <h1 className={styles.titulo}>Dashboard da Empresa</h1>
           <p className={styles.subtitulo}>Veja apenas dados da empresa logada, vagas e matches autorizados.</p>
         </div>
-        <button className={styles.btnOpcoes}>Opções ▾</button>
       </header>
 
       {/* Saudação */}

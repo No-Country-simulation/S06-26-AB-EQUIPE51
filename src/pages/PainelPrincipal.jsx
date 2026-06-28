@@ -43,13 +43,14 @@ export default function PainelPrincipal() {
     <div className={styles.layout}>
       {/* header mobile com hamburguer — invisível no desktop */}
       <div className={styles.menuHamburguer}>
-        <strong>InclusiveTech</strong>
         <button
           className={styles.btnHamburguer}
           onClick={() => setMenuAberto(true)}
           aria-label="Abrir menu"
         >
-          <i className="ti ti-menu-2" aria-hidden="true" />
+             <span className={styles.linhaMenu}></span>
+              <span className={styles.linhaMenu}></span>
+              <span className={styles.linhaMenu}></span>
         </button>
       </div>
 

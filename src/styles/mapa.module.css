@@ -105,16 +105,22 @@
 
 /* ── Placeholder do mapa ────────────────────────────────── */
 .mapaPlaceholder {
-  height: 420px;
+  height: 800px;
   background: var(--cor-bg-pagina);
   border: 1px dashed var(--cor-borda);
   border-radius: var(--raio-sm);
+  overflow: hidden; /* corta o mapa nos cantos arredondados */
+  position: relative; /* ajuda o Leaflet a se posicionar corretamente */
+}
+
+/* as mensagens de texto (Carregando, erro) precisam de uma classe própria agora */
+.mensagemCentral {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--cor-texto-fraco);
   font-size: 13px;
-  text-align: center;
 }
 
 /* ── Visão geral ────────────────────────────────────────── */

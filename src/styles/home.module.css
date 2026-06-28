@@ -53,6 +53,112 @@
   color: #fff;
 }
 
+/* ===== Botão hambúrguer (escondido por padrão) ===== */
+.btnMenuOculto {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.btnMenu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.linhaMenu {
+  width: 100%;
+  height: 2px;
+  background: var(--cor-texto);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+/* ===== Overlay escuro de fundo ===== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+  z-index: 999;
+}
+
+.overlayAberto {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== Drawer lateral ===== */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(78vw, 320px);
+  background: #fff;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  gap: 8px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.drawerAberto {
+  transform: translateX(0);
+}
+
+.btnFechar {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  margin-bottom: 16px;
+  padding: 4px 8px;
+}
+
+.drawerLink {
+  font-family: var(--fonte);
+  font-size: 15px;
+  color: var(--cor-texto-medio);
+  text-decoration: none;
+  padding: 12px 8px;
+  border-radius: var(--raio-sm);
+  transition: background 0.15s;
+}
+
+.drawerLink:hover {
+  background: var(--cor-bg-pagina);
+}
+
+.drawerLinkDestaque {
+  background: var(--cor-primaria);
+  color: #fff;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.drawerLinkDestaque:hover {
+  background: var(--cor-primaria-hover);
+}
+
 .main {
   display: flex;
   justify-content: space-between;
@@ -165,5 +271,20 @@
 
   .texto span {
     font-size: 26px;
+  }
+}
+
+/* ===== Menu mobile: troca navLinks pelo hambúrguer ===== */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .btnMenu {
+    display: flex;
+  }
+
+  .logo {
+    width: 90px;
   }
 }

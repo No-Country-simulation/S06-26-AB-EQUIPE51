@@ -1,4 +1,8 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .page {
   background-color: var(--cor-bg-card);
@@ -28,7 +32,11 @@
 .painelLateral {
   width: 30%;
   min-height: 70%;
-  background: linear-gradient(160deg, var(--cor-primaria) 0%, var(--cor-primaria-hover) 100%);
+  background: linear-gradient(
+    160deg,
+    var(--cor-primaria) 0%,
+    var(--cor-primaria-hover) 100%
+  );
   border-radius: 0 var(--raio-lg) var(--raio-lg) 0;
   display: flex;
   flex-direction: column;
@@ -163,7 +171,19 @@
   text-decoration: none;
 }
 
-/* ── Responsivo: painel lateral some no mobile ──────────── */
+
+
+@media (max-width: 1400px) {
+  .painelLateral {
+    display: none;
+  }
+  .card {
+    border-radius: var(--raio-lg);
+    /* aqui sim, fluido: de 60% (perto de 1400px) até 90% (telas bem pequenas) */
+    max-width: clamp(40%, 90% - (1400px - 100vw) * -0.03, 90%);
+  }
+}
+
 @media (max-width: 850px) {
   .painelLateral {
     display: none;
@@ -171,11 +191,31 @@
 
   .card {
     border-radius: var(--raio-lg);
+    max-width: clamp(60%, 90% - (850px - 100vw) * -0.03, 90%);
   }
 }
 
 @media (max-width: 500px) {
+  .titulo h2 {
+    font-size: 20px;
+  }
+
+  .register,
+  .subtitle,
+  .desc {
+    font-size: 11px;
+  }
+
   .card {
     padding: 28px 20px;
+    max-width: 95%;
+  }
+
+  .inputGroup input {
+    font-size: 11px;
+  }
+
+  .btnLogin {
+    font-size: 13px;
   }
 }

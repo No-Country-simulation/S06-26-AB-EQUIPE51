@@ -8,7 +8,6 @@
   overflow: hidden;
 }
 
-/* leve máscara para o texto não se perder na foto */
 .overlay {
   position: absolute;
   inset: 0;
@@ -24,19 +23,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: clamp(85%, 60vw, 50%);
   height: fit-content;
+  padding: 0 clamp(16px, 4vw, 24px);
+  text-align: center;
 }
 
+.logo {
+  width: clamp(140px, 22vw, 320px);
+  height: auto;
+}
 
-
-@media (max-width: 768px) {
+/* ===== Telas bem pequenas: ainda mais compacto ===== */
+@media (max-width: 480px) {
   .conteudo {
-    padding: 0 24px;
-    max-width: 100%;
+    padding: 0 16px;
   }
 
-  .titulo {
-    font-size: 2rem;
+  .logo {
+    width: clamp(120px, 50vw, 200px);
   }
 }

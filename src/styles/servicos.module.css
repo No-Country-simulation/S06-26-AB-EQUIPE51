@@ -1,8 +1,8 @@
 /* src/components/Servicos/servicos.module.css */
 
 .section {
-  height: 80vh;
-  padding: 80px 60px;
+  min-height: 80vh;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 60px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,12 +11,12 @@
 
 .cabecalho {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: clamp(28px, 4vw, 48px);
 }
 
 .titulo {
   font-family: var(--fonte);
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 1.5vw + 1rem, 1.8rem);
   font-weight: 700;
   color: var(--cor-primaria);
   margin-bottom: 10px;
@@ -24,7 +24,7 @@
 
 .subtitulo {
   font-family: var(--fonte);
-  font-size: 14px;
+  font-size: clamp(12px, 0.4vw + 11px, 14px);
   color: var(--cor-texto-suave);
   max-width: 480px;
   margin: 0 auto;
@@ -34,9 +34,10 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: clamp(16px, 2vw, 24px);
   max-width: 1000px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .card {
@@ -44,7 +45,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 40px 28px;
+  padding: clamp(24px, 3vw, 40px) clamp(18px, 2.5vw, 28px);
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-lg);
   background: #fff;
@@ -57,16 +58,16 @@
 }
 
 .iconeWrap {
-  width: 56px;
-  height: 56px;
+  width: clamp(46px, 5vw, 56px);
+  height: clamp(46px, 5vw, 56px);
   border-radius: 50%;
   background: var(--cor-bg-pagina);
   border: 1.5px solid var(--cor-primaria);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin-bottom: clamp(14px, 2vw, 20px);
+  font-size: clamp(18px, 1vw + 14px, 22px);
   color: var(--cor-primaria);
   transition: background 0.2s;
 }
@@ -78,7 +79,7 @@
 
 .cardTitulo {
   font-family: var(--fonte);
-  font-size: 14px;
+  font-size: clamp(13px, 0.3vw + 12px, 14px);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -88,17 +89,26 @@
 
 .cardDescricao {
   font-family: var(--fonte);
-  font-size: 13px;
+  font-size: clamp(12px, 0.3vw + 11px, 13px);
   color: var(--cor-texto-suave);
   line-height: 1.7;
 }
 
-@media (max-width: 768px) {
+/* ===== Estrutural: 3 → 2 colunas (tablets) ===== */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== Estrutural: 2 → 1 coluna (mobile) ===== */
+@media (max-width: 600px) {
   .section {
-    padding: 60px 24px;
+    min-height: auto;
   }
 
   .grid {
     grid-template-columns: 1fr;
+    max-width: 420px;
   }
 }

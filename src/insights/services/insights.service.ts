@@ -1,4 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import type { Request } from 'express';
 
 import { InsightsRepository } from '../repositories/insights.repository';
 import { InsightsResponseDto } from '../dto/insights-response.dto';
@@ -9,9 +14,43 @@ export class InsightsService {
     private readonly repository: InsightsRepository,
   ) {}
 
-  async buscarInsights(): Promise<InsightsResponseDto> {
+  private validarAcessoVaga(vaga: any, req?: Request) {
+    const usuario = (req as any)?.user;
+
+    if (!usuario || usuario.role === 'ADMIN') {
+      return;
+    }
+
+    if (vaga.empresa.usuarioId === usuario.id) {
+      return;
+    }
+
+    throw new ForbiddenException(
+      'Voce nao possui permissao para acessar insights desta vaga.',
+    );
+  }
+
+  async buscarInsights(
+    vagaId?: string,
+    req?: Request,
+  ): Promise<InsightsResponseDto> {
+    let cargoDesejado: string | undefined;
+
+    if (vagaId) {
+      const vaga =
+        await this.repository.buscarVagaPorId(vagaId);
+
+      if (!vaga) {
+        throw new NotFoundException('Vaga nao encontrada.');
+      }
+
+      this.validarAcessoVaga(vaga, req);
+
+      cargoDesejado = vaga.cargo;
+    }
+
     const regioes =
-      await this.repository.buscarMapaTalentos();
+      await this.repository.buscarMapaTalentos(cargoDesejado);
 
     return {
       mapa_talentos: regioes,

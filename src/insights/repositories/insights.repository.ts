@@ -7,35 +7,58 @@ export class InsightsRepository {
     private readonly prisma: PrismaService,
   ) {}
 
-  async buscarMapaTalentos() {
+  async buscarVagaPorId(id: string) {
+    return this.prisma.vaga.findFirst({
+      where: {
+        id,
+        ativo: true,
+      },
+      include: {
+        empresa: {
+          select: {
+            usuarioId: true,
+          },
+        },
+      },
+    });
+  }
+
+  async buscarMapaTalentos(cargoDesejado?: string) {
+    const where: any = {
+      ativo: true,
+      usuario: {
+        ativo: true,
+      },
+      latitude: {
+        not: null,
+      },
+      longitude: {
+        not: null,
+      },
+    };
+
+    if (cargoDesejado) {
+      where.cargoDesejado = cargoDesejado;
+    } else {
+      where.OR = [
+        {
+          regiao: {
+            contains: 'Florianopolis',
+            mode: 'insensitive',
+          },
+        },
+        {
+          regiao: {
+            contains: 'Floripa',
+            mode: 'insensitive',
+          },
+        },
+      ];
+    }
+
     const candidatos =
       await this.prisma.candidato.findMany({
-        where: {
-          ativo: true,
-          usuario: {
-            ativo: true,
-          },
-          latitude: {
-            not: null,
-          },
-          longitude: {
-            not: null,
-          },
-          OR: [
-            {
-              regiao: {
-                contains: 'Florianopolis',
-                mode: 'insensitive',
-              },
-            },
-            {
-              regiao: {
-                contains: 'Floripa',
-                mode: 'insensitive',
-              },
-            },
-          ],
-        },
+        where,
         select: {
           usuario: {
             select: {

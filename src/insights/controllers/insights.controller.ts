@@ -1,8 +1,11 @@
 import {
   Controller,
   Get,
+  Query,
+  Req,
   UseGuards,
 } from '@nestjs/common';
+import type { Request } from 'express';
 
 import { Roles } from '../../auth/decorators/roles.decorator';
 import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
@@ -19,7 +22,10 @@ export class InsightsController {
   @Roles('EMPRESA', 'ADMIN')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
-  buscarInsights() {
-    return this.service.buscarInsights();
+  buscarInsights(
+    @Query('vagaId') vagaId: string | undefined,
+    @Req() req: Request,
+  ) {
+    return this.service.buscarInsights(vagaId, req);
   }
 }

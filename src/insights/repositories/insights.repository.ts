@@ -37,6 +37,11 @@ export class InsightsRepository {
           ],
         },
         select: {
+          usuario: {
+            select: {
+              nome: true,
+            },
+          },
           latitude: true,
           longitude: true,
         },
@@ -49,7 +54,9 @@ export class InsightsRepository {
           candidato.longitude !== null,
       )
       .map((candidato, index) => ({
-        regiao: `Usuario ${index + 1}`,
+        regiao:
+          candidato.usuario.nome ||
+          `Usuario ${index + 1}`,
         concentracao: 1,
         cobertura_rede: 'Dado agregado',
         perfis_disponiveis: 1,

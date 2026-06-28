@@ -23,16 +23,19 @@ export class CandidatoService {
     private readonly repository: CandidatoRepository,
     private readonly logsCandidatoService: LogsCandidatoService,
     private readonly logsAcessoCandidatoService: LogsAcessoCandidatoService,
-  ) {}
+  ) { }
+
 
   private readonly gruposPermitidos = [
-    'MULHER',
+    'Genero',
+    'Raça/Etnia',
     'PCD',
-    'NEGRO',
-    'INDIGENA',
     'LGBTQIA+',
+    'Geracional',
+    'Inclusão Socioeconômica',
+    'Inclusão Humanitária',
   ];
-
+  
   private readonly camposAuditaveis = [
     'skills',
     'nivel',

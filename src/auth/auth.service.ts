@@ -1,5 +1,6 @@
 import {
   Injectable,
+  NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
 
@@ -107,6 +108,51 @@ export class AuthService {
       expires_in: 900,
       refresh_expires_in: this.refreshTokenExpiresInSeconds,
     };
+  }
+
+  async me(usuarioId: string) {
+    const usuario = await this.prisma.usuario.findUnique({
+      where: {
+        id: usuarioId,
+      },
+      select: {
+        id: true,
+        nome: true,
+        email: true,
+        role: true,
+        ativo: true,
+        criadoEm: true,
+        atualizadoEm: true,
+        empresa: {
+          select: {
+            id: true,
+            nomeEmpresa: true,
+            metaDiversidade: true,
+            gruposPrioritarios: true,
+            ativo: true,
+          },
+        },
+        candidato: {
+          select: {
+            id: true,
+            skills: true,
+            nivel: true,
+            cargoDesejado: true,
+            regiao: true,
+            grupoDiversidade: true,
+            latitude: true,
+            longitude: true,
+            ativo: true,
+          },
+        },
+      },
+    });
+
+    if (!usuario || !usuario.ativo) {
+      throw new NotFoundException('Usuario nao encontrado.');
+    }
+
+    return usuario;
   }
 
   async login(

@@ -1,15 +1,18 @@
 import {
   Body,
   Controller,
+  Get,
   Post,
   Req,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import type { Request, Response } from 'express';
 
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -40,6 +43,14 @@ export class AuthController {
       body as RefreshTokenDto,
       req,
       res,
+    );
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('me')
+  async me(@Req() req: Request) {
+    return this.authService.me(
+      String((req as any).user.id),
     );
   }
 }

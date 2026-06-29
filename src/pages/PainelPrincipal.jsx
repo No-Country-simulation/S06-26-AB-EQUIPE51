@@ -9,7 +9,7 @@ import Dashboard from "../components/PainelPrincipalComponents/Dasboard";
 import RelatorioESG from "../components/PainelPrincipalComponents/RelatórioESG";
 
 export default function PainelPrincipal() {
-  const [activeView, setActiveView] = useState("mapa"); // vai começar sempre no mapa no primeiro carregamento da página
+  const [activeView, setActiveView] = useState("dashboard"); // vai começar sempre no mapa no primeiro carregamento da página
   const [dadosVindosDaIA, setDadosVindosDaIA] = useState([]);
   const [menuAberto, setMenuAberto] = useState(false);
 
@@ -33,7 +33,6 @@ export default function PainelPrincipal() {
     mapa: <Mapa />,
     vagas: <Vagas />,
 
-    
     //Aqui pegaria da IA ou banco de dados, não sei como ficou acertado
     MatchIA: <Shortlist candidatos={dadosVindosDaIA} />,
     esg: <RelatorioESG />,
@@ -49,9 +48,9 @@ export default function PainelPrincipal() {
           onClick={() => setMenuAberto(true)}
           aria-label="Abrir menu"
         >
-             <span className={styles.linhaMenu}></span>
-              <span className={styles.linhaMenu}></span>
-              <span className={styles.linhaMenu}></span>
+          <span className={styles.linhaMenu}></span>
+          <span className={styles.linhaMenu}></span>
+          <span className={styles.linhaMenu}></span>
         </button>
       </div>
 

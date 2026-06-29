@@ -23,7 +23,11 @@ import api from './api'
 // ]
 
 
-export async function buscarInsights() {
-  const response = await api.get('/insights')
+
+// GET /insights — ⚠️ ainda não confirmado com o backend.
+// Quando a doc chegar, ESTA função passa a ser usada de verdade.
+// Hipótese de uso: buscarInsights(vagaId) → GET /insights?vagaId=xxx
+export async function buscarInsights(vagaId) {
+  const response = await api.get('/insights', { params: { vagaId } })
   return response.data
 }

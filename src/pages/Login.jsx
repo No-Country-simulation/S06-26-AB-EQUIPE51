@@ -28,6 +28,7 @@ const Login = () => {
       navigate("/painel"); // ajusta para a rota real do seu painel
     } catch (error) {
       toast.error(tratarErroHttp(error));
+      //logica de senha incorreta se for, ou login inválido
     } finally {
       setCarregando(false);
     }

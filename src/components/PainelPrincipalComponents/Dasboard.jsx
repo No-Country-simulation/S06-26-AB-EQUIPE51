@@ -184,8 +184,10 @@ export default function Dashboard() {
 
           <div className={styles.duasColunas}>
             {/* Criar nova vaga — sem mudanças, continua igual */}
+            
+            {/* Linkar enpoint aqui */}
             <section className={styles.bloco}>
-              <h3 className={styles.blocoTitulo}>Criar Nova Vaga</h3>
+              <h3 className={styles.blocoTitulo}>Procurar Matching</h3>
 
               <label className={styles.label}>Título da Vaga</label>
               <input

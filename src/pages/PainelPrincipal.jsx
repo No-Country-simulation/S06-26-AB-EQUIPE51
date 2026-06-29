@@ -29,10 +29,11 @@ export default function PainelPrincipal() {
 
   //Switch dos components que aparecem no dashboard (Painel principal) o nome é referente as Keys que estão no nav
   const views = {
+    dashboard: <Dashboard />,
     mapa: <Mapa />,
     vagas: <Vagas />,
-    dashboard: <Dashboard />,
 
+    
     //Aqui pegaria da IA ou banco de dados, não sei como ficou acertado
     MatchIA: <Shortlist candidatos={dadosVindosDaIA} />,
     esg: <RelatorioESG />,

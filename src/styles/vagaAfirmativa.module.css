@@ -1,0 +1,195 @@
+/* src/components/VagaAfirmativa/vagaAfirmativa.module.css */
+
+.wrapper {
+  margin: 18px 0;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--cor-primaria);
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-texto-medio);
+  cursor: pointer;
+}
+
+/* ── Área expansível ──────────────────────────────────────
+   max-height + overflow-y: auto cria o efeito de "scroll com o mouse"
+   sem deixar o card estourar a altura do form */
+   .expansao {
+    margin-top: 16px;
+    max-height: 220px; /* fixo e mais contido — não depende mais do tamanho da tela */
+    overflow-y: auto;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-md);
+    padding: 18px;
+    background: var(--cor-bg-pagina);
+  }
+
+  .aviso {
+    font-family: var(--fonte);
+    font-size: 12px;
+    color: var(--cor-texto-suave);
+    margin-bottom: 10px; /* era 6px */
+    line-height: 1.5;
+  }
+
+  .contador {
+    font-family: var(--fonte);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-bottom: 18px;
+  }
+
+  .listaCategorias {
+    display: flex;
+    flex-direction: column;
+    gap: 22px; 
+  }
+
+  .categoriaBloco {
+    padding-bottom: 18px; /* era 12px */
+    border-bottom: 1px solid var(--cor-borda);
+  }
+
+.categoriaBloco:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.categoriaDesabilitada {
+  opacity: 0.45;
+}
+
+.categoriaHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px; 
+}
+
+.categoriaTitulo {
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.btnInfo {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--cor-primaria);
+  background: #fff;
+  color: var(--cor-primaria);
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.btnInfo:hover {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.opcoesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.opcaoChip {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pill);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-family: var(--fonte);
+  color: var(--cor-texto-suave);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.opcaoChip:hover:not(:disabled) {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.opcaoChip:disabled {
+  cursor: not-allowed;
+}
+
+.opcaoMarcada {
+  border-color: var(--cor-sucesso);
+  background: #dcfce7;
+  color: #15803d;
+  font-weight: 600;
+}
+
+/* ── Popup de descrição ──────────────────────────────────── */
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.popupCard {
+  background: #fff;
+  border-radius: var(--raio-lg);
+  max-width: 420px;
+  width: 100%;
+  padding: 20px;
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popupHeader strong {
+  font-family: var(--fonte);
+  font-size: 14px;
+  color: var(--cor-texto);
+}
+
+.popupFechar {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+.popupTexto {
+  font-family: var(--fonte);
+  font-size: 13px;
+  color: var(--cor-texto-medio);
+  line-height: 1.6;
+}

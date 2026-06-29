@@ -10,7 +10,7 @@ const NAV_ITEMS = [
   { key: "MatchIA", label: "Match IA" },
   { key: "esg", label: "Relatórios ESG" },
   { key: "mapa", label: "Mapa de Talentos" },
-  { key: "cadastrarVaga", label: "Cadastrar Vaga" },
+  // { key: "cadastrarVaga", label: "Cadastrar Vaga" },
   { key: "sair", label: "Sair" },
 ];
 

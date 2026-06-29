@@ -29,7 +29,7 @@ function AppRotas() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<PainelPrincipal />} />
       <Route path="/login" element={<Login />} />
       <Route path="/empresa/cadastro" element={<CadastroEmpresa />} />
       <Route path="/vagas/cadastro" element={<CadastroVaga />} />

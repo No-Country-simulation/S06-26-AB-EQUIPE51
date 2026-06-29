@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react'
 import { listarVagas } from '../../services/vagaService'
 import styles from '../../styles/vagas.module.css'
+import { Link } from 'react-router-dom'
+
+
 
 export default function Vagas() {
   const [vagas, setVagas] = useState([])
@@ -41,8 +44,8 @@ export default function Vagas() {
           <p className={styles.empresaNome}>InclusiveTech</p>
         </div>
         <div className={styles.acoesEmpresa}>
-          <button className={styles.btnAbrir}>Abrir</button>
-          <button className={styles.btnAdicionar}>+ Adicionar nova vaga</button> {/* Aqui poderia abrir um modal ou redirecionar para a página de cadastro de vaga */} 
+          {/* <button className={styles.btnAbrir}>Abrir</button> */}
+          <Link to='/vagas/cadastro' className={styles.btnAdicionar}>Adicionar nova vaga</Link>
         </div>
       </div>
 

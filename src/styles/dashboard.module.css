@@ -347,15 +347,30 @@
 
 /* ── Mapa / coluna direita ──────────────────────────────── */
 .mapaPlaceholder {
-  height: 160px;
+  height: 200px; /* menor, porque é card de coluna lateral */
   background: var(--cor-bg-pagina);
   border-radius: var(--raio-sm);
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 10px;
+}
+
+.mensagemCentral {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--cor-texto-fraco);
   font-size: 12px;
-  margin-bottom: 10px;
+}
+
+.mapaPlaceholder :global(.leaflet-container) {
+  z-index: 1;
+}
+
+.mapaPlaceholder :global(.leaflet-control-container) {
+  z-index: 2;
 }
 
 .mapaDesc {

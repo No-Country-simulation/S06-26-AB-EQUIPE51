@@ -2,12 +2,50 @@
 
 .page {
   background-color: var(--cor-bg-card);
-  height: 100dvh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+.pageContent {
   width: 100%;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+}
+
+.btnVoltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  align-self: flex-start;
+  background-color: var(--cor-primaria);
+  height: 36px;
+  width: auto;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  transition: background 0.15s;
+}
+
+.btnVoltar:hover {
+  background-color: var(--cor-primaria-hover);
+}
+
+.containerCards {
+  display: flex;
+  align-items: stretch;
 }
 
 .card {
@@ -15,20 +53,19 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 0px 0px 0px 100px;
-  padding: 40px 36px;
+  padding: 40px 36px 24px;
   width: 100%;
-  /* acima de 1400px: fica fixo em 35% */
   max-width: 35%;
-  min-height: 70vh;
+  min-height: 70vh; /* min-height — cresce livremente, nunca corta */
   background: #fff;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
   z-index: 1;
+  /* SEM overflow: hidden — é isso que estava cortando o cabeçalho */
 }
 
-/* ── Painel lateral colorido, igual à referência ────────── */
 .painelLateral {
   width: 30%;
-  min-height: 70%;
+  min-height: 70vh;
   background: linear-gradient(160deg, var(--cor-primaria) 0%, var(--cor-primaria-hover) 100%);
   border-radius: 0 var(--raio-lg) var(--raio-lg) 0;
   display: flex;
@@ -59,11 +96,11 @@
   line-height: 1.6;
 }
 
-/* ── Cabeçalho — igual ao Login ──────────────────────────── */
 .cabecalho {
   text-align: center;
   font-family: var(--fonte);
   margin-bottom: 24px;
+  flex-shrink: 0;
 }
 
 .badge {
@@ -88,13 +125,13 @@
   color: var(--cor-texto-suave);
 }
 
-/* ── Form empilhado, sem grid — igual ao Login ──────────── */
 .form {
-  padding: 30px;
+  padding: 0 4px 16px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  /* sem overflow-y, sem flex: 1, sem min-height: 0 — bloco normal */
 }
 
 .linha {
@@ -249,6 +286,7 @@
   margin-top: 12px;
   font-family: var(--fonte);
   transition: background 0.15s;
+  flex-shrink: 0;
 }
 
 .btnSubmit:hover:not(:disabled) {
@@ -260,21 +298,19 @@
   cursor: not-allowed;
 }
 
-
 @media (max-width: 1400px) {
   .painelLateral {
     display: none;
   }
   .card {
     border-radius: var(--raio-lg);
-    max-width: clamp(40%, 90% - (1400px - 100vw) * -0.03, 90%);
+    max-width: clamp(50%, 90% - (1400px - 100vw) * -0.03, 90%);
   }
   .linha {
     grid-template-columns: 1fr;
     gap: 10px;
   }
   .form {
-    padding: 20px;
     gap: 14px;
   }
 }
@@ -330,32 +366,30 @@
 }
 
 @media (max-width: 500px) {
+  .btnVoltar {
+    font-size: 10px;
+    padding: 0 10px;
+    margin-bottom: 12px;
+  }
+
   .cabecalho {
     margin-bottom: 6px;
   }
 
   .titulo {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .subtitulo {
     font-size: 11px;
   }
 
-  .register,
-  .subtitle,
-  .desc {
-    font-size: 11px;
-  }
-
   .card {
     padding: 20px 16px;
     max-width: 100%;
-    height: 95%;
   }
 
   .form {
-    padding: 8px;
     gap: 10px;
   }
 

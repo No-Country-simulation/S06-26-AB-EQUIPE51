@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
+import { MatchService } from "../../services/matchIA"
 import { listarVagasDaEmpresa } from "../../services/vagaService"
 import { buscarUsuarioLogado } from "../../services/usuarioLogadoService"
 import styles from "../../styles/vagas.module.css"
@@ -22,7 +23,11 @@ function normalizarSkills(skills) {
 
 export default function Vagas() {
   const [vagas, setVagas] = useState([])
+  const [empresaId, setEmpresaId] = useState(null)
   const [nomeEmpresa, setNomeEmpresa] = useState("Empresa")
+  const [payloadMatch, setPayloadMatch] = useState(null)
+  const [respostaMatch, setRespostaMatch] = useState(null)
+  const [carregandoMatch, setCarregandoMatch] = useState(false)
   const [carregando, setCarregando] = useState(true)
   const [erro, setErro] = useState(null)
 
@@ -33,6 +38,7 @@ export default function Vagas() {
         const usuario = await buscarUsuarioLogado()
         const data = await listarVagasDaEmpresa(usuario?.empresa?.id)
 
+        setEmpresaId(usuario?.empresa?.id ?? null)
         setNomeEmpresa(usuario?.empresa?.nomeEmpresa ?? "Empresa")
         setVagas(normalizarVagas(data))
       } catch (error) {
@@ -45,6 +51,33 @@ export default function Vagas() {
 
     buscarVagas()
   }, [])
+
+  async function gerarMatch(vaga) {
+    const payload = MatchService.montarPayload({
+      empresaId,
+      vaga: {
+        ...vaga,
+        skills: normalizarSkills(vaga.skills),
+      },
+      filtros: {},
+    })
+
+    setPayloadMatch(payload)
+    setRespostaMatch(null)
+
+    try {
+      setCarregandoMatch(true)
+      const data = await MatchService.executar(payload)
+      setRespostaMatch(data)
+    } catch (error) {
+      setRespostaMatch(error.response?.data ?? {
+        message: error.message,
+      })
+      console.error(error)
+    } finally {
+      setCarregandoMatch(false)
+    }
+  }
 
   return (
     <div className={styles.pagina}>
@@ -128,12 +161,47 @@ export default function Vagas() {
                       ))}
                     </div>
                   )}
+
+                  <button
+                    type="button"
+                    className={styles.btnJson}
+                    onClick={() => gerarMatch(vaga)}
+                    disabled={carregandoMatch}
+                  >
+                    {carregandoMatch ? "Enviando..." : "Gerar JSON / Match"}
+                  </button>
                 </div>
               )
             })}
           </div>
         )}
       </section>
+
+      {(payloadMatch || respostaMatch) && (
+        <section className={styles.bloco}>
+          <div className={styles.blocoHeader}>
+            <h3 className={styles.blocoTitulo}>JSON do Match</h3>
+          </div>
+
+          {payloadMatch && (
+            <>
+              <p className={styles.jsonLabel}>Payload enviado</p>
+              <pre className={styles.jsonBox}>
+                {JSON.stringify(payloadMatch, null, 2)}
+              </pre>
+            </>
+          )}
+
+          {respostaMatch && (
+            <>
+              <p className={styles.jsonLabel}>Resposta da API</p>
+              <pre className={styles.jsonBox}>
+                {JSON.stringify(respostaMatch, null, 2)}
+              </pre>
+            </>
+          )}
+        </section>
+      )}
 
       <div className={styles.avisoRodape}>
         Conectado como {nomeEmpresa}. Rotas protegidas e mapa agregado ativos.

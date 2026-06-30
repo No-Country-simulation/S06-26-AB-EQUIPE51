@@ -1,18 +1,40 @@
 import api from "./api"
 
-//exibir na tela 
-// src/services/matchService.js
+export class MatchService {
+  static montarPayload({ empresaId, vaga, filtros = {} }) {
+    return {
+      empresa_id: empresaId,
+      vaga: {
+        titulo: vaga?.titulo,
+        cargo: vaga?.cargo,
+        modalidade: vaga?.modalidade,
+        skills: Array.isArray(vaga?.skills) ? vaga.skills : [],
+        nivel: vaga?.nivel,
+        regiao: vaga?.regiao,
+      },
+      filtros,
+    }
+  }
 
-import api from './api'
+  static async executar(payload) {
+    const response = await api.post("/match", payload)
+    return response.data
+  }
 
-// POST /match — executa matching entre vaga e candidatos
-// ⚠️ Os campos do body ainda não foram confirmados com o backend.
-// Preencha aqui assim que tiver a doc completa (provavelmente vagaId
-// e algum critério de filtro, com base na entidade Candidato que você
-// me mandou antes: skills, nivel, regiao, grupoDiversidade etc.)
-export async function executarMatch(dados) {
-  const response = await api.post('/match', dados)
-  return response.data
+  static async executarPorVaga({ empresaId, vaga, filtros }) {
+    const payload = MatchService.montarPayload({ empresaId, vaga, filtros })
+    return MatchService.executar(payload)
+  }
 }
 
-//esperando douglas
+export function montarPayloadMatch(params) {
+  return MatchService.montarPayload(params)
+}
+
+export async function executarMatch(payload) {
+  return MatchService.executar(payload)
+}
+
+export async function executarMatchPorVaga(params) {
+  return MatchService.executarPorVaga(params)
+}

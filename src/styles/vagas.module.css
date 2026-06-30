@@ -177,6 +177,40 @@
   color: var(--cor-texto-medio);
 }
 
+.btnJson {
+  margin-top: 14px;
+  border: none;
+  background: var(--cor-primaria);
+  color: #fff;
+  border-radius: var(--raio-sm);
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btnJson:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.jsonLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--cor-texto-medio);
+  margin: 12px 0 6px;
+}
+
+.jsonBox {
+  max-height: 320px;
+  overflow: auto;
+  background: #111827;
+  color: #e5e7eb;
+  border-radius: var(--raio-sm);
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 /* ── Aviso rodapé ───────────────────────────────────────── */
 .avisoRodape {
   background: var(--cor-primaria-suave);

@@ -4,32 +4,7 @@ import { listarVagas } from '../../services/vagaService' // real
 import MapaCalor from '../../components/PainelPrincipalComponents/MapaCalor'
 import styles from '../../styles/mapa.module.css'
 
-// ⚠️ TEMPORÁRIO — duas vagas fictícias para testar o fluxo sem precisar do backend rodando.
-// REMOVER esta constante e o "if (USAR_VAGAS_MOCK)" abaixo quando for testar com a API real.
-const VAGAS_MOCK = [
-  { id: 'vaga-1', titulo: 'Backend NestJS', nivel: 'Pleno', regiao: 'Florianópolis' },
-  { id: 'vaga-2', titulo: 'UX Designer', nivel: 'Júnior', regiao: 'São Paulo' },
-]
 
-const USAR_VAGAS_MOCK = true // ⚠️ trocar para false quando for testar com a API de verdade
-
-// ⚠️ TEMPORÁRIO — gera talentos fictícios espalhados perto de Florianópolis,
-// associados às vagas mock acima. Remover quando /insights estiver confirmado.
-function gerarTalentosMock(vagas) {
-  const NOMES = [
-    'Rafael Martins', 'Aline Barbosa', 'Lucas Menezes', 'Samira Rodrigues',
-    'Natalia Freitas', 'Gabriel Nascimento', 'Vitor Castro', 'Andre Santos',
-    'Beatriz Lima', 'Carla Souza',
-  ]
-
-  return NOMES.map((nome, i) => ({
-    id: i + 1,
-    nome,
-    latitude: -27.59 + (Math.random() - 0.5) * 0.08,
-    longitude: -48.55 + (Math.random() - 0.5) * 0.08,
-    vagaId: vagas.length > 0 ? vagas[i % vagas.length].id : null,
-  }))
-}
 
 export default function Mapa() {
   const [vagas, setVagas] = useState([])
@@ -40,14 +15,10 @@ export default function Mapa() {
   useEffect(() => {
     async function buscarVagas() {
       try {
-        // ⚠️ TEMPORÁRIO — usa mock se USAR_VAGAS_MOCK for true, senão chama a API real
-        const data = USAR_VAGAS_MOCK ? VAGAS_MOCK : await listarVagas()
-
+        const data = await listarVagas() // ← agora centralizado no service
         setVagas(data)
-        setTalentosMock(gerarTalentosMock(data))
-        if (data.length > 0) {
-          setVagaSelecionada(data[0].id)
-        }
+        setTalentosMock(gerarTalentosMock(data)) // ainda aqui, mas só os talentos
+        if (data.length > 0) setVagaSelecionada(data[0].id)
       } catch (error) {
         console.error('Erro ao carregar vagas:', error)
       } finally {
@@ -56,7 +27,7 @@ export default function Mapa() {
     }
     buscarVagas()
   }, [])
-
+  
   const talentosFiltrados = talentosMock.filter(t => t.vagaId === vagaSelecionada)
   const top10 = talentosFiltrados.slice(0, 10)
   const vagaAtual = vagas.find(v => v.id === vagaSelecionada)

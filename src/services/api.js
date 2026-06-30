@@ -11,7 +11,9 @@ import axios from "axios"
 import { getAccessToken, limparAccessToken, setAccessToken } from "./tokenStore"
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000",
+  baseURL:
+    import.meta.env.VITE_API_URL ||
+    "https://app-bit-backend-production.up.railway.app",
   withCredentials: true, // permite o navegador enviar o cookie do refresh token
 })
 

@@ -18,6 +18,8 @@ export default function PainelPrincipal() {
     async function buscarDadosIA() {
       try {
         const res = await fetch("/api/ia/shortlist");
+        if (!res.ok) return;
+
         const data = await res.json();
         setDadosVindosDaIA(data);
       } catch (err) {

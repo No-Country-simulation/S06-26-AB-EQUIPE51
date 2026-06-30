@@ -8,7 +8,7 @@
 //   pra não entrar em loop infinito) e padroniza os outros status codes
 
 import axios from "axios"
-import { getAccessToken, setAccessToken, logout } from "./authService"
+import { getAccessToken, limparAccessToken, setAccessToken } from "./tokenStore"
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000",
@@ -35,6 +35,15 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config
     const status = error.response?.status
+    const url = originalRequest?.url ?? ""
+    const isAuthEndpoint =
+      url.includes("/auth/login") ||
+      url.includes("/auth/refresh") ||
+      url.includes("/auth/logout")
+
+    if (isAuthEndpoint) {
+      return Promise.reject(error)
+    }
 
     // 401 = token expirado. Tenta renovar UMA vez (flag _retry evita loop infinito
     // se o refresh também falhar e continuar voltando 401 pra sempre)
@@ -50,8 +59,7 @@ api.interceptors.response.use(
         return api(originalRequest)
       } catch (refreshError) {
         // se o refresh falhar, a sessão realmente acabou — desloga e força login
-        logout()
-        window.location.href = "/login"
+        limparAccessToken()
         return Promise.reject(refreshError)
       }
     }

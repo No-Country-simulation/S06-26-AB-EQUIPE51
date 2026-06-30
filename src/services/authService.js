@@ -8,19 +8,11 @@
 // o JS nem consegue ler ele diretamente).
 
 import api from "./api"
+import { limparAccessToken, setAccessToken } from "./tokenStore"
 
 // ── Token em memória ─────────────────────────────────────────
 // Variável "privada" do módulo. Não exportamos ela direto, só
 // as funções de get/set, pra controlar quem pode alterar.
-let accessTokenEmMemoria = null
-
-export function getAccessToken() {
-  return accessTokenEmMemoria
-}
-
-export function setAccessToken(token) {
-  accessTokenEmMemoria = token
-}
 
 // ── POST /auth/login ─────────────────────────────────────────
 // O backend retorna o access token no corpo da resposta e seta
@@ -62,6 +54,6 @@ export async function logout() {
     // ainda limpamos o estado local pra não deixar o usuário travado
     console.error("Erro ao deslogar no servidor:", error)
   } finally {
-    setAccessToken(null)
+    limparAccessToken()
   }
 }

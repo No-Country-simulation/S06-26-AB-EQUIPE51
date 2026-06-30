@@ -4,7 +4,30 @@ import { listarVagas } from '../../services/vagaService' // real
 import MapaCalor from '../../components/PainelPrincipalComponents/MapaCalor'
 import styles from '../../styles/mapa.module.css'
 
+const COORDENADAS_BASE = [
+  [-27.5954, -48.5480],
+  [-27.5901, -48.5523],
+  [-27.6037, -48.5371],
+  [-27.5812, -48.5650],
+  [-27.6120, -48.5308],
+  [-27.5746, -48.5414],
+  [-27.6011, -48.5587],
+  [-27.5864, -48.5262],
+  [-27.6202, -48.5488],
+  [-27.5688, -48.5561],
+]
 
+function gerarTalentosMock(vagas) {
+  return vagas.flatMap((vaga, vagaIndex) =>
+    COORDENADAS_BASE.map(([latitude, longitude], index) => ({
+      id: `${vaga.id}-talento-${index}`,
+      vagaId: vaga.id,
+      nome: `Talento ${index + 1}`,
+      latitude: latitude + vagaIndex * 0.006,
+      longitude: longitude - vagaIndex * 0.006,
+    }))
+  )
+}
 
 export default function Mapa() {
   const [vagas, setVagas] = useState([])

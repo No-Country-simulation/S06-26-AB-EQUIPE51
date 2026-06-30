@@ -1,10 +1,8 @@
-// src/components/MapaCalor/MapaCalor.jsx
-import { useEffect, useRef } from 'react'
-import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
-import 'leaflet.heat'
+import { useEffect, useMemo, useRef } from "react"
+import L from "leaflet"
+import "leaflet/dist/leaflet.css"
+import "leaflet.heat"
 
-// AJUSTAR: coordenada central do mapa — hoje fixo em Florianópolis
 const CENTRO_PADRAO = [-27.5954, -48.5480]
 const ZOOM_PADRAO = 12
 
@@ -14,14 +12,26 @@ export default function MapaCalor({ pontos }) {
   const heatLayerRef = useRef(null)
   const marcadoresRef = useRef([])
 
-  // cria o mapa uma única vez, quando o componente monta
+  const pontosValidos = useMemo(() => {
+    if (!Array.isArray(pontos)) return []
+
+    return pontos.filter((ponto) => {
+      const latitude = Number(ponto?.latitude)
+      const longitude = Number(ponto?.longitude)
+      return Number.isFinite(latitude) && Number.isFinite(longitude)
+    })
+  }, [pontos])
+
   useEffect(() => {
-    if (mapaRef.current) return // já existe, não recria
+    if (mapaRef.current || !containerRef.current) return
 
-    mapaRef.current = L.map(containerRef.current).setView(CENTRO_PADRAO, ZOOM_PADRAO)
+    mapaRef.current = L.map(containerRef.current).setView(
+      CENTRO_PADRAO,
+      ZOOM_PADRAO
+    )
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors',
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "OpenStreetMap contributors",
     }).addTo(mapaRef.current)
 
     return () => {
@@ -30,24 +40,26 @@ export default function MapaCalor({ pontos }) {
     }
   }, [])
 
-  // atualiza os pontos (heatmap + marcadores) sempre que "pontos" mudar
   useEffect(() => {
     if (!mapaRef.current) return
 
-    // remove a camada de calor anterior, se existir
     if (heatLayerRef.current) {
       mapaRef.current.removeLayer(heatLayerRef.current)
+      heatLayerRef.current = null
     }
-    // remove marcadores antigos
-    marcadoresRef.current.forEach(m => mapaRef.current.removeLayer(m))
+
+    marcadoresRef.current.forEach((marcador) => {
+      mapaRef.current?.removeLayer(marcador)
+    })
     marcadoresRef.current = []
 
-    if (!pontos || pontos.length === 0) return
+    if (pontosValidos.length === 0) return
 
-    // AJUSTAR: aqui assumo que cada ponto tem .latitude e .longitude
-    const dadosCalor = pontos
-      .filter(p => p.latitude && p.longitude)
-      .map(p => [p.latitude, p.longitude, 1]) // o "1" é a intensidade de cada ponto
+    const dadosCalor = pontosValidos.map((ponto) => [
+      Number(ponto.latitude),
+      Number(ponto.longitude),
+      1,
+    ])
 
     heatLayerRef.current = L.heatLayer(dadosCalor, {
       radius: 30,
@@ -55,22 +67,28 @@ export default function MapaCalor({ pontos }) {
       maxZoom: 14,
     }).addTo(mapaRef.current)
 
-    // adiciona um marcador (pino) por talento, igual ao print de referência
-    pontos.forEach(p => {
-      if (!p.latitude || !p.longitude) return
-      const marcador = L.circleMarker([p.latitude, p.longitude], {
-        radius: 6,
-        fillColor: '#000',
-        fillOpacity: 0.7,
-        color: '#fff',
-        weight: 1,
-      })
-        .bindPopup(p.nome ?? 'Talento') // AJUSTAR: campo de nome
+    pontosValidos.forEach((ponto) => {
+      const marcador = L.circleMarker(
+        [Number(ponto.latitude), Number(ponto.longitude)],
+        {
+          radius: 6,
+          fillColor: "#000",
+          fillOpacity: 0.7,
+          color: "#fff",
+          weight: 1,
+        }
+      )
+        .bindPopup(ponto.nome ?? "Talento")
         .addTo(mapaRef.current)
 
       marcadoresRef.current.push(marcador)
     })
-  }, [pontos])
+  }, [pontosValidos])
 
-  return <div ref={containerRef} style={{ width: '100%', height: '100%', minHeight: 320 }} />
+  return (
+    <div
+      ref={containerRef}
+      style={{ width: "100%", height: "100%", minHeight: 320 }}
+    />
+  )
 }

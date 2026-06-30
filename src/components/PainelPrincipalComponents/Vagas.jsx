@@ -1,35 +1,53 @@
-// Vagas.jsx
-import { useState, useEffect } from "react";
-import { listarVagas } from "../../services/vagaService";
-import styles from "../../styles/vagas.module.css";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+
+import { listarVagasDaEmpresa } from "../../services/vagaService"
+import { buscarUsuarioLogado } from "../../services/usuarioLogadoService"
+import styles from "../../styles/vagas.module.css"
+
+function normalizarVagas(data) {
+  if (Array.isArray(data)) return data
+  if (Array.isArray(data?.vagas)) return data.vagas
+  if (Array.isArray(data?.data)) return data.data
+  return []
+}
+
+function normalizarSkills(skills) {
+  if (Array.isArray(skills)) return skills
+  if (typeof skills === "string") {
+    return skills.split(",").map((skill) => skill.trim()).filter(Boolean)
+  }
+  return []
+}
 
 export default function Vagas() {
-  const [vagas, setVagas] = useState([]);
-  const [carregando, setCarregando] = useState(true);
-  const [erro, setErro] = useState(null);
+  const [vagas, setVagas] = useState([])
+  const [nomeEmpresa, setNomeEmpresa] = useState("Empresa")
+  const [carregando, setCarregando] = useState(true)
+  const [erro, setErro] = useState(null)
 
   useEffect(() => {
     async function buscarVagas() {
       try {
-        const data = await listarVagas();
+        setErro(null)
+        const usuario = await buscarUsuarioLogado()
+        const data = await listarVagasDaEmpresa(usuario?.empresa?.id)
 
-        console.log("Resposta da API:", data);
-        console.log("É um array?", Array.isArray(data));
-        setVagas(data);
+        setNomeEmpresa(usuario?.empresa?.nomeEmpresa ?? "Empresa")
+        setVagas(normalizarVagas(data))
       } catch (error) {
-        setErro("Não foi possível carregar as vagas.");
-        console.error(error);
+        setErro("Nao foi possivel carregar as vagas.")
+        console.error(error)
       } finally {
-        setCarregando(false);
+        setCarregando(false)
       }
     }
-    buscarVagas();
-  }, []);
+
+    buscarVagas()
+  }, [])
 
   return (
     <div className={styles.pagina}>
-      {/* Cabeçalho */}
       <header className={styles.header}>
         <div>
           <h1 className={styles.titulo}>Vagas da Empresa</h1>
@@ -39,21 +57,18 @@ export default function Vagas() {
         </div>
       </header>
 
-      {/* Faixa de identificação da empresa */}
       <div className={styles.faixaEmpresa}>
         <div>
           <strong className={styles.empresaTitulo}>Vagas Empresa</strong>
-          <p className={styles.empresaNome}>InclusiveTech</p>
+          <p className={styles.empresaNome}>{nomeEmpresa}</p>
         </div>
         <div className={styles.acoesEmpresa}>
-          {/* <button className={styles.btnAbrir}>Abrir</button> */}
           <Link to="/vagas/cadastro" className={styles.btnAdicionar}>
             Adicionar nova vaga
           </Link>
         </div>
       </div>
 
-      {/* Lista de vagas */}
       <section className={styles.bloco}>
         <div className={styles.blocoHeader}>
           <h3 className={styles.blocoTitulo}>Todas as vagas</h3>
@@ -64,57 +79,65 @@ export default function Vagas() {
           )}
         </div>
 
-        {/* Estado de carregamento */}
         {carregando && (
           <p className={styles.estadoVazio}>Carregando vagas...</p>
         )}
 
-        {/* Estado de erro */}
         {!carregando && erro && <p className={styles.estadoVazio}>{erro}</p>}
 
-        {/* Estado vazio (sem erro, mas sem vagas) */}
         {!carregando && !erro && vagas.length === 0 && (
           <p className={styles.estadoVazio}>Nenhuma vaga cadastrada ainda.</p>
         )}
 
-        {/* Grid de vagas */}
         {!carregando && !erro && vagas.length > 0 && (
           <div className={styles.grid}>
-            {vagas.map((vaga) => (
-              <div key={vaga.id} className={styles.vagaCard}>
-                <div className={styles.vagaTopo}>
-                  <strong className={styles.vagaTitulo}>{vaga.titulo}</strong>
+            {vagas.map((vaga) => {
+              const skills = normalizarSkills(vaga.skills)
 
-                  <span className={styles.statusBadge}>
-                    {vaga.ativo ? "Ativa" : "Inativa"}
-                  </span>
-                </div>
+              return (
+                <div key={vaga.id ?? vaga.titulo} className={styles.vagaCard}>
+                  <div className={styles.vagaTopo}>
+                    <strong className={styles.vagaTitulo}>
+                      {vaga.titulo ?? "Vaga sem titulo"}
+                    </strong>
 
-                <p className={styles.vagaInfo}>{vaga.cargo}</p>
-
-                <p className={styles.vagaInfo}>{vaga.modalidade}</p>
-
-                <p className={styles.vagaInfo}>{vaga.nivel}</p>
-
-                <p className={styles.vagaInfo}>{vaga.regiao}</p>
-
-                <div className={styles.skillsRow}>
-                  {vaga.skills.map((skill) => (
-                    <span key={skill} className={styles.skillTag}>
-                      {skill}
+                    <span className={styles.statusBadge}>
+                      {vaga.ativo === false ? "Inativa" : "Ativa"}
                     </span>
-                  ))}
+                  </div>
+
+                  <p className={styles.vagaInfo}>
+                    {vaga.cargo ?? "Cargo nao informado"}
+                  </p>
+                  <p className={styles.vagaInfo}>
+                    {vaga.modalidade ?? "Modalidade nao informada"}
+                  </p>
+                  <p className={styles.vagaInfo}>
+                    {vaga.nivel ?? "Nivel nao informado"}
+                  </p>
+                  <p className={styles.vagaInfo}>
+                    {vaga.regiao ?? "Regiao nao informada"}
+                  </p>
+
+                  {skills.length > 0 && (
+                    <div className={styles.skillsRow}>
+                      {skills.map((skill) => (
+                        <span key={skill} className={styles.skillTag}>
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </section>
 
-      {/* Aviso de rodapé */}
       <div className={styles.avisoRodape}>
-        ⓘ Conectado como InclusiveTech. Rotas protegidas e mapa agregado ativos.
+        Conectado como {nomeEmpresa}. Rotas protegidas e mapa agregado ativos.
       </div>
     </div>
-  );
+  )
 }

@@ -21,7 +21,7 @@ async function bootstrap() {
     origin: [
 
       'https://inclusivetech.up.railway.app',
-      'https://appbit-frontend-v1-teste-leticia-phi.vercel.app/',
+      'https://appbit-frontend-v1-teste-leticia-phi.vercel.app',
       'http://localhost:5173',
 
     ],

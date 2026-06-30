@@ -4,6 +4,7 @@ import { buscarUltimosRegistros } from "../../services/dashboardService"; // ←
 import styles from "../../styles/dashboard.module.css";
 import { buscarInsights } from "../../services/insightsService";
 import MapaCalor from "../../components/PainelPrincipalComponents/MapaCalor";
+import { obterUltimoMatch } from "../../services/matchIA";
 
 // ⚠️ MOCK — ainda não temos o formato confirmado de /dashboard/ultimos-registros
 // para as métricas. Mantido fixo por enquanto, só a lista de vagas abaixo
@@ -43,6 +44,84 @@ const METRICAS = [
 
 const GRUPOS_DISPONIVEIS = ["MULHER", "PCD", "NEGRO", "INDIGENA", "LGBTQIA+"];
 
+function obterListaCandidatos(data) {
+  if (data?.resposta) return obterListaCandidatos(data.resposta);
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data?.candidatos)) return data.candidatos;
+  if (Array.isArray(data?.matches)) return data.matches;
+  if (Array.isArray(data?.resultados)) return data.resultados;
+  if (Array.isArray(data?.data)) return data.data;
+  if (Array.isArray(data?.resultado?.candidatos)) return data.resultado.candidatos;
+  if (Array.isArray(data?.match?.candidatos)) return data.match.candidatos;
+  return [];
+}
+
+function obterTituloVagaUltimoMatch(data) {
+  return (
+    data?.payload?.vaga?.titulo ??
+    data?.vaga?.titulo ??
+    data?.resposta?.vaga?.titulo ??
+    data?.resposta?.payload?.vaga?.titulo ??
+    null
+  );
+}
+
+function obterScore(candidato) {
+  const valor =
+    candidato?.score ??
+    candidato?.score_match ??
+    candidato?.matchScore ??
+    candidato?.compatibilidade ??
+    candidato?.percentual ??
+    candidato?.nota ??
+    candidato?.notaFinal ??
+    candidato?.scoreFinal ??
+    candidato?.pontuacao ??
+    candidato?.candidato?.score ??
+    candidato?.candidato?.score_match ??
+    candidato?.candidato?.matchScore ??
+    candidato?.candidato?.compatibilidade ??
+    candidato?.candidato?.percentual ??
+    candidato?.candidato?.nota ??
+    candidato?.candidato?.notaFinal ??
+    candidato?.candidato?.scoreFinal ??
+    candidato?.candidato?.pontuacao ??
+    0;
+
+  const numero = Number(valor);
+  if (!Number.isFinite(numero)) return 0;
+
+  return numero > 0 && numero <= 1 ? numero * 100 : numero;
+}
+
+function formatarScore(candidato) {
+  const score = obterScore(candidato);
+  return Number.isInteger(score) ? `${score}%` : `${score.toFixed(1)}%`;
+}
+
+function obterNomeCandidato(candidato) {
+  return (
+    candidato?.nome ??
+    candidato?.candidato?.nome ??
+    candidato?.candidato_id ??
+    candidato?.nomeCompleto ??
+    candidato?.email ??
+    "Candidato"
+  );
+}
+
+function obterSkillsCandidato(candidato) {
+  const skills = candidato?.skills ?? candidato?.candidato?.skills ?? [];
+  if (Array.isArray(skills)) return skills.join(", ");
+  return skills;
+}
+
+function obterTop5UltimoMatch() {
+  return obterListaCandidatos(obterUltimoMatch())
+    .sort((a, b) => obterScore(b) - obterScore(a))
+    .slice(0, 5);
+}
+
 export default function Dashboard() {
   // ── Estado novo: dados reais da API ──────────────────────
   const [vagas, setVagas] = useState([]);
@@ -62,6 +141,14 @@ export default function Dashboard() {
 
   const [talentosMapa, setTalentosMapa] = useState([]);
   const [carregandoMapa, setCarregandoMapa] = useState(true);
+  const [melhoresCandidatos, setMelhoresCandidatos] = useState([]);
+  const [tituloVagaUltimoMatch, setTituloVagaUltimoMatch] = useState(null);
+
+  useEffect(() => {
+    const ultimoMatch = obterUltimoMatch();
+    setMelhoresCandidatos(obterTop5UltimoMatch());
+    setTituloVagaUltimoMatch(obterTituloVagaUltimoMatch(ultimoMatch));
+  }, []);
 
   // novo useEffect, separado do das vagas
   useEffect(() => {
@@ -275,17 +362,53 @@ export default function Dashboard() {
             {/* Melhores matches — sem mudanças, continua mock */}
             <section className={styles.bloco}>
               <div className={styles.blocoHeaderFlex}>
-                <h3 className={styles.blocoTitulo}>Melhores Matches</h3>
-                <span className={styles.badgeSemMatch}>Sem match</span>
+                <div>
+                  <p className={styles.vagaDisputada}>
+                    Vaga disputada:{" "}
+                    {tituloVagaUltimoMatch ?? "gere um match para carregar"}
+                  </p>
+                  <h3 className={styles.blocoTitulo}>
+                    Pesquisa ultima vaga
+                  </h3>
+                </div>
               </div>
               <p className={styles.avisoLgpd}>
                 Observação LGPD: exibimos nome, skills e score necessários para
                 o recrutamento. Dados sensíveis ficam protegidos pelo backend.
               </p>
-              <div className={styles.semDados}>
-                Nenhum candidato exibido. Gere um match para ver apenas
-                resultados autorizados da empresa logada.
-              </div>
+              {melhoresCandidatos.length === 0 && (
+                <div className={styles.semDados}>
+                  Nenhum candidato exibido. Gere um match para ver apenas
+                  resultados autorizados da empresa logada.
+                </div>
+              )}
+
+              {melhoresCandidatos.length > 0 && (
+                <div className={styles.listaMatchesDashboard}>
+                  {melhoresCandidatos.map((candidato, index) => (
+                    <div
+                      key={candidato.id ?? candidato.email ?? index}
+                      className={styles.matchItemDashboard}
+                    >
+                      <div>
+                        <strong className={styles.matchNomeDashboard}>
+                          {index + 1}. {obterNomeCandidato(candidato)}
+                        </strong>
+                        <p className={styles.matchSkillsDashboard}>
+                          {obterSkillsCandidato(candidato) ||
+                            "Skills nao informadas"}
+                        </p>
+                        <p className={styles.matchNotaDashboard}>
+                          Nota final por Score: {formatarScore(candidato)}
+                        </p>
+                      </div>
+                      <span className={styles.matchScoreDashboard}>
+                        {formatarScore(candidato)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </section>
           </div>
         </div>

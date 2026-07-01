@@ -1,0 +1,215 @@
+/* relatorioESG.module.css */
+
+.pagina {
+  font-family: var(--fonte);
+  background: var(--cor-bg-pagina);
+  min-height: 100%;
+}
+
+/* ── Cabeçalho ──────────────────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 32px;
+  background: #fff;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.titulo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.subtitulo {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  margin-top: 2px;
+}
+
+.btnOpcoes {
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--cor-texto-medio);
+  cursor: pointer;
+  font-family: var(--fonte);
+}
+
+/* ── Faixa Relatório ESG ────────────────────────────────── */
+.faixaEmpresa {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--cor-primaria-suave);
+  padding: 16px 32px;
+}
+
+.empresaTitulo {
+  font-size: 14px;
+  color: var(--cor-texto);
+}
+
+.empresaDesc {
+  font-size: 12px;
+  color: var(--cor-primaria-hover);
+  margin-top: 2px;
+}
+
+.badgeEmpresa {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: 6px 14px;
+  font-size: 12px;
+  color: var(--cor-texto);
+}
+
+/* ── Conteúdo ───────────────────────────────────────────── */
+.conteudo {
+  padding: 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Aviso alerta (laranja) ─────────────────────────────── */
+.avisoAlerta {
+  background: #fff;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #f59e0b;
+  border-radius: var(--raio-md);
+  padding: 16px 20px;
+  font-size: 13px;
+  color: var(--cor-texto);
+}
+
+.avisoAlerta p {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+/* ── Métricas ───────────────────────────────────────────── */
+.metricasGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.metricaCard {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricaLabel {
+  font-size: 12px;
+  color: var(--cor-primaria);
+}
+
+.metricaValor {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.metricaDesc {
+  font-size: 10px;
+  color: var(--cor-texto-fraco);
+}
+
+/* ── Duas colunas: privacidade + grupos ──────────────────── */
+.duasColunas {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 16px;
+}
+
+.bloco {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: 20px;
+}
+
+.blocoTitulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 10px;
+}
+
+.privacidadeTexto {
+  font-size: 12px;
+  color: var(--cor-texto-medio);
+  line-height: 1.7;
+}
+
+.gruposRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.grupoTag {
+  background: var(--cor-primaria-suave);
+  color: var(--cor-primaria-hover);
+  border-radius: var(--raio-pill);
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gruposTexto {
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+  line-height: 1.6;
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .metricasGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .duasColunas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header,
+  .faixaEmpresa,
+  .conteudo {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faixaEmpresa {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .metricasGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .metricasGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,290 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.page {
+  min-height: 100dvh;
+  width: 100%;
+  font-family: var(--fonte);
+  background: var(--cor-bg-pagina);
+}
+
+.nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.logo {
+  width: 8%;
+}
+
+.navLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.navLink {
+  font-family: var(--fonte);
+  font-size: 13px;
+  color: var(--cor-texto-medio);
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: var(--raio-pill);
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+
+.navLink:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.navLinkDestaque {
+  background: var(--cor-primaria);
+  color: #fff;
+  border-color: var(--cor-primaria);
+}
+
+.navLinkDestaque:hover {
+  background: var(--cor-primaria-hover);
+  border-color: var(--cor-primaria-hover);
+  color: #fff;
+}
+
+/* ===== Botão hambúrguer (escondido por padrão) ===== */
+.btnMenuOculto {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.btnMenu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.linhaMenu {
+  width: 100%;
+  height: 2px;
+  background: var(--cor-texto);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+/* ===== Overlay escuro de fundo ===== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+  z-index: 999;
+}
+
+.overlayAberto {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== Drawer lateral ===== */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(78vw, 320px);
+  background: #fff;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  gap: 8px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.drawerAberto {
+  transform: translateX(0);
+}
+
+.btnFechar {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  margin-bottom: 16px;
+  padding: 4px 8px;
+}
+
+.drawerLink {
+  font-family: var(--fonte);
+  font-size: 15px;
+  color: var(--cor-texto-medio);
+  text-decoration: none;
+  padding: 12px 8px;
+  border-radius: var(--raio-sm);
+  transition: background 0.15s;
+}
+
+.drawerLink:hover {
+  background: var(--cor-bg-pagina);
+}
+
+.drawerLinkDestaque {
+  background: var(--cor-primaria);
+  color: #fff;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.drawerLinkDestaque:hover {
+  background: var(--cor-primaria-hover);
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  min-height: 100vh;
+  padding: 0 100px;
+}
+
+/* ── Bloco das duas fotos sobrepostas ──────────────────── */
+.fotosWrap {
+  position: relative;
+  width: 45%;
+  height: 480px;
+  flex-shrink: 0;
+}
+
+.fotoGrande {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 90%;
+  border-radius: 0px 100px 0px 100px;
+  background:
+    linear-gradient(rgba(13, 55, 124, 0.1), rgba(13, 55, 124, 0.05)),
+    url('../assets/foto-sobre.jpg') center / cover no-repeat;
+}
+
+.fotoPequena {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 55%;
+  border: 6px solid var(--cor-bg-pagina);
+  border-radius: 100px 0px 100px 0px;
+  background:
+    linear-gradient(rgba(13, 55, 124, 0.1), rgba(13, 55, 124, 0.05)),
+    url('../assets/foto-sobre-2.jpg') center / cover no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Texto ──────────────────────────────────────────────── */
+.sobre {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tag {
+  font-family: var(--fonte);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+}
+
+.texto {
+  font-size: 22px;
+  font-family: var(--fonte);
+  color: var(--cor-texto);
+  line-height: 1.5;
+}
+
+.texto span {
+  font-size: 32px;
+  color: var(--cor-primaria);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.botaoHome {
+  align-self: flex-start;
+  padding: 14px 32px;
+  border-radius: 0px 0px 30px 0px;
+  background-color: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--fonte);
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 8px;
+}
+
+.botaoHome:hover {
+  background-color: var(--cor-primaria-hover);
+}
+
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    padding: 40px 24px;
+    gap: 40px;
+  }
+
+  .fotosWrap,
+  .sobre {
+    width: 100%;
+  }
+
+  .fotosWrap {
+    height: 380px;
+  }
+
+  .texto span {
+    font-size: 26px;
+  }
+}
+
+/* ===== Menu mobile: troca navLinks pelo hambúrguer ===== */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .btnMenu {
+    display: flex;
+  }
+
+  .logo {
+    width: 90px;
+  }
+}

@@ -1,0 +1,244 @@
+/* mapa.module.css */
+
+.pagina {
+  font-family: var(--fonte);
+  background: var(--cor-bg-pagina);
+  min-height: 100%;
+}
+
+/* ── Cabeçalho ──────────────────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 32px;
+  background: #fff;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.titulo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.subtitulo {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  margin-top: 2px;
+}
+
+.btnOpcoes {
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--cor-texto-medio);
+  cursor: pointer;
+  font-family: var(--fonte);
+}
+
+/* ── Layout colunas ─────────────────────────────────────── */
+.conteudo {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 16px;
+  padding: 20px 32px;
+}
+
+.colunaPrincipal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.colunaDireita {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Bloco do mapa ──────────────────────────────────────── */
+.bloco {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: 20px;
+}
+
+.blocoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.blocoTitulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.blocoSubtitulo {
+  font-size: 11px;
+  color: var(--cor-primaria);
+  margin-top: 2px;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.selectCidade,
+.btnFiltros {
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 7px 12px;
+  font-size: 12px;
+  color: var(--cor-texto-medio);
+  cursor: pointer;
+  font-family: var(--fonte);
+}
+
+/* ── Placeholder do mapa ────────────────────────────────── */
+.mapaPlaceholder {
+  height: 800px;
+  background: var(--cor-bg-pagina);
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-sm);
+  overflow: hidden; /* corta o mapa nos cantos arredondados */
+  position: relative; /* ajuda o Leaflet a se posicionar corretamente */
+}
+
+/* as mensagens de texto (Carregando, erro) precisam de uma classe própria agora */
+.mensagemCentral {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-texto-fraco);
+  font-size: 13px;
+}
+
+/* ── Visão geral ────────────────────────────────────────── */
+.visaoLabel {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.visaoNumero {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cor-sucesso);
+  margin-top: 4px;
+}
+
+.visaoDesc {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  margin-bottom: 12px;
+}
+
+.backendBadge {
+  background: #dcfce7;
+  border-radius: var(--raio-sm);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.backendBadge strong {
+  font-size: 12px;
+  color: var(--cor-sucesso);
+}
+
+.backendBadge span {
+  font-size: 10px;
+  color: #15803d;
+}
+
+/* ── Lista de usuários ──────────────────────────────────── */
+.usuariosTitulo {
+  font-size: 12px;
+  color: #d97706;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.listaUsuarios {
+  display: flex;
+  flex-direction: column;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.usuarioLinha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--cor-bg-pagina);
+  font-size: 12px;
+}
+
+.usuarioNum {
+  color: var(--cor-texto-fraco);
+  min-width: 16px;
+}
+
+.usuarioDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cor-primaria);
+  flex-shrink: 0;
+}
+
+.usuarioNome {
+  flex: 1;
+  color: var(--cor-texto-medio);
+}
+
+.usuarioQtd {
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .listaUsuarios {
+    max-height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header,
+  .conteudo {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .blocoHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mapaPlaceholder {
+    height: 280px;
+  }
+}

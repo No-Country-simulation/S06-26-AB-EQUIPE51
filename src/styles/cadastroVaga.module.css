@@ -1,0 +1,454 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.page {
+  background-color: var(--cor-bg-card);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+.pageContent {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnVoltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  align-self: flex-start;
+  background-color: var(--cor-primaria);
+  height: 36px;
+  width: auto;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  transition: background 0.15s;
+}
+
+.btnVoltar:hover {
+  background-color: var(--cor-primaria-hover);
+}
+
+.containerCards {
+  display: flex;
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0px 0px 0px 100px;
+  padding: 40px 36px 24px;
+  width: 100%;
+  max-width: 35%;
+  min-height: 70vh; /* min-height — cresce livremente, nunca corta */
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  z-index: 1;
+  /* SEM overflow: hidden — é isso que estava cortando o cabeçalho */
+}
+
+.painelLateral {
+  width: 30%;
+  min-height: 70vh;
+  background: linear-gradient(160deg, var(--cor-primaria) 0%, var(--cor-primaria-hover) 100%);
+  border-radius: 0 var(--raio-lg) var(--raio-lg) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  color: #fff;
+  font-family: var(--fonte);
+}
+
+.painelConteudo {
+  text-align: center;
+  color: #fff;
+  font-family: var(--fonte);
+}
+
+.painelConteudo h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.painelConteudo p {
+  font-size: 13px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.cabecalho {
+  text-align: center;
+  font-family: var(--fonte);
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+  margin-bottom: 6px;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 4px;
+}
+
+.subtitulo {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+}
+
+.form {
+  padding: 0 4px 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  /* sem overflow-y, sem flex: 1, sem min-height: 0 — bloco normal */
+}
+
+.linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-texto-medio);
+}
+
+.dica {
+  font-family: var(--fonte);
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  overflow: hidden;
+  font-family: var(--fonte);
+}
+
+.inputGroup input,
+.inputGroup select {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 14px;
+  height: 44px;
+  font-size: 14px;
+  background: transparent;
+  font-family: var(--fonte);
+}
+
+.inputGroup--erro {
+  border-color: var(--cor-borda-erro);
+}
+
+.erro {
+  font-family: var(--fonte);
+  font-size: 12px;
+  color: var(--cor-erro);
+}
+
+.skillInputWrapper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.skillInputWrapper .inputGroup {
+  flex: 1;
+}
+
+.btnAdicionar {
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  border-radius: var(--raio-sm);
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.btnAdicionar:hover {
+  background: var(--cor-primaria-hover);
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cor-primaria-suave);
+  border: 1px solid var(--cor-primaria);
+  color: var(--cor-primaria-hover);
+  border-radius: var(--raio-pill);
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--fonte);
+}
+
+.tagRemover {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cor-primaria);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0;
+}
+
+.sugestoesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sugestao {
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-pill);
+  padding: 4px 12px;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--fonte);
+  transition: all 0.15s;
+}
+
+.sugestao:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.btnSubmit {
+  width: 100%;
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  border-radius: var(--raio-sm);
+  height: 42px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 12px;
+  font-family: var(--fonte);
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.btnSubmit:hover:not(:disabled) {
+  background: var(--cor-primaria-hover);
+}
+
+.btnSubmit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1400px) {
+  .painelLateral {
+    display: none;
+  }
+  .card {
+    border-radius: var(--raio-lg);
+    max-width: clamp(50%, 90% - (1400px - 100vw) * -0.03, 90%);
+  }
+  .linha {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .form {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 850px) {
+  .painelLateral {
+    display: none;
+  }
+
+  .card {
+    border-radius: var(--raio-lg);
+    max-width: clamp(60%, 90% - (850px - 100vw) * -0.03, 90%);
+  }
+
+  .form {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .linha {
+    gap: 8px;
+  }
+
+  .grupo {
+    gap: 5px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .dica {
+    font-size: 11px;
+  }
+
+  .inputGroup input,
+  .inputGroup select {
+    height: 40px;
+    font-size: 13px;
+  }
+
+  .tagsContainer,
+  .sugestoesContainer {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .tag,
+  .sugestao {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .btnVoltar {
+    font-size: 10px;
+    padding: 0 10px;
+    margin-bottom: 12px;
+  }
+
+  .cabecalho {
+    margin-bottom: 6px;
+  }
+
+  .titulo {
+    font-size: 16px;
+  }
+
+  .subtitulo {
+    font-size: 11px;
+  }
+
+  .card {
+    padding: 20px 16px;
+    max-width: 100%;
+  }
+
+  .form {
+    gap: 10px;
+  }
+
+  .linha {
+    gap: 8px;
+  }
+
+  .grupo {
+    gap: 4px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .dica {
+    font-size: 10px;
+  }
+
+  .inputGroup {
+    height: 36px;
+  }
+
+  .inputGroup input,
+  .inputGroup select {
+    font-size: 11px;
+    height: 36px;
+    padding: 0 10px;
+  }
+
+  .skillInputWrapper {
+    gap: 6px;
+  }
+
+  .btnAdicionar {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .tagsContainer,
+  .sugestoesContainer {
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  .tag,
+  .sugestao {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .erro {
+    font-size: 10px;
+  }
+
+  .btnSubmit {
+    margin: 8px 0px;
+    font-size: 12px;
+    height: 36px;
+  }
+}

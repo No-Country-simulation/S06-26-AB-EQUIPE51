@@ -46,6 +46,19 @@ export class AuthController {
     );
   }
 
+  @Post('logout')
+  async logout(
+    @Body() body: Record<string, unknown>,
+    @Req() req: Request,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    return this.authService.logout(
+      body as RefreshTokenDto,
+      req,
+      res,
+    );
+  }
+
   @UseGuards(JwtAuthGuard)
   @Get('me')
   async me(@Req() req: Request) {

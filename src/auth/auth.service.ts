@@ -56,6 +56,20 @@ export class AuthService {
     });
   }
 
+  private limparCookieRefresh(
+    res: Response | undefined,
+  ) {
+    res?.clearCookie('appbit_refresh_token', {
+      path: '/',
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite:
+        process.env.NODE_ENV === 'production'
+          ? 'none'
+          : 'lax',
+    });
+  }
+
   private retornarAccessToken(tokens: {
     access_token: string;
     token_type: string;
@@ -356,5 +370,111 @@ export class AuthService {
         'Refresh token invalido ou expirado.',
       );
     }
+  }
+
+  async logout(
+    dto: RefreshTokenDto = {},
+    req?: Request,
+    res?: Response,
+  ) {
+    const refreshTokenBody =
+      typeof dto.refresh_token === 'string'
+        ? dto.refresh_token
+        : undefined;
+
+    const refreshToken =
+      refreshTokenBody ??
+      req?.cookies?.appbit_refresh_token;
+
+    this.limparCookieRefresh(res);
+
+    if (!refreshToken) {
+      return {
+        message: 'Logout realizado com sucesso.',
+      };
+    }
+
+    let usuarioId: string | undefined;
+
+    try {
+      const payload = await this.jwtService.verifyAsync(
+        refreshToken,
+        {
+          secret: this.refreshTokenSecret,
+        },
+      );
+
+      if (!payload?.sub || !payload?.jti) {
+        throw new UnauthorizedException(
+          'Refresh token invalido ou expirado.',
+        );
+      }
+
+      usuarioId = payload.sub;
+
+      const refreshTokenSalvo =
+        await this.prisma.refreshToken.findUnique({
+          where: {
+            jti: payload.jti,
+          },
+        });
+
+      if (
+        refreshTokenSalvo &&
+        refreshTokenSalvo.usuarioId === payload.sub &&
+        !refreshTokenSalvo.revogadoEm
+      ) {
+        const tokenValido = await bcrypt.compare(
+          refreshToken,
+          refreshTokenSalvo.tokenHash,
+        );
+
+        if (tokenValido) {
+          await this.prisma.refreshToken.update({
+            where: {
+              id: refreshTokenSalvo.id,
+            },
+            data: {
+              revogadoEm: new Date(),
+            },
+          });
+        }
+      }
+
+      await this.logsAuthService.registrar({
+        usuarioId,
+        acao: 'LOGOUT_SUCESSO',
+        sucesso: true,
+        ipOrigem: String(
+          req?.headers['x-forwarded-for'] ||
+            req?.ip ||
+            req?.socket.remoteAddress ||
+            '',
+        ),
+        userAgent: req?.headers[
+          'user-agent'
+        ] as string | undefined,
+      });
+    } catch {
+      await this.logsAuthService.registrar({
+        usuarioId,
+        acao: 'LOGOUT_FALHA',
+        sucesso: false,
+        motivo: 'REFRESH_INVALIDO',
+        ipOrigem: String(
+          req?.headers['x-forwarded-for'] ||
+            req?.ip ||
+            req?.socket.remoteAddress ||
+            '',
+        ),
+        userAgent: req?.headers[
+          'user-agent'
+        ] as string | undefined,
+      });
+    }
+
+    return {
+      message: 'Logout realizado com sucesso.',
+    };
   }
 }

@@ -167,7 +167,7 @@ model Candidato {
 
   regiao String
 
-  grupoDiversidade String?
+  gruposDiversidade String[] @default([])
 
   latitude  Float?
   longitude Float?
@@ -192,7 +192,6 @@ model Candidato {
   atualizadoEm DateTime @updatedAt
 
   @@index([regiao])
-  @@index([grupoDiversidade])
   @@map("candidatos")
 }
 

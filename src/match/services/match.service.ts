@@ -23,6 +23,18 @@ export class MatchService {
     return (valores || []).map((valor) => this.normalizarTexto(valor));
   }
 
+  private obterGruposDiversidade(candidato: any) {
+    if (Array.isArray(candidato.gruposDiversidade)) {
+      return candidato.gruposDiversidade;
+    }
+
+    if (candidato.grupoDiversidade) {
+      return [candidato.grupoDiversidade];
+    }
+
+    return [];
+  }
+
   private calcularPercentualSkills(
     skillsVaga: string[],
     skillsCandidato: string[],
@@ -94,8 +106,11 @@ export class MatchService {
       this.normalizarTexto(params.candidato.nivel) ===
       this.normalizarTexto(params.dto.vaga.nivel);
 
-    const diversidadeCompativel = params.gruposPrioritarios.includes(
-      this.normalizarTexto(params.candidato.grupoDiversidade),
+    const gruposDiversidade = this.normalizarLista(
+      this.obterGruposDiversidade(params.candidato),
+    );
+    const diversidadeCompativel = gruposDiversidade.some((grupo) =>
+      params.gruposPrioritarios.includes(grupo),
     );
 
     const scoreMobilidade = Math.max(
@@ -147,9 +162,9 @@ export class MatchService {
     }
 
     if (
-      params.gruposPrioritarios.includes(
-        this.normalizarTexto(params.candidato.grupoDiversidade),
-      )
+      this.normalizarLista(
+        this.obterGruposDiversidade(params.candidato),
+      ).some((grupo) => params.gruposPrioritarios.includes(grupo))
     ) {
       return 'DIVERSIDADE_ALINHADA';
     }
@@ -274,7 +289,7 @@ export class MatchService {
         score_tecnico: analise.score_tecnico,
         score_ordenacao_anti_vies: analise.score_ordenacao_anti_vies,
         diversidadeCompativel: analise.diversidadeCompativel,
-        badge_diversidade: 'PROTEGIDO',
+        badge_diversidade: this.obterGruposDiversidade(candidato),
         destaque: this.criarDestaque({
           score: analise.score_match,
           candidato,
@@ -289,7 +304,7 @@ export class MatchService {
               cargoDesejado: candidato.cargoDesejado,
             }
           : {}),
-        grupoDiversidade: candidato.grupoDiversidade,
+        gruposDiversidade: this.obterGruposDiversidade(candidato),
       };
     });
 
@@ -304,8 +319,8 @@ export class MatchService {
     );
 
     const totalDiversidade = shortlist.filter((candidato) =>
-      gruposPrioritarios.includes(
-        this.normalizarTexto(candidato.grupoDiversidade),
+      this.normalizarLista(candidato.gruposDiversidade).some((grupo) =>
+        gruposPrioritarios.includes(grupo),
       ),
     ).length;
 
@@ -318,7 +333,7 @@ export class MatchService {
       modalidade_vaga: dto.vaga.modalidade,
       candidatos: shortlist.map(
         ({
-          grupoDiversidade,
+          gruposDiversidade,
           score_tecnico,
           score_ordenacao_anti_vies,
           diversidadeCompativel,

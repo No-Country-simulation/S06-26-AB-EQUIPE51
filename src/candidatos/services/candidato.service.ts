@@ -27,11 +27,17 @@ export class CandidatoService {
 
 
   private readonly gruposPermitidos = [
-    'Genero',
+    'GENERO',
     'Raça/Etnia',
     'PCD',
     'LGBTQIA+',
-    'Geracional',
+    'RACA/ETNIA',
+    'GERACIONAL',
+    'INCLUSAO SOCIOECONOMICA',
+    'INCLUSAO HUMANITARIA',
+    'MULHER',
+    'NEGRO',
+    'INDIGENA',
     'Inclusão Socioeconômica',
     'Inclusão Humanitária',
   ];
@@ -41,7 +47,7 @@ export class CandidatoService {
     'nivel',
     'cargoDesejado',
     'regiao',
-    'grupoDiversidade',
+    'gruposDiversidade',
     'latitude',
     'longitude',
     'ageGroup',
@@ -59,6 +65,43 @@ export class CandidatoService {
     }
 
     return cargo;
+  }
+
+  private normalizarGruposDiversidade(dto: {
+    grupoDiversidade?: string;
+    gruposDiversidade?: string[];
+  }) {
+    if (
+      dto.gruposDiversidade === undefined &&
+      dto.grupoDiversidade !== undefined
+    ) {
+      dto.gruposDiversidade = [dto.grupoDiversidade];
+    }
+
+    delete dto.grupoDiversidade;
+
+    if (dto.gruposDiversidade === undefined) {
+      return;
+    }
+
+    dto.gruposDiversidade = dto.gruposDiversidade
+      .map((grupo) =>
+        grupo
+          .trim()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toUpperCase(),
+      )
+      .filter((grupo) => grupo.length > 0);
+    dto.gruposDiversidade = [...new Set(dto.gruposDiversidade)];
+
+    const grupoInvalido = dto.gruposDiversidade.find(
+      (grupo) => !this.gruposPermitidos.includes(grupo),
+    );
+
+    if (grupoInvalido) {
+      throw new BadRequestException('Grupo de diversidade invÃ¡lido.');
+    }
   }
 
   private selecionarCamposAuditaveis(origem: any) {
@@ -169,13 +212,7 @@ export class CandidatoService {
 
     dto.cargoDesejado = this.normalizarCargo(dto.cargoDesejado);
 
-    if (dto.grupoDiversidade !== undefined) {
-      dto.grupoDiversidade = dto.grupoDiversidade.trim().toUpperCase();
-
-      if (!this.gruposPermitidos.includes(dto.grupoDiversidade)) {
-        throw new BadRequestException('Grupo de diversidade inválido.');
-      }
-    }
+    this.normalizarGruposDiversidade(dto);
 
     const candidatoExistente = await this.repository.buscarPorEmail(dto.email);
 
@@ -289,13 +326,7 @@ export class CandidatoService {
       dto.cargoDesejado = this.normalizarCargo(dto.cargoDesejado);
     }
 
-    if (dto.grupoDiversidade !== undefined) {
-      dto.grupoDiversidade = dto.grupoDiversidade.trim().toUpperCase();
-
-      if (!this.gruposPermitidos.includes(dto.grupoDiversidade)) {
-        throw new BadRequestException('Grupo de diversidade inválido.');
-      }
-    }
+    this.normalizarGruposDiversidade(dto);
 
     const candidatoAtualizado = await this.repository.atualizar(id, dto);
 

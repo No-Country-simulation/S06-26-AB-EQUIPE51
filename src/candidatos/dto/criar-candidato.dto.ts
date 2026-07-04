@@ -37,6 +37,11 @@ export class CriarCandidatoDto {
   grupoDiversidade?: string;
 
   @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  gruposDiversidade?: string[];
+
+  @IsOptional()
   @IsNumber()
   latitude?: number;
 

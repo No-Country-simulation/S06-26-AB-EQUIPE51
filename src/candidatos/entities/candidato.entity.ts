@@ -21,7 +21,7 @@ export class CandidatoEntity {
 
   regiao!: string;
 
-  grupoDiversidade?: string;
+  gruposDiversidade!: string[];
 
   latitude?: number;
 

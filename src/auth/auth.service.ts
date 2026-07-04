@@ -153,7 +153,7 @@ export class AuthService {
             nivel: true,
             cargoDesejado: true,
             regiao: true,
-            grupoDiversidade: true,
+            gruposDiversidade: true,
             latitude: true,
             longitude: true,
             ativo: true,

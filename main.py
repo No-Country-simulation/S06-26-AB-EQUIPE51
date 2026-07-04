@@ -6,6 +6,7 @@ from src.agent.scoring import run_scoring
 from src.client.client import buscar_candidatos
 from src.agent.embeddings import get_model
 from prometheus_fastapi_instrumentator import Instrumentator
+"""from src.agent.schedules import schedule_tasks"""
 import psutil
 import os
 
@@ -60,4 +61,5 @@ def get_ram_usage():
 
 """
 @app.get("/notification")
+
 """

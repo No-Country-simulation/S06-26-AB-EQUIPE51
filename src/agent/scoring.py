@@ -1,7 +1,7 @@
 import numpy as np
 from typing import List, Tuple
 from src.schemas.schemas import Vaga, Candidato, CandidatoScore, CriterioExplicacao, MatchResponse
-from agent.embeddings import embed, cosine_similarity
+from .embeddings import embed, cosine_similarity
 
 PESOS = {
     "REMOTO":     {"cargo": 0.35, "skills": 0.40, "nivel": 0.15, "diversidade": 0.10, "mobilidade": 0.00},

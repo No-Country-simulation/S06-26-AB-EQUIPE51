@@ -444,9 +444,21 @@ files = [
 huggingface-hub = ">=0.20,<2.0"
 loguru = ">=0.7.2,<0.8.0"
 mmh3 = ">=4.1.0,<6.0.0"
-numpy = {version = ">=1.26", markers = "python_version == \"3.12\""}
-onnxruntime = {version = ">=1.17.0,<1.20.0 || >1.20.0,<1.24.0 || >1.24.0,<1.24.1 || >1.24.1", markers = "python_version >= \"3.11\" and python_version < \"3.13\""}
-pillow = {version = ">=10.3.0,<13.0", markers = "python_version >= \"3.10\" and python_version < \"3.13\""}
+numpy = [
+    {version = ">=1.26", markers = "python_version == \"3.12\""},
+    {version = ">=2.1.0", markers = "python_version == \"3.13\""},
+    {version = ">=2.3.0", markers = "python_version >= \"3.14\""},
+]
+onnxruntime = [
+    {version = ">1.21.0,<1.24.0 || >1.24.0,<1.24.1 || >1.24.1", markers = "python_version == \"3.13\""},
+    {version = ">=1.17.0,<1.20.0 || >1.20.0,<1.24.0 || >1.24.0,<1.24.1 || >1.24.1", markers = "python_version >= \"3.11\" and python_version < \"3.13\""},
+    {version = ">=1.24.2", markers = "python_version >= \"3.14\""},
+]
+pillow = [
+    {version = ">=11.0.0,<13.0", markers = "python_version == \"3.13\""},
+    {version = ">=10.3.0,<13.0", markers = "python_version >= \"3.10\" and python_version < \"3.13\""},
+    {version = ">=12.0.0,<13.0", markers = "python_version >= \"3.14\""},
+]
 py-rust-stemmers = ">=0.1.0,<0.2.0"
 requests = ">=2.31,<3.0"
 tokenizers = ">=0.15,<1.0"
@@ -996,7 +1008,10 @@ httpx-sse = ">=0.4.0,<1.0.0"
 langchain-classic = ">=1.0.7,<2.0.0"
 langchain-core = ">=1.4.0,<2.0.0"
 langsmith = ">=0.1.125,<1.0.0"
-numpy = {version = ">=1.26.2", markers = "python_version < \"3.13\""}
+numpy = [
+    {version = ">=1.26.2", markers = "python_version < \"3.13\""},
+    {version = ">=2.1.0", markers = "python_version >= \"3.13\""},
+]
 pydantic-settings = ">=2.10.1,<3.0.0"
 pyyaml = ">=5.3.0,<7.0.0"
 requests = ">=2.32.5,<3.0.0"
@@ -2412,6 +2427,18 @@ pygments = ">=2.13.0,<3.0.0"
 jupyter = ["ipywidgets (>=7.5.1,<9)"]
 
 [[package]]
+name = "schedules"
+version = "1.3"
+description = "Create non-blocking scheduled tasks."
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "schedules-1.3-py3-none-any.whl", hash = "sha256:36c2b57da125d275944d82c23eb59533b506253c8e08aefd302f51ae22ad3969"},
+    {file = "schedules-1.3.tar.gz", hash = "sha256:855621d01996ad3303dea930955ad9cd7c0841e848fcf6f52aa4415b16944d98"},
+]
+
+[[package]]
 name = "shellingham"
 version = "1.5.4"
 description = "Tool to Detect Surrounding Shell"
@@ -3328,5 +3355,5 @@ cffi = ["cffi (>=1.17,<2.0) ; platform_python_implementation != \"PyPy\" and pyt
 
 [metadata]
 lock-version = "2.1"
-python-versions = "=3.12.13"
-content-hash = "2d3cb091033d06ee4faab68c6b278b4715782be2bc887a25e215994ef7f3880b"
+python-versions = "^3.12.12"
+content-hash = "a0d2bd8f674ddb275124d43c6c070f21c65d5bc844b356af27d375c5ec888960"

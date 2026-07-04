@@ -28,7 +28,6 @@ app.add_middleware(
 Instrumentator().instrument(app).expose(app)
 
 @app.post("/match", response_model=MatchResponse)
-@app.post("/match", response_model=MatchResponse)
 async def match(body: MatchRequest) -> MatchResponse:
     try:
         candidatos = await buscar_candidatos(empresa_id=body.empresa_id, vaga=body.vaga)
@@ -46,9 +45,11 @@ async def match(body: MatchRequest) -> MatchResponse:
 
 @app.get("/health")
 def health():
-    return {"status": "ok", 
-            "nestjsUrl": os.getenv("NESTJS_URL", "Não encontrado"),
-            "nestjsToken": os.getenv("NESTJS_TOKEN", "Não encontrado")}
+    return {"status": "ok"}
+
+"""nestjsUrl": os.getenv("NESTJS_URL", "Não encontrado"),
+"nestjsToken": os.getenv("NESTJS_TOKEN", "Não encontrado"""
+
 
 @app.get("/ram")
 def get_ram_usage():
@@ -56,3 +57,7 @@ def get_ram_usage():
     ram_bytes = process.memory_info().rss  # Resident Set Size (RAM real instalada)
     ram_mb = ram_bytes / (1024 * 1024)     # Converte para Megabytes
     return {"ram_utilizada_mb": round(ram_mb, 2)}
+
+"""
+@app.get("/notification")
+"""

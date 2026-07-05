@@ -162,7 +162,7 @@ export class CandidatoService {
       return;
     }
 
-    if (usuario.role === 'ADMIN') {
+    if (usuario.role === 'ADMIN' || usuario.role === 'EMPRESA') {
       return;
     }
 

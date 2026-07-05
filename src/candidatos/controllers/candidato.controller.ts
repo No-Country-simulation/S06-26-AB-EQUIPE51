@@ -37,15 +37,15 @@ export class CandidatoController {
     return this.service.criar(dto, req);
   }
 
-  @Roles('ADMIN')
+  @Roles('EMPRESA', 'ADMIN')
   @UseGuards(UserOrIaAuthGuard, RolesGuard)
   @Get()
   listar() {
     return this.service.listar();
   }
 
-  @Roles('CANDIDATO')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('EMPRESA', 'CANDIDATO', 'ADMIN')
+  @UseGuards(UserOrIaAuthGuard, RolesGuard)
   @Get('me')
   buscarMeuPerfil(
     @Req() req: Request,
@@ -53,8 +53,8 @@ export class CandidatoController {
     return this.service.buscarMeuPerfil(req);
   }
 
-  @Roles('CANDIDATO', 'ADMIN')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('EMPRESA', 'CANDIDATO', 'ADMIN')
+  @UseGuards(UserOrIaAuthGuard, RolesGuard)
   @Get(':id')
   buscarPorId(
     @Param('id') id: string,

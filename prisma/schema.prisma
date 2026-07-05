@@ -33,7 +33,7 @@ enum Cargo {
 }
 
 model Usuario {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
   nome  String
   email String @unique
@@ -56,9 +56,9 @@ model Usuario {
 }
 
 model LogAuth {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  usuarioId String?
+  usuarioId String? @db.Uuid
 
   acao String
 
@@ -77,9 +77,9 @@ model LogAuth {
 }
 
 model RefreshToken {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  usuarioId String
+  usuarioId String @db.Uuid
 
   jti       String @unique
   tokenHash String
@@ -97,9 +97,9 @@ model RefreshToken {
 }
 
 model Empresa {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  usuarioId String @unique
+  usuarioId String @unique @db.Uuid
 
   nomeEmpresa String @unique
 
@@ -122,9 +122,9 @@ model Empresa {
 }
 
 model Vaga {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  empresaId String
+  empresaId String @db.Uuid
 
   titulo String
 
@@ -155,9 +155,9 @@ model Vaga {
 }
 
 model Candidato {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  usuarioId String @unique
+  usuarioId String @unique @db.Uuid
 
   skills String[]
 
@@ -196,9 +196,9 @@ model Candidato {
 }
 
 model LogAcessoCandidato {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  candidatoId String
+  candidatoId String @db.Uuid
 
   usuarioResponsavel String
 
@@ -216,9 +216,9 @@ model LogAcessoCandidato {
 }
 
 model LogCandidato {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  candidatoId String
+  candidatoId String @db.Uuid
 
   acao String
 
@@ -240,9 +240,9 @@ model LogCandidato {
 }
 
 model LogEmpresa {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  empresaId String
+  empresaId String @db.Uuid
 
   acao String
 
@@ -264,9 +264,9 @@ model LogEmpresa {
 }
 
 model LogVaga {
-  id String @id @default(uuid())
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 
-  vagaId String
+  vagaId String @db.Uuid
 
   acao String
 

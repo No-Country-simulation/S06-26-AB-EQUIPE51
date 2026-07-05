@@ -54,7 +54,7 @@ export class VagasController {
   }
 
   @Roles('EMPRESA', 'CANDIDATO', 'ADMIN')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(UserOrIaAuthGuard, RolesGuard)
   @Get('empresa/:empresaId')
   async listarPorEmpresa(
     @Param('empresaId')
@@ -68,7 +68,7 @@ export class VagasController {
   }
 
   @Roles('EMPRESA', 'CANDIDATO', 'ADMIN')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(UserOrIaAuthGuard, RolesGuard)
   @Get(':id')
   async buscarPorId(
     @Param('id') id: string,

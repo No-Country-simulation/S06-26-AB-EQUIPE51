@@ -31,8 +31,6 @@ async function criarEmpresas(senhaPadrao: string) {
 
   const empresas = [
     {
-      usuarioId: 'usuario-empresa-tech-diversity',
-      empresaId: 'empresa-tech-diversity',
       nome: 'Ana Souza',
       email: 'ana@techdiversity.com',
       nomeEmpresa: 'Tech Diversity',
@@ -40,7 +38,6 @@ async function criarEmpresas(senhaPadrao: string) {
       gruposPrioritarios: ['MULHER', 'PCD'],
       vagas: [
         {
-          id: 'vaga-backend-nestjs-bh',
           titulo: 'Backend NestJS',
           cargo: 'BACKEND_DEVELOPER',
           modalidade: 'HIBRIDO' as const,
@@ -51,7 +48,6 @@ async function criarEmpresas(senhaPadrao: string) {
           skills: ['NestJS', 'Prisma', 'PostgreSQL'],
         },
         {
-          id: 'vaga-frontend-react-bh',
           titulo: 'Frontend React',
           cargo: 'FRONTEND_DEVELOPER',
           modalidade: 'REMOTO' as const,
@@ -64,8 +60,6 @@ async function criarEmpresas(senhaPadrao: string) {
       ],
     },
     {
-      usuarioId: 'usuario-empresa-inova-brasil',
-      empresaId: 'empresa-inova-brasil',
       nome: 'Carlos Mendes',
       email: 'carlos@inovabrasil.com',
       nomeEmpresa: 'Inova Brasil',
@@ -73,7 +67,6 @@ async function criarEmpresas(senhaPadrao: string) {
       gruposPrioritarios: ['MULHER', 'LGBTQIA+'],
       vagas: [
         {
-          id: 'vaga-dados-recife',
           titulo: 'Analista de Dados',
           cargo: 'DATA_ANALYST',
           modalidade: 'HIBRIDO' as const,
@@ -84,7 +77,6 @@ async function criarEmpresas(senhaPadrao: string) {
           skills: ['Python', 'SQL', 'Power BI'],
         },
         {
-          id: 'vaga-ux-sao-paulo',
           titulo: 'UX Designer',
           cargo: 'UX_DESIGNER',
           modalidade: 'REMOTO' as const,
@@ -97,8 +89,6 @@ async function criarEmpresas(senhaPadrao: string) {
       ],
     },
     {
-      usuarioId: 'usuario-empresa-impacto-tech',
-      empresaId: 'empresa-impacto-tech',
       nome: 'Mariana Lima',
       email: 'mariana@impactotech.com',
       nomeEmpresa: 'Impacto Tech',
@@ -106,7 +96,6 @@ async function criarEmpresas(senhaPadrao: string) {
       gruposPrioritarios: ['MULHER', 'NEGRO', 'PCD'],
       vagas: [
         {
-          id: 'vaga-fullstack-rio',
           titulo: 'Desenvolvedor Full Stack',
           cargo: 'FULLSTACK_DEVELOPER',
           modalidade: 'HIBRIDO' as const,
@@ -117,7 +106,6 @@ async function criarEmpresas(senhaPadrao: string) {
           skills: ['React', 'NestJS', 'PostgreSQL'],
         },
         {
-          id: 'vaga-qa-salvador',
           titulo: 'QA Tester',
           cargo: 'QA_ENGINEER',
           modalidade: 'REMOTO' as const,
@@ -130,8 +118,6 @@ async function criarEmpresas(senhaPadrao: string) {
       ],
     },
     {
-      usuarioId: 'usuario-empresa-global-mining',
-      empresaId: 'empresa-global-mining',
       nome: 'Roberto Lima',
       email: 'roberto@globalmining.com',
       nomeEmpresa: 'Global Mining',
@@ -139,7 +125,6 @@ async function criarEmpresas(senhaPadrao: string) {
       gruposPrioritarios: ['NEGRO', 'INDIGENA'],
       vagas: [
         {
-          id: 'vaga-devops-manaus',
           titulo: 'DevOps Cloud',
           cargo: 'DEVOPS_ENGINEER',
           modalidade: 'PRESENCIAL' as const,
@@ -152,8 +137,6 @@ async function criarEmpresas(senhaPadrao: string) {
       ],
     },
     {
-      usuarioId: 'usuario-empresa-health-inclusive',
-      empresaId: 'empresa-health-inclusive',
       nome: 'Patricia Gomes',
       email: 'patricia@healthinclusive.com',
       nomeEmpresa: 'Health Inclusive',
@@ -161,7 +144,6 @@ async function criarEmpresas(senhaPadrao: string) {
       gruposPrioritarios: ['PCD', 'MULHER', 'LGBTQIA+'],
       vagas: [
         {
-          id: 'vaga-product-manager-curitiba',
           titulo: 'Product Manager',
           cargo: 'PRODUCT_MANAGER',
           modalidade: 'HIBRIDO' as const,
@@ -172,7 +154,6 @@ async function criarEmpresas(senhaPadrao: string) {
           skills: ['Produto', 'Scrum', 'Analytics'],
         },
         {
-          id: 'vaga-bi-brasilia',
           titulo: 'Analista BI',
           cargo: 'DATA_ANALYST',
           modalidade: 'REMOTO' as const,
@@ -185,8 +166,6 @@ async function criarEmpresas(senhaPadrao: string) {
       ],
     },
     {
-      usuarioId: 'usuario-empresa-fintech-verde',
-      empresaId: 'empresa-fintech-verde',
       nome: 'Helena Costa',
       email: 'helena@fintechverde.com',
       nomeEmpresa: 'Fintech Verde',
@@ -194,7 +173,6 @@ async function criarEmpresas(senhaPadrao: string) {
       gruposPrioritarios: ['NEGRO', 'MULHER'],
       vagas: [
         {
-          id: 'vaga-data-engineer-fortaleza',
           titulo: 'Data Engineer',
           cargo: 'DATA_ENGINEER',
           modalidade: 'REMOTO' as const,
@@ -205,7 +183,6 @@ async function criarEmpresas(senhaPadrao: string) {
           skills: ['Python', 'Airflow', 'PostgreSQL'],
         },
         {
-          id: 'vaga-mobile-flutter-poa',
           titulo: 'Mobile Flutter',
           cargo: 'MOBILE_DEVELOPER',
           modalidade: 'REMOTO' as const,
@@ -222,14 +199,12 @@ async function criarEmpresas(senhaPadrao: string) {
   for (const empresa of empresas) {
     await prisma.usuario.create({
       data: {
-        id: empresa.usuarioId,
         nome: empresa.nome,
         email: empresa.email,
         senha: senhaPadrao,
         role: 'EMPRESA',
         empresa: {
           create: {
-            id: empresa.empresaId,
             nomeEmpresa: empresa.nomeEmpresa,
             metaDiversidade: empresa.metaDiversidade,
             gruposPrioritarios: empresa.gruposPrioritarios,
@@ -248,7 +223,6 @@ async function criarEmpresas(senhaPadrao: string) {
 
   await prisma.usuario.create({
     data: {
-      id: 'usuario-empresa-inativa',
       nome: 'Empresa Inativa',
       email: 'inativa@appbit.com',
       senha: senhaPadrao,
@@ -256,7 +230,6 @@ async function criarEmpresas(senhaPadrao: string) {
       ativo: false,
       empresa: {
         create: {
-          id: 'empresa-inativa',
           nomeEmpresa: 'Empresa Inativa',
           metaDiversidade: 10,
           gruposPrioritarios: ['MULHER'],
@@ -273,14 +246,12 @@ async function criarUsuariosSistema(senhaPadrao: string) {
   await prisma.usuario.createMany({
     data: [
       {
-        id: 'usuario-admin',
         nome: 'Admin App BiT',
         email: 'admin@appbit.com',
         senha: senhaPadrao,
         role: 'ADMIN',
       },
       {
-        id: 'usuario-admin-auditoria',
         nome: 'Auditoria App BiT',
         email: 'auditoria@appbit.com',
         senha: senhaPadrao,
@@ -297,8 +268,6 @@ async function criarCandidatos(senhaPadrao: string) {
 
   const candidatos = [
     {
-      usuarioId: 'usuario-candidato-maria-silva',
-      candidatoId: 'candidato-maria-silva',
       nome: 'Maria Silva',
       email: 'maria.silva@email.com',
       cargoDesejado: 'BACKEND_DEVELOPER',
@@ -314,8 +283,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 88,
     },
     {
-      usuarioId: 'usuario-candidato-pedro-almeida',
-      candidatoId: 'candidato-pedro-almeida',
       nome: 'Pedro Almeida',
       email: 'pedro.almeida@email.com',
       cargoDesejado: 'BACKEND_DEVELOPER',
@@ -331,8 +298,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 74,
     },
     {
-      usuarioId: 'usuario-candidato-fernanda-rocha',
-      candidatoId: 'candidato-fernanda-rocha',
       nome: 'Fernanda Rocha',
       email: 'fernanda.rocha@email.com',
       cargoDesejado: 'FRONTEND_DEVELOPER',
@@ -348,8 +313,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 81,
     },
     {
-      usuarioId: 'usuario-candidato-joao-santos',
-      candidatoId: 'candidato-joao-santos',
       nome: 'Joao Santos',
       email: 'joao.santos@email.com',
       cargoDesejado: 'BACKEND_DEVELOPER',
@@ -365,8 +328,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 69,
     },
     {
-      usuarioId: 'usuario-candidato-camila-oliveira',
-      candidatoId: 'candidato-camila-oliveira',
       nome: 'Camila Oliveira',
       email: 'camila.oliveira@email.com',
       cargoDesejado: 'UX_DESIGNER',
@@ -382,8 +343,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 55,
     },
     {
-      usuarioId: 'usuario-candidato-larissa-costa',
-      candidatoId: 'candidato-larissa-costa',
       nome: 'Larissa Costa',
       email: 'larissa.costa@email.com',
       cargoDesejado: 'FULLSTACK_DEVELOPER',
@@ -399,8 +358,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 77,
     },
     {
-      usuarioId: 'usuario-candidato-aline-barbosa',
-      candidatoId: 'candidato-aline-barbosa',
       nome: 'Aline Barbosa',
       email: 'aline.barbosa@email.com',
       cargoDesejado: 'DATA_ANALYST',
@@ -416,8 +373,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 72,
     },
     {
-      usuarioId: 'usuario-candidato-rafael-martins',
-      candidatoId: 'candidato-rafael-martins',
       nome: 'Rafael Martins',
       email: 'rafael.martins@email.com',
       cargoDesejado: 'DATA_ANALYST',
@@ -433,8 +388,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 84,
     },
     {
-      usuarioId: 'usuario-candidato-diego-pereira',
-      candidatoId: 'candidato-diego-pereira',
       nome: 'Diego Pereira',
       email: 'diego.pereira@email.com',
       cargoDesejado: 'BACKEND_DEVELOPER',
@@ -450,8 +403,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 42,
     },
     {
-      usuarioId: 'usuario-candidato-bruno-ferreira',
-      candidatoId: 'candidato-bruno-ferreira',
       nome: 'Bruno Ferreira',
       email: 'bruno.ferreira@email.com',
       cargoDesejado: 'DEVOPS_ENGINEER',
@@ -467,8 +418,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 90,
     },
     {
-      usuarioId: 'usuario-candidato-yara-tukano',
-      candidatoId: 'candidato-yara-tukano',
       nome: 'Yara Tukano',
       email: 'yara.tukano@email.com',
       cargoDesejado: 'DEVOPS_ENGINEER',
@@ -484,8 +433,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 68,
     },
     {
-      usuarioId: 'usuario-candidato-thais-nascimento',
-      candidatoId: 'candidato-thais-nascimento',
       nome: 'Thais Nascimento',
       email: 'thais.nascimento@email.com',
       cargoDesejado: 'QA_ENGINEER',
@@ -501,8 +448,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 73,
     },
     {
-      usuarioId: 'usuario-candidato-sem-grupo',
-      candidatoId: 'candidato-sem-grupo',
       nome: 'Candidato Sem Grupo',
       email: 'sem.grupo@email.com',
       cargoDesejado: 'DATA_ANALYST',
@@ -518,8 +463,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 30,
     },
     {
-      usuarioId: 'usuario-candidato-priscila-alves',
-      candidatoId: 'candidato-priscila-alves',
       nome: 'Priscila Alves',
       email: 'priscila.alves@email.com',
       cargoDesejado: 'PRODUCT_MANAGER',
@@ -535,8 +478,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 86,
     },
     {
-      usuarioId: 'usuario-candidato-renata-campos',
-      candidatoId: 'candidato-renata-campos',
       nome: 'Renata Campos',
       email: 'renata.campos@email.com',
       cargoDesejado: 'PRODUCT_MANAGER',
@@ -552,8 +493,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 70,
     },
     {
-      usuarioId: 'usuario-candidato-lucas-menezes',
-      candidatoId: 'candidato-lucas-menezes',
       nome: 'Lucas Menezes',
       email: 'lucas.menezes@email.com',
       cargoDesejado: 'DATA_ANALYST',
@@ -569,8 +508,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 82,
     },
     {
-      usuarioId: 'usuario-candidato-samira-rodrigues',
-      candidatoId: 'candidato-samira-rodrigues',
       nome: 'Samira Rodrigues',
       email: 'samira.rodrigues@email.com',
       cargoDesejado: 'DATA_ANALYST',
@@ -586,8 +523,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 48,
     },
     {
-      usuarioId: 'usuario-candidato-andre-luiz',
-      candidatoId: 'candidato-andre-luiz',
       nome: 'Andre Luiz',
       email: 'andre.luiz@email.com',
       cargoDesejado: 'DATA_ENGINEER',
@@ -603,8 +538,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 89,
     },
     {
-      usuarioId: 'usuario-candidato-natalia-freitas',
-      candidatoId: 'candidato-natalia-freitas',
       nome: 'Natalia Freitas',
       email: 'natalia.freitas@email.com',
       cargoDesejado: 'DATA_ENGINEER',
@@ -620,8 +553,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 66,
     },
     {
-      usuarioId: 'usuario-candidato-eduardo-souza',
-      candidatoId: 'candidato-eduardo-souza',
       nome: 'Eduardo Souza',
       email: 'eduardo.souza@email.com',
       cargoDesejado: 'MOBILE_DEVELOPER',
@@ -637,8 +568,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 84,
     },
     {
-      usuarioId: 'usuario-candidato-bianca-ramos',
-      candidatoId: 'candidato-bianca-ramos',
       nome: 'Bianca Ramos',
       email: 'bianca.ramos@email.com',
       cargoDesejado: 'MOBILE_DEVELOPER',
@@ -654,8 +583,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 71,
     },
     {
-      usuarioId: 'usuario-candidato-marcos-vieira',
-      candidatoId: 'candidato-marcos-vieira',
       nome: 'Marcos Vieira',
       email: 'marcos.vieira@email.com',
       cargoDesejado: 'BACKEND_DEVELOPER',
@@ -671,8 +598,6 @@ async function criarCandidatos(senhaPadrao: string) {
       scoreMobilidade: 78,
     },
     {
-      usuarioId: 'usuario-candidato-isis-pereira',
-      candidatoId: 'candidato-isis-pereira',
       nome: 'Isis Pereira',
       email: 'isis.pereira@email.com',
       cargoDesejado: 'QA_ENGINEER',
@@ -692,14 +617,12 @@ async function criarCandidatos(senhaPadrao: string) {
   for (const candidato of candidatos) {
     await prisma.usuario.create({
       data: {
-        id: candidato.usuarioId,
         nome: candidato.nome,
         email: candidato.email,
         senha: senhaPadrao,
         role: 'CANDIDATO',
         candidato: {
           create: {
-            id: candidato.candidatoId,
             skills: candidato.skills,
             nivel: candidato.nivel,
             cargoDesejado: candidato.cargoDesejado as Cargo,
@@ -719,7 +642,6 @@ async function criarCandidatos(senhaPadrao: string) {
 
   await prisma.usuario.create({
     data: {
-      id: 'usuario-candidato-inativo',
       nome: 'Candidato Inativo',
       email: 'candidato.inativo@email.com',
       senha: senhaPadrao,
@@ -727,7 +649,6 @@ async function criarCandidatos(senhaPadrao: string) {
       ativo: false,
       candidato: {
         create: {
-          id: 'candidato-inativo',
           skills: ['Python', 'SQL', 'Power BI'],
           nivel: 'PLENO',
           cargoDesejado: 'DATA_ANALYST',
@@ -760,23 +681,23 @@ function imprimirResumo() {
   console.log('');
   console.log('Cenarios de teste:');
   console.log('1. /match dados Recife');
-  console.log('   empresa_id: empresa-inova-brasil');
+  console.log('   use o id UUID da empresa Inova Brasil retornado pela API');
   console.log('   vaga: Python, SQL, Power BI | PLENO | Recife');
   console.log('   esperado: Rafael score 99 MULHER/LGBTQIA+ ALTA_COMPATIBILIDADE');
   console.log('   esperado: Aline score 84 PCD TALENTO_REGIONAL');
   console.log('');
   console.log('2. /match backend BH');
-  console.log('   empresa_id: empresa-tech-diversity');
+  console.log('   use o id UUID da empresa Tech Diversity retornado pela API');
   console.log('   vaga: NestJS, Prisma, PostgreSQL | PLENO | Belo Horizonte');
   console.log('   esperado: Maria no topo e Pedro bem posicionado');
   console.log('');
   console.log('3. Isolamento por empresa');
-  console.log('   token Carlos nao deve acessar empresa-tech-diversity por ID');
+  console.log('   token Carlos nao deve acessar empresas de outro usuario por ID');
   console.log('   admin deve acessar todas');
   console.log('');
   console.log('4. /match novos cenarios');
-  console.log('   empresa_id: empresa-health-inclusive | Produto/BI');
-  console.log('   empresa_id: empresa-fintech-verde | Data Engineer/Mobile');
+  console.log('   Health Inclusive | Produto/BI');
+  console.log('   Fintech Verde | Data Engineer/Mobile');
 }
 
 async function main() {

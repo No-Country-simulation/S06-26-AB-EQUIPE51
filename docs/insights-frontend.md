@@ -6,10 +6,10 @@ Este documento explica como o front deve consumir a tela de insights por vaga.
 
 A tela de insights deve mostrar candidatos relacionados a uma vaga especifica da empresa logada.
 
-Exemplo: se a empresa `ana@techdiversity.com` possui a vaga `vaga-backend-nestjs-bh`, o front deve chamar:
+Exemplo: se a empresa `ana@techdiversity.com` possui uma vaga, o front deve usar o UUID retornado por `GET /vagas`:
 
 ```http
-GET /insights?vagaId=vaga-backend-nestjs-bh
+GET /insights?vagaId=UUID_DA_VAGA
 ```
 
 Assim, o backend retorna apenas candidatos ativos cujo `cargoDesejado` seja igual ao `cargo` da vaga.
@@ -46,15 +46,15 @@ Exemplo de item retornado:
 
 ```json
 {
-  "id": "vaga-backend-nestjs-bh",
-  "empresaId": "empresa-tech-diversity",
+  "id": "UUID_DA_VAGA",
+  "empresaId": "UUID_DA_EMPRESA",
   "titulo": "Backend NestJS",
   "cargo": "BACKEND_DEVELOPER",
   "modalidade": "HIBRIDO",
   "nivel": "PLENO",
-  "regiao": "Belo Horizonte",
-  "latitude": -19.9167,
-  "longitude": -43.9345,
+  "regiao": "Florianopolis",
+  "latitude": -27.590569,
+  "longitude": -48.557111,
   "skills": ["NestJS", "Prisma", "PostgreSQL"]
 }
 ```
@@ -72,7 +72,7 @@ const vagaId = vagaSelecionada.id;
 4. Buscar insights da vaga escolhida.
 
 ```http
-GET /insights?vagaId=vaga-backend-nestjs-bh
+GET /insights?vagaId=UUID_DA_VAGA
 Authorization: Bearer ACCESS_TOKEN
 ```
 
@@ -198,7 +198,7 @@ async function selecionarVaga(vagaId: string) {
 
 ## Observacao importante
 
-O endpoint antigo continua funcionando:
+O endpoint sem `vagaId` continua funcionando:
 
 ```http
 GET /insights

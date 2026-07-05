@@ -1,7 +1,61 @@
 import { Cargo, PrismaClient } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 const prisma = new PrismaClient();
+
+type CandidatoSeed = {
+  nome: string;
+  email: string;
+  cargoDesejado: string;
+  skills: string[];
+  nivel: string;
+  regiao: string;
+  grupoDiversidade?: string | null;
+  gruposDiversidade?: string[];
+  latitude?: number | null;
+  longitude?: number | null;
+  ageGroup?: string | null;
+  incomeCluster?: string | null;
+  mobilityPattern?: string | null;
+  scoreMobilidade?: number | null;
+};
+
+function carregarCandidatosNoCountry(
+  cidadePadrao: string,
+): CandidatoSeed[] | null {
+  const arquivo = path.resolve(
+    __dirname,
+    '..',
+    'data',
+    'cdrview',
+    'processados',
+    'candidatos_mobilidade_100.json',
+  );
+
+  if (!fs.existsSync(arquivo)) {
+    return null;
+  }
+
+  const candidatos = JSON.parse(
+    fs.readFileSync(arquivo, 'utf8'),
+  ) as CandidatoSeed[];
+
+  if (!Array.isArray(candidatos) || candidatos.length === 0) {
+    return null;
+  }
+
+  return candidatos.map((candidato) => ({
+    ...candidato,
+    regiao: candidato.regiao || cidadePadrao,
+    gruposDiversidade:
+      candidato.gruposDiversidade ??
+      (candidato.grupoDiversidade
+        ? [candidato.grupoDiversidade]
+        : []),
+  }));
+}
 
 async function limparBanco() {
   console.log('Limpando banco...');
@@ -270,7 +324,7 @@ async function criarCandidatos(senhaPadrao: string) {
 
   const cidadeTalentos = 'Florianopolis';
 
-  const candidatos = [
+  const candidatos = carregarCandidatosNoCountry(cidadeTalentos) ?? [
     {
       nome: 'Maria Silva',
       email: 'maria.silva@email.com',

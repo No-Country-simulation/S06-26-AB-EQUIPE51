@@ -1,0 +1,12 @@
+{
+  "geradoEm": "2026-06-30T17:54:50.242Z",
+  "fonte": "data/cdrview",
+  "totalClusters": 28,
+  "totalAssinantes": 200000,
+  "arquivosUsados": [
+    "data\\cdrview\\antenas_flp.csv",
+    "data\\cdrview\\assinantes.csv",
+    "data\\cdrview\\tensor_fluxo_vias.csv",
+    "data\\cdrview\\tensor_tempo_deslocamento.csv"
+  ]
+}

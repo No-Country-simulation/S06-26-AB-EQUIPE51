@@ -28,18 +28,15 @@ export class CandidatoService {
 
   private readonly gruposPermitidos = [
     'GENERO',
-    'Raça/Etnia',
+    'RACA/ETNIA',
     'PCD',
     'LGBTQIA+',
-    'RACA/ETNIA',
     'GERACIONAL',
     'INCLUSAO SOCIOECONOMICA',
     'INCLUSAO HUMANITARIA',
     'MULHER',
     'NEGRO',
     'INDIGENA',
-    'Inclusão Socioeconômica',
-    'Inclusão Humanitária',
   ];
   
   private readonly camposAuditaveis = [

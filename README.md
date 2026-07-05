@@ -294,7 +294,7 @@ O cargo é filtrado antes do cálculo: somente candidatos cujo `cargoDesejado` c
 
 Em vagas remotas, região, coordenadas e mobilidade não influenciam o score. A resposta inclui `modalidade_vaga`, `candidato_id`, nome, score, destaque, `badge_diversidade`, `motivos`, o campo legado `explicacao`, skills, cargo desejado, total analisado e diversidade alcançada.
 
-O campo `candidato_id` no retorno do `/match` é o UUID real do candidato no banco. Ele pode ser usado pelo front em `GET /candidatos/:id`. O backend não retorna mais identificadores temporários como `MATCH_1`, `MATCH_2` ou `MATCH_6`.
+
 
 A API IA também pode executar `/match` usando `IA_INTERNAL_TOKEN`.
 
@@ -410,9 +410,6 @@ Importante: `npx prisma db seed` limpa tabelas antes de recriar os dados. Confir
 | `npm run start:dev`  | Inicia em desenvolvimento com recarga automática. |
 | `npm run build`      | Compila o projeto.                                |
 | `npm run start:prod` | Executa a versão compilada.                       |
-| `npm test`           | Executa os testes unitários.                      |
-| `npm run test:e2e`   | Executa os testes de ponta a ponta.               |
-| `npm run test:cov`   | Executa os testes e gera cobertura.               |
 | `npm run mobilidade:importar-candidatos` | Importa ou atualiza candidatos da amostra No-Country sem limpar o banco. |
 | `npm run mobilidade:processar` | Reprocessa agregados CDRView quando os CSVs fonte estiverem em `data/cdrview`. |
 | `npm run mobilidade:gerar-candidatos` | Gera nova amostra `candidatos_mobilidade_N.json` a partir dos dados processados. |

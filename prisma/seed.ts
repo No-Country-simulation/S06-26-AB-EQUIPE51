@@ -54,7 +54,7 @@ async function criarEmpresas(senhaPadrao: string) {
         {
           titulo: 'Frontend React',
           cargo: 'FRONTEND_DEVELOPER',
-          modalidade: 'REMOTO' as const,
+          modalidade: 'HIBRIDO' as const,
           nivel: 'PLENO',
           regiao: cidadePadrao,
           latitude: latitudePadrao,
@@ -646,11 +646,10 @@ async function criarCandidatos(senhaPadrao: string) {
 
   await prisma.usuario.create({
     data: {
-      nome: 'Candidato Inativo',
-      email: 'candidato.inativo@email.com',
+      nome: 'Candidato Extra',
+      email: 'candidato.extra@email.com',
       senha: senhaPadrao,
       role: 'CANDIDATO',
-      ativo: false,
       candidato: {
         create: {
           skills: ['Python', 'SQL', 'Power BI'],
@@ -664,7 +663,6 @@ async function criarCandidatos(senhaPadrao: string) {
           incomeCluster: 'C',
           mobilityPattern: 'INTENSA',
           scoreMobilidade: 100,
-          ativo: false,
         },
       },
     },

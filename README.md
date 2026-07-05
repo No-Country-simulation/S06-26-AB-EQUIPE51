@@ -2,6 +2,26 @@
 
 Backend do App-BiT, uma plataforma de recrutamento que conecta empresas e candidatos por compatibilidade técnica, localização, mobilidade e objetivos de diversidade.
 
+## Estado validado em produção
+
+Última base validada:
+
+| Item | Valor |
+| --- | ---: |
+| Candidatos ativos | 124 |
+| Candidatos importados da fonte No-Country/CDRView | 100 |
+| Candidatos `BACKEND_DEVELOPER` | 30 |
+| Candidatos `FRONTEND_DEVELOPER` | 14 |
+
+Vagas principais usadas nos testes com a empresa `Tech Diversity`:
+
+| Vaga | Cargo | `vagaId` | Resultado em `/insights` |
+| --- | --- | --- | ---: |
+| Backend NestJS | `BACKEND_DEVELOPER` | `144a24b9-d73a-41d5-bf6f-fef735a2a8e4` | 30 candidatos |
+| Frontend React | `FRONTEND_DEVELOPER` | `7589370f-f5af-404d-86bf-f21be1fc6695` | 14 candidatos |
+
+Esses IDs são úteis para teste em produção. Em outros bancos ou após nova seed, use sempre os IDs retornados por `GET /vagas`.
+
 ## Funcionalidades
 
 - Cadastro e gerenciamento de empresas, candidatos e vagas.
@@ -284,6 +304,66 @@ Quando `vagaId` é enviado em `/insights?vagaId=ID_DA_VAGA`, o backend valida se
 
 `/match` e `/insights?vagaId=...` usam o mesmo critério base de elegibilidade por cargo da vaga, mas não retornam o mesmo contrato. `/match` retorna ranking com score, destaque, motivos e diversidade alcançada. `/insights?vagaId=...` retorna os candidatos compatíveis no formato de mapa/lista, sem score e sem ordenação por ranking.
 
+### Manual rápido para o front
+
+Fluxo recomendado para a página de Insights:
+
+1. Fazer login da empresa em `POST /auth/login`.
+2. Listar vagas da empresa logada em `GET /vagas`.
+3. Guardar o `id` da vaga escolhida pelo usuário.
+4. Chamar `GET /insights?vagaId=ID_DA_VAGA`.
+5. Renderizar `mapa_talentos` no mapa ou lista lateral.
+
+O front não precisa enviar `cargo` para `/insights`. O backend resolve o fluxo internamente:
+
+```text
+vagaId -> busca vaga -> lê cargo da vaga -> filtra candidatos por cargoDesejado
+```
+
+Exemplo Backend:
+
+```http
+GET /insights?vagaId=144a24b9-d73a-41d5-bf6f-fef735a2a8e4
+Authorization: Bearer ACCESS_TOKEN
+```
+
+Retorno validado:
+
+```json
+{
+  "total_regioes": 30,
+  "total_candidatos": 30
+}
+```
+
+Exemplo Frontend:
+
+```http
+GET /insights?vagaId=7589370f-f5af-404d-86bf-f21be1fc6695
+Authorization: Bearer ACCESS_TOKEN
+```
+
+Retorno validado:
+
+```json
+{
+  "total_regioes": 14,
+  "total_candidatos": 14
+}
+```
+
+Campos da resposta:
+
+| Campo | Uso no front |
+| --- | --- |
+| `mapa_talentos` | Lista de pontos/candidatos para mapa ou lista lateral. |
+| `regiao` | Nome do candidato no modo filtrado por vaga. |
+| `lat` / `lon` | Coordenadas do ponto no mapa. |
+| `concentracao` | Valor fixo `1` por candidato retornado. |
+| `perfis_disponiveis` | Valor fixo `1` por candidato retornado. |
+| `total_candidatos` | Total de candidatos compatíveis com a vaga. |
+| `total_regioes` | Total de pontos retornados. |
+
 ## Auditoria e segurança
 
 - Senhas são armazenadas com hash bcrypt.
@@ -306,9 +386,15 @@ Essas credenciais são exclusivamente para ambiente local.
 
 Os IDs são gerados automaticamente pelo PostgreSQL como UUID. Use os IDs retornados pelas rotas de listagem para chamadas por ID, como `/vagas/:id`, `/candidatos/:id`, `/empresas/:id` e `/insights?vagaId=...`.
 
-A seed usa automaticamente a amostra processada da fonte No-Country/CDRView quando o arquivo `data/cdrview/processados/candidatos_mobilidade_100.json` existe. Essa amostra popula 100 candidatos ficticios com dados agregados de mobilidade, mantendo UUID gerado pelo PostgreSQL e sem usar `assinante_hash` como ID do sistema.
+A seed usa automaticamente a amostra processada da fonte No-Country/CDRView quando o arquivo `data/cdrview/processados/candidatos_mobilidade_100.json` existe. Essa amostra popula 100 candidatos fictícios com dados agregados de mobilidade, mantendo UUID gerado pelo PostgreSQL e sem usar `assinante_hash` como ID do sistema.
 
-Importante: `npx prisma db seed` limpa tabelas antes de recriar os dados. Confira o `DATABASE_URL` antes de executar, principalmente se o `.env` estiver apontando para Railway/producao.
+Para atualizar candidatos da amostra sem limpar o banco, use:
+
+```bash
+npm run mobilidade:importar-candidatos
+```
+
+Importante: `npx prisma db seed` limpa tabelas antes de recriar os dados. Confira o `DATABASE_URL` antes de executar, principalmente se o `.env` estiver apontando para Railway/produção.
 
 ## Scripts
 
@@ -329,6 +415,66 @@ Importante: `npx prisma db seed` limpa tabelas antes de recriar os dados. Confir
 ## Postman
 
 No Postman, execute primeiro `POST /auth/login` e copie o `access_token` para o header `Authorization: Bearer SEU_ACCESS_TOKEN`. Para testar a integração da API IA, use `Authorization: Bearer IA_INTERNAL_TOKEN` nas rotas liberadas.
+
+Login de empresa usado nos testes:
+
+```json
+{
+  "email": "ana@techdiversity.com",
+  "senha": "123456"
+}
+```
+
+Body para testar `/match` Backend:
+
+```json
+{
+  "empresa_id": "b641c38f-f617-4c6d-990d-9bcea933dda3",
+  "vaga": {
+    "titulo": "Backend NestJS",
+    "cargo": "BACKEND_DEVELOPER",
+    "modalidade": "HIBRIDO",
+    "skills": ["NestJS", "Prisma", "PostgreSQL"],
+    "nivel": "PLENO",
+    "regiao": "Florianopolis",
+    "latitude": -27.590569,
+    "longitude": -48.557111
+  },
+  "filtros": {
+    "anti_vies": true,
+    "diversidade_minima": 50
+  }
+}
+```
+
+Body para testar `/match` Frontend:
+
+```json
+{
+  "empresa_id": "b641c38f-f617-4c6d-990d-9bcea933dda3",
+  "vaga": {
+    "titulo": "Frontend React",
+    "cargo": "FRONTEND_DEVELOPER",
+    "modalidade": "HIBRIDO",
+    "skills": ["React"],
+    "nivel": "JUNIOR",
+    "regiao": "Florianopolis",
+    "latitude": -27.590569,
+    "longitude": -48.557111
+  },
+  "filtros": {
+    "anti_vies": true,
+    "diversidade_minima": 50
+  }
+}
+```
+
+Para `/insights`, use método `GET` sem body:
+
+```http
+GET /insights?vagaId=144a24b9-d73a-41d5-bf6f-fef735a2a8e4
+GET /insights?vagaId=7589370f-f5af-404d-86bf-f21be1fc6695
+```
 
 Para carregar os candidatos e as vagas de demonstração antes dos testes:
 

@@ -283,7 +283,7 @@ export class MatchService {
       });
 
       return {
-        candidato_id: `MATCH_${indice + 1}`,
+        candidato_id: candidato.id,
         nome: candidato.usuario?.nome || `Candidato ${indice + 1}`,
         score_match: analise.score_match,
         score_tecnico: analise.score_tecnico,

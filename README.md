@@ -2,9 +2,9 @@
 
 Backend do App-BiT, uma plataforma de recrutamento que conecta empresas e candidatos por compatibilidade técnica, localização, mobilidade e objetivos de diversidade.
 
-## Estado validado em produção
+## Cenários validados
 
-Última base validada:
+Base validada em produção após importação da amostra No-Country/CDRView:
 
 | Item | Valor |
 | --- | ---: |
@@ -20,7 +20,7 @@ Vagas principais usadas nos testes com a empresa `Tech Diversity`:
 | Backend NestJS | `BACKEND_DEVELOPER` | `144a24b9-d73a-41d5-bf6f-fef735a2a8e4` | 30 candidatos |
 | Frontend React | `FRONTEND_DEVELOPER` | `7589370f-f5af-404d-86bf-f21be1fc6695` | 14 candidatos |
 
-Esses IDs são úteis para teste em produção. Em outros bancos ou após nova seed, use sempre os IDs retornados por `GET /vagas`.
+Esses IDs são úteis para teste em produção. Em outros bancos, ou após nova seed, use sempre os IDs retornados por `GET /vagas`.
 
 ## Funcionalidades
 
@@ -71,11 +71,16 @@ PORT=3000
 
 As chaves JWT de desenvolvimento existentes no código são apenas fallback local e não devem ser usadas em produção.
 
-Prepare o banco e, se desejar, carregue os dados de demonstração:
+Prepare o banco:
 
 ```bash
 npx prisma generate
 npx prisma migrate deploy
+```
+
+Para carregar dados de demonstração em ambiente local:
+
+```bash
 npx prisma db seed
 ```
 
@@ -187,9 +192,9 @@ Exemplo de cadastro:
 | Método   | Rota              | Acesso                  | Função                                      |
 | -------- | ----------------- | ----------------------- | ------------------------------------------- |
 | `POST`   | `/candidatos`     | Admin                   | Cadastra o usuário e o perfil do candidato. |
-| `GET`    | `/candidatos`     | Empresa, admin ou API IA | Lista candidatos.                         |
-| `GET`    | `/candidatos/me`  | Candidato autenticado | Retorna o perfil do candidato logado. |
-| `GET`    | `/candidatos/:id` | Empresa, candidato, admin ou API IA | Busca um candidato e registra o acesso. |
+| `GET`    | `/candidatos`     | Empresa, admin ou API IA | Lista candidatos.                          |
+| `GET`    | `/candidatos/me`  | Candidato autenticado | Retorna o perfil do candidato logado.        |
+| `GET`    | `/candidatos/:id` | Empresa, candidato, admin ou API IA | Busca um candidato e registra o acesso.      |
 | `PATCH`  | `/candidatos/:id` | Candidato dono ou admin | Atualiza um candidato.                      |
 | `DELETE` | `/candidatos/:id` | Candidato dono ou admin | Remove um candidato.                        |
 
@@ -287,7 +292,9 @@ Os pesos variam conforme a modalidade:
 
 O cargo é filtrado antes do cálculo: somente candidatos cujo `cargoDesejado` corresponde ao `cargo` da vaga entram no ranking e em `total_analisados`.
 
-Em vagas remotas, região, coordenadas e mobilidade não influenciam o score. A resposta inclui `modalidade_vaga`, cargo desejado, score, destaque, `motivos`, o campo legado `explicacao`, total analisado e diversidade alcançada. A implementação técnica está detalhada em [`docs/matching.md`](docs/matching.md).
+Em vagas remotas, região, coordenadas e mobilidade não influenciam o score. A resposta inclui `modalidade_vaga`, `candidato_id`, nome, score, destaque, `badge_diversidade`, `motivos`, o campo legado `explicacao`, skills, cargo desejado, total analisado e diversidade alcançada.
+
+O campo `candidato_id` no retorno do `/match` é o UUID real do candidato no banco. Ele pode ser usado pelo front em `GET /candidatos/:id`. O backend não retorna mais identificadores temporários como `MATCH_1`, `MATCH_2` ou `MATCH_6`.
 
 A API IA também pode executar `/match` usando `IA_INTERNAL_TOKEN`.
 
@@ -403,8 +410,6 @@ Importante: `npx prisma db seed` limpa tabelas antes de recriar os dados. Confir
 | `npm run start:dev`  | Inicia em desenvolvimento com recarga automática. |
 | `npm run build`      | Compila o projeto.                                |
 | `npm run start:prod` | Executa a versão compilada.                       |
-| `npm run lint`       | Analisa e corrige o código com ESLint.            |
-| `npm run format`     | Formata os arquivos com Prettier.                 |
 | `npm test`           | Executa os testes unitários.                      |
 | `npm run test:e2e`   | Executa os testes de ponta a ponta.               |
 | `npm run test:cov`   | Executa os testes e gera cobertura.               |
@@ -502,7 +507,7 @@ npm run start:dev
     └── vagas/           # Cadastro e gestão de vagas
 ```
 
-## Obs. alinhamentos finais com Equipe
+## Alinhamentos finais com equipe
 
 - A cidade/região dos dados de demonstração está padronizada como `Florianopolis`.
 - A vaga `Frontend React` da empresa Tech Diversity está como `HIBRIDO`.
@@ -513,7 +518,7 @@ npm run start:dev
 - As rotas `GET` de candidatos e vagas estão liberadas para a API IA via `IA_INTERNAL_TOKEN`.
 - As rotas de escrita continuam restritas aos perfis definidos nos guards.
 - O banco usa UUID gerado pelo PostgreSQL; não usar IDs textuais fixos em testes.
-- Obs. importante: preciso alinhar com o front a página de insights.
+- O campo `candidato_id` retornado pelo `/match` é UUID real do banco.
 
 ## Autor
 

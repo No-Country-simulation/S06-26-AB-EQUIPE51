@@ -60,52 +60,31 @@ export class InsightsRepository {
       await this.prisma.candidato.findMany({
         where,
         select: {
-          regiao: true,
+          usuario: {
+            select: {
+              nome: true,
+            },
+          },
           latitude: true,
           longitude: true,
         },
       });
 
-    const regioes = candidatos
+    return candidatos
       .filter(
         (candidato) =>
           candidato.latitude !== null &&
           candidato.longitude !== null,
       )
-      .reduce(
-        (mapa, candidato) => {
-          const regiao = candidato.regiao;
-
-          if (!mapa.has(regiao)) {
-            mapa.set(regiao, {
-              regiao,
-              concentracao: 0,
-              cobertura_rede: 'Dado agregado',
-              perfis_disponiveis: 0,
-              lat: Number(candidato.latitude!.toFixed(6)),
-              lon: Number(candidato.longitude!.toFixed(6)),
-            });
-          }
-
-          const item = mapa.get(regiao)!;
-          item.concentracao += 1;
-          item.perfis_disponiveis += 1;
-
-          return mapa;
-        },
-        new Map<
-          string,
-          {
-            regiao: string;
-            concentracao: number;
-            cobertura_rede: string;
-            perfis_disponiveis: number;
-            lat: number;
-            lon: number;
-          }
-        >(),
-      );
-
-    return [...regioes.values()];
+      .map((candidato, index) => ({
+        regiao:
+          candidato.usuario.nome ||
+          `Usuario ${index + 1}`,
+        concentracao: 1,
+        cobertura_rede: 'Dado agregado',
+        perfis_disponiveis: 1,
+        lat: Number(candidato.latitude!.toFixed(6)),
+        lon: Number(candidato.longitude!.toFixed(6)),
+      }));
   }
 }

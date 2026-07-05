@@ -15,6 +15,7 @@ import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
 import { Roles } from '../../auth/decorators/roles.decorator';
 import { RolesGuard } from '../../auth/guards/roles.guard';
+import { UserOrIaAuthGuard } from '../../auth/guards/user-or-ia-auth.guard';
 
 
 import type { Request } from 'express';
@@ -24,7 +25,6 @@ import { VagasService } from '../services/vagas.service';
 import { CriarVagaDto } from '../dto/criar-vaga.dto';
 import { AtualizarVagaDto } from '../dto/atualizar-vaga.dto';
 
-@UseGuards(JwtAuthGuard, RolesGuard)
 @Controller('vagas')
 export class VagasController {
   constructor(
@@ -32,6 +32,7 @@ export class VagasController {
   ) {}
 
   @Roles('EMPRESA', 'ADMIN')
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   async criar(
     @Body() dto: CriarVagaDto,
@@ -44,6 +45,7 @@ export class VagasController {
   }
 
   @Roles('EMPRESA', 'CANDIDATO', 'ADMIN')
+  @UseGuards(UserOrIaAuthGuard, RolesGuard)
   @Get()
   async listar(
     @Req() req: Request,
@@ -52,6 +54,7 @@ export class VagasController {
   }
 
   @Roles('EMPRESA', 'CANDIDATO', 'ADMIN')
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('empresa/:empresaId')
   async listarPorEmpresa(
     @Param('empresaId')
@@ -65,6 +68,7 @@ export class VagasController {
   }
 
   @Roles('EMPRESA', 'CANDIDATO', 'ADMIN')
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':id')
   async buscarPorId(
     @Param('id') id: string,
@@ -73,6 +77,7 @@ export class VagasController {
   }
 
   @Roles('EMPRESA', 'ADMIN')
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async atualizar(
     @Param('id') id: string,
@@ -87,6 +92,7 @@ export class VagasController {
   }
 
   @Roles('EMPRESA', 'ADMIN')
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Delete(':id')
   async remover(
     @Param('id') id: string,

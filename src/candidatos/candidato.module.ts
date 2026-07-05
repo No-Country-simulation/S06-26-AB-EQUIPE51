@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 
+import { AuthModule } from '../auth/auth.module';
+import { UserOrIaAuthGuard } from '../auth/guards/user-or-ia-auth.guard';
 import { PrismaService } from '../prisma/prisma.service';
 
 import { CandidatoController } from './controllers/candidato.controller';
@@ -11,6 +13,7 @@ import { LogsAcessoCandidatoService } from '../logs-acesso-candidato/services/lo
 import { LogsAcessoCandidatoRepository } from '../logs-acesso-candidato/repositories/logs-acesso-candidato.repository';
 
 @Module({
+  imports: [AuthModule],
   controllers: [CandidatoController],
   providers: [
     PrismaService,
@@ -20,6 +23,7 @@ import { LogsAcessoCandidatoRepository } from '../logs-acesso-candidato/reposito
     LogsCandidatoRepository,
     LogsAcessoCandidatoService,
     LogsAcessoCandidatoRepository,
+    UserOrIaAuthGuard,
   ],
   exports: [CandidatoService],
 })

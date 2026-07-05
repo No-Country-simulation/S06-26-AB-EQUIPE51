@@ -96,6 +96,17 @@ POST /auth/refresh
 }
 ```
 
+Exemplo de logout:
+
+```json
+POST /auth/logout
+{
+  "refresh_token": "SEU_REFRESH_TOKEN"
+}
+```
+
+O logout também pode usar o cookie `appbit_refresh_token` criado no login. Ele revoga o refresh token atual e limpa o cookie; o access token já emitido continua válido até expirar.
+
 ## Perfis e permissões
 
 | Perfil      | Permissões principais                                                         |
@@ -116,6 +127,7 @@ As atualizações são parciais e utilizam o método `PATCH`; a API não utiliza
 | ------ | --------------- | ------- | ------------------------------------------- |
 | `POST` | `/auth/login`   | Público | Autentica um usuário e retorna os tokens.   |
 | `POST` | `/auth/refresh` | Público | Valida, revoga e substitui o refresh token. |
+| `POST` | `/auth/logout`  | Público | Revoga o refresh token atual e limpa o cookie. |
 
 ### Empresas
 
@@ -163,7 +175,7 @@ Exemplo de cadastro:
   "nivel": "PLENO",
   "cargoDesejado": "FRONTEND_DEVELOPER",
   "regiao": "Florianópolis",
-  "grupoDiversidade": "MULHER",
+  "gruposDiversidade": ["MULHER", "PCD"],
   "latitude": -27.5949,
   "longitude": -48.5482,
   "ageGroup": "25-34",
@@ -173,7 +185,7 @@ Exemplo de cadastro:
 }
 ```
 
-O campo `cargoDesejado` é obrigatório. Os campos `grupoDiversidade`, `latitude`, `longitude`, `ageGroup`, `incomeCluster`, `mobilityPattern` e `scoreMobilidade` são opcionais.
+O campo `cargoDesejado` é obrigatório. Os campos `gruposDiversidade`, `latitude`, `longitude`, `ageGroup`, `incomeCluster`, `mobilityPattern` e `scoreMobilidade` são opcionais.
 
 ### Vagas
 
@@ -260,7 +272,7 @@ No dashboard, o administrador consulta os eventos recentes de autenticação do 
 ## Auditoria e segurança
 
 - Senhas são armazenadas com hash bcrypt.
-- A API registra tentativas de login e renovação de token.
+- A API registra tentativas de login, renovação de token e logout.
 - Alterações em empresas, vagas e candidatos guardam usuário responsável, IP, user agent e dados anteriores/posteriores.
 - O acesso a dados de candidatos é auditado com sua finalidade.
 - A validação global rejeita campos não previstos nos DTOs.

@@ -14,6 +14,7 @@ import type { Request } from 'express';
 import { Roles } from '../../auth/decorators/roles.decorator';
 import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../auth/guards/roles.guard';
+import { UserOrIaAuthGuard } from '../../auth/guards/user-or-ia-auth.guard';
 
 import { CandidatoService } from '../services/candidato.service';
 
@@ -37,7 +38,7 @@ export class CandidatoController {
   }
 
   @Roles('ADMIN')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(UserOrIaAuthGuard, RolesGuard)
   @Get()
   listar() {
     return this.service.listar();

@@ -29,6 +29,10 @@ async function limparBanco() {
 async function criarEmpresas(senhaPadrao: string) {
   console.log('Criando empresas e vagas...');
 
+  const cidadePadrao = 'Florianopolis';
+  const latitudePadrao = -27.590569;
+  const longitudePadrao = -48.557111;
+
   const empresas = [
     {
       nome: 'Ana Souza',
@@ -42,9 +46,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'BACKEND_DEVELOPER',
           modalidade: 'HIBRIDO' as const,
           nivel: 'PLENO',
-          regiao: 'Belo Horizonte',
-          latitude: -19.9167,
-          longitude: -43.9345,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['NestJS', 'Prisma', 'PostgreSQL'],
         },
         {
@@ -52,9 +56,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'FRONTEND_DEVELOPER',
           modalidade: 'REMOTO' as const,
           nivel: 'PLENO',
-          regiao: 'Belo Horizonte',
-          latitude: -19.9208,
-          longitude: -43.9378,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['React', 'TypeScript', 'CSS'],
         },
       ],
@@ -71,9 +75,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'DATA_ANALYST',
           modalidade: 'HIBRIDO' as const,
           nivel: 'PLENO',
-          regiao: 'Florianopolis',
-          latitude: -8.0476,
-          longitude: -34.877,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['Python', 'SQL', 'Power BI'],
         },
         {
@@ -81,9 +85,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'UX_DESIGNER',
           modalidade: 'REMOTO' as const,
           nivel: 'JUNIOR',
-          regiao: 'Sao Paulo',
-          latitude: -23.557,
-          longitude: -46.639,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['Figma', 'UX Research', 'Design System'],
         },
       ],
@@ -100,9 +104,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'FULLSTACK_DEVELOPER',
           modalidade: 'HIBRIDO' as const,
           nivel: 'PLENO',
-          regiao: 'Rio de Janeiro',
-          latitude: -22.9068,
-          longitude: -43.1729,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['React', 'NestJS', 'PostgreSQL'],
         },
         {
@@ -110,9 +114,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'QA_ENGINEER',
           modalidade: 'REMOTO' as const,
           nivel: 'JUNIOR',
-          regiao: 'Salvador',
-          latitude: -12.9714,
-          longitude: -38.5014,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['Testes Manuais', 'Cypress', 'Jest'],
         },
       ],
@@ -129,9 +133,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'DEVOPS_ENGINEER',
           modalidade: 'PRESENCIAL' as const,
           nivel: 'SENIOR',
-          regiao: 'Manaus',
-          latitude: -3.119,
-          longitude: -60.0217,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['AWS', 'Docker', 'Kubernetes'],
         },
       ],
@@ -148,9 +152,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'PRODUCT_MANAGER',
           modalidade: 'HIBRIDO' as const,
           nivel: 'SENIOR',
-          regiao: 'Curitiba',
-          latitude: -25.4284,
-          longitude: -49.2733,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['Produto', 'Scrum', 'Analytics'],
         },
         {
@@ -158,9 +162,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'DATA_ANALYST',
           modalidade: 'REMOTO' as const,
           nivel: 'PLENO',
-          regiao: 'Brasilia',
-          latitude: -15.7939,
-          longitude: -47.8828,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['Power BI', 'SQL', 'ETL'],
         },
       ],
@@ -177,9 +181,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'DATA_ENGINEER',
           modalidade: 'REMOTO' as const,
           nivel: 'SENIOR',
-          regiao: 'Fortaleza',
-          latitude: -3.7319,
-          longitude: -38.5267,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['Python', 'Airflow', 'PostgreSQL'],
         },
         {
@@ -187,9 +191,9 @@ async function criarEmpresas(senhaPadrao: string) {
           cargo: 'MOBILE_DEVELOPER',
           modalidade: 'REMOTO' as const,
           nivel: 'PLENO',
-          regiao: 'Porto Alegre',
-          latitude: -30.0346,
-          longitude: -51.2177,
+          regiao: cidadePadrao,
+          latitude: latitudePadrao,
+          longitude: longitudePadrao,
           skills: ['Flutter', 'Dart', 'Firebase'],
         },
       ],
@@ -652,7 +656,7 @@ async function criarCandidatos(senhaPadrao: string) {
           skills: ['Python', 'SQL', 'Power BI'],
           nivel: 'PLENO',
           cargoDesejado: 'DATA_ANALYST',
-          regiao: 'Recife',
+          regiao: 'Florianopolis',
           gruposDiversidade: ['MULHER'],
           latitude: -27.705278,
           longitude: -48.505556,
@@ -680,15 +684,15 @@ function imprimirResumo() {
   console.log('EMPRESA  helena@fintechverde.com / 123456');
   console.log('');
   console.log('Cenarios de teste:');
-  console.log('1. /match dados Recife');
+  console.log('1. /match dados Florianopolis');
   console.log('   use o id UUID da empresa Inova Brasil retornado pela API');
-  console.log('   vaga: Python, SQL, Power BI | PLENO | Recife');
+  console.log('   vaga: Python, SQL, Power BI | PLENO | Florianopolis');
   console.log('   esperado: Rafael score 99 MULHER/LGBTQIA+ ALTA_COMPATIBILIDADE');
   console.log('   esperado: Aline score 84 PCD TALENTO_REGIONAL');
   console.log('');
   console.log('2. /match backend BH');
   console.log('   use o id UUID da empresa Tech Diversity retornado pela API');
-  console.log('   vaga: NestJS, Prisma, PostgreSQL | PLENO | Belo Horizonte');
+  console.log('   vaga: NestJS, Prisma, PostgreSQL | PLENO | Florianopolis');
   console.log('   esperado: Maria no topo e Pedro bem posicionado');
   console.log('');
   console.log('3. Isolamento por empresa');

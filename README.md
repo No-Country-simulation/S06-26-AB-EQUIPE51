@@ -21,7 +21,7 @@ Promover processos seletivos mais inclusivos e orientados por dados através de:
 * 🤖 Matching inteligente entre vagas e candidatos
 * 📊 Dashboard ESG
 * 🏷️ Badges de diversidade
-* 🌎 Visualização de talentos por região
+* 🌎 Visualização de talentos por região / Mapa interativo de talentos
 
 ---
 
@@ -51,11 +51,118 @@ Promover processos seletivos mais inclusivos e orientados por dados através de:
 
 ### 🎨 Frontend
 
-* React
+- React.js
+- Vite
+- JavaScript
+- CSS Modules
+- Axios
+- React Router DOM
+- React Hook Form
+- Leaflet + leaflet.heat
+- React-hot-toast
+- Recharts
+- React Icons + Lucide React
+
+Integrações:
+- API Backend NestJS
+- API de Match com Inteligência Artificial
+- Autenticação JWT
+- Relatórios ESG
+
+---
+
+# 📌 Funcionalidades
+
+## 🔐 Autenticação
+
+- Login de empresas
+- Controle de sessão
+- JWT Token
+- Proteção de rotas privadas
+
+Fluxo:
+
+Login → Backend → JWT → Frontend → Sessão autenticada
+
+---
+
+# 🏢 Dashboard Empresa
+
+- Resumo da empresa
+- Vagas cadastradas
+- Últimos matches
+- Indicadores gerais
+- Relatórios ESG
+
+---
+
+# 📋 Gestão de vagas
+
+Permite:
+
+- Criar vagas
+- Visualizar vagas
+- Definir cargo
+- Nível
+- Skills
+- Modalidade
+- Região
+- Diversidade mínima
+
+---
+
+# 🤖 Match com IA
+
+Tela responsável pelo ranking inteligente de candidatos.
+
+A IA realiza:
+
+- Compatibilidade técnica
+- Ranking
+- Score final
+- Análise por critérios
+- Explicação da decisão
+
+---
+
+# 🌱 Relatório ESG
+
+Indicadores:
+
+- Meta ESG
+- Diversidade
+- Compatibilidade média
+- Grupos prioritários
+- Privacidade LGPD
+
+---
+
+# 🧠 Análise Inteligente
+
+Modal contendo:
+
+- Resumo do candidato
+- Critérios avaliados
+- Pontuação
+- Explicação da IA
+
+---
+
+# 🛡️ Segurança
+
+Implementações:
+
+- JWT
+- Rotas protegidas
+- Controle de sessão
+- Minimização de dados
+- Boas práticas LGPD
+
+---
 
 ### ⚙️ Backend
 
-* FastAPI
+* NestJs
 * Postman (testes e documentação)
 
 ### 🧠 Machine Learning
@@ -64,7 +171,7 @@ Promover processos seletivos mais inclusivos e orientados por dados através de:
 
 ### ☁️ Infraestrutura & DevOps
 
-* AWS
+* Deploy Backend e Frontend no Railway
 * GitHub Actions
 * GitHub Projects
 
@@ -84,7 +191,7 @@ Empresa / RH
 Frontend (React)
       │
       ▼
-Backend (FastAPI)
+Backend (NestJs)
       │
       ▼
 Banco de Dados
@@ -126,7 +233,6 @@ Projeto desenvolvido para o Hackathon **BiT App – Inclusive Matching Platform*
 
 Funcionalidades previstas para evolução da plataforma:
 
-* 🗺️ Mapa interativo de talentos
 * 📄 Relatórios ESG em PDF
 * 🔔 Sistema de notificações
 * 🤖 Chatbot inteligente

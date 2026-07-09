@@ -21,7 +21,8 @@ async function bootstrap() {
     origin: [
 
       'https://inclusivetech.vercel.app',
-      'http://localhost:5173'
+      'http://localhost:5173',
+      'https://dill-marlin-snowbird.ngrok-free.dev'
 
     ],
 

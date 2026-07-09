@@ -20,7 +20,7 @@ async function bootstrap() {
 
     origin: [
 
-      'http://inclusivetech.vercel.app',
+      'https://inclusivetech.vercel.app',
       'http://localhost:5173'
 
     ],

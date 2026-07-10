@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional
 
 class Vaga(BaseModel):
@@ -7,6 +7,7 @@ class Vaga(BaseModel):
     skills: List[str]
     nivel: str
     regiao: Optional[str] = None
+    titulo: str
 
 class Candidato(BaseModel):
     id: str
@@ -15,9 +16,11 @@ class Candidato(BaseModel):
     skills: List[str]
     nivel: str
     regiao: Optional[str] = None
-    grupoDiversidade: Optional[str] = None
-    scoreMobilidade: Optional[int] = None
-
+    grupoDiversidade: List[str]   
+    scoreMobilidade: int
+    diversidadeCompativel: bool = False
+    explicacao_backend: List[str] = []
+    
 class SkillExplicacao(BaseModel):
     skill_vaga: str
     skill_candidato: str
@@ -35,6 +38,7 @@ class CandidatoScore(BaseModel):
     nome: str
     score_final: float      # 0–100
     criterios: List[CriterioExplicacao]
+    resumo: Optional[str] = None  # Resumo gerado pelo LLM
 
 class MatchRequest(BaseModel):
     empresa_id: str
@@ -45,3 +49,4 @@ class MatchResponse(BaseModel):
     shortlist: List[CandidatoScore]
     diversidade_alcancada: float
     total_analisados: int
+    

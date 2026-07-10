@@ -22,15 +22,18 @@ def _score_nivel(n_vaga: str, n_cand: str) -> Tuple[float, str]:
         return 0.0, f"nível não reconhecido: {n_cand}"
 
 
-def _score_diversidade(grupo: str | None) -> Tuple[float, str]:
-    if grupo:
-        return 1.0, f"candidato pertence ao grupo {grupo}"
+def _score_diversidade(grupos: List[str] | None) -> Tuple[float, str]:
+    if grupos and len(grupos) > 0:
+        grupos_str = ", ".join(grupos)
+        return 1.0, f"candidato pertence ao(s) grupo(s): {grupos_str}"
+    
     return 0.0, "sem grupo de diversidade informado"
 
 
 def _score_mobilidade(score_mob: int | None, modalidade: str) -> Tuple[float, str]:
     if modalidade.upper() == "REMOTO":
         return 0.0, "mobilidade não aplicável para vaga remota"
+    
     nota = (score_mob or 0) / 100.0
     return nota, f"score de mobilidade {score_mob or 0}/100"
 

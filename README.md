@@ -221,15 +221,7 @@ Frontend
 
 ---
 
-## 📅 Status do Projeto
 
-🚧 Em Desenvolvimento
-
-Projeto desenvolvido para o Hackathon **BiT App – Inclusive Matching Platform**.
-
----
-
-## 🌟 Visão de Futuro
 
 Funcionalidades previstas para evolução da plataforma:
 
@@ -243,3 +235,6 @@ Funcionalidades previstas para evolução da plataforma:
 ## 📌 Missão
 
 Transformar diversidade em oportunidade, conectando empresas e talentos através da tecnologia.
+
+
+Copyright (c) 2026 Inclusive Tech Team

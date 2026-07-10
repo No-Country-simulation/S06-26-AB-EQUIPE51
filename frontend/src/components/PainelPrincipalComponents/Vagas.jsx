@@ -1,0 +1,187 @@
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import {
+  listarVagasDaEmpresa,
+  removerVaga
+} from "../../services/vagaService"
+import { buscarUsuarioLogado } from "../../services/usuarioLogadoService"
+import styles from "../../styles/vagas.module.css"
+
+
+function normalizarVagas(data) {
+  if (Array.isArray(data)) return data
+  if (Array.isArray(data?.vagas)) return data.vagas
+  if (Array.isArray(data?.data)) return data.data
+  return []
+}
+
+function normalizarSkills(skills) {
+  if (Array.isArray(skills)) return skills
+  if (typeof skills === "string") {
+    return skills.split(",").map((skill) => skill.trim()).filter(Boolean)
+  }
+  return []
+}
+
+export default function Vagas() {
+  const [vagas, setVagas] = useState([])
+  const [empresaId, setEmpresaId] = useState(null)
+  const [nomeEmpresa, setNomeEmpresa] = useState("Empresa")
+
+  const [carregando, setCarregando] = useState(true)
+  const [erro, setErro] = useState(null)
+
+  useEffect(() => {
+    async function buscarVagas() {
+      try {
+        setErro(null)
+        const usuario = await buscarUsuarioLogado()
+        const data = await listarVagasDaEmpresa(usuario?.empresa?.id)
+
+        setEmpresaId(usuario?.empresa?.id ?? null)
+        setNomeEmpresa(usuario?.empresa?.nomeEmpresa ?? "Empresa")
+        setVagas(normalizarVagas(data))
+      } catch (error) {
+        setErro("Nao foi possivel carregar as vagas.")
+        console.error(error)
+      } finally {
+        setCarregando(false)
+      }
+    }
+
+    buscarVagas()
+  }, [])
+
+  async function excluirVaga(id) {
+
+  const confirmar = window.confirm(
+    "Deseja realmente excluir esta vaga?"
+  )
+
+  if (!confirmar) return
+
+  try {
+
+    await removerVaga(id)
+
+    setVagas((anteriores) =>
+      anteriores.filter((vaga) => vaga.id !== id)
+    )
+
+  } catch(error){
+
+    console.error(error)
+
+    alert("Não foi possível excluir a vaga.")
+
+  }
+
+}
+
+
+  return (
+    <div className={styles.pagina}>
+      <header className={styles.header}>
+        <div>
+          <h1 className={styles.titulo}>Vagas da Empresa</h1>
+          <p className={styles.subtitulo}>
+            Acompanhe as vagas cadastradas e publique novas oportunidades.
+          </p>
+        </div>
+      </header>
+
+      <div className={styles.faixaEmpresa}>
+        <div>
+          <strong className={styles.empresaTitulo}>Vagas Empresa</strong>
+          <p className={styles.empresaNome}>{nomeEmpresa}</p>
+        </div>
+        <div className={styles.acoesEmpresa}>
+          <Link to="/vagas/cadastro" className={styles.btnAdicionar}>
+            Adicionar nova vaga
+          </Link>
+        </div>
+      </div>
+
+      <section className={styles.bloco}>
+        <div className={styles.blocoHeader}>
+          <h3 className={styles.blocoTitulo}>Todas as vagas</h3>
+          {!carregando && !erro && (
+            <span className={styles.badgeContagem}>
+              {vagas.length} cadastradas
+            </span>
+          )}
+        </div>
+
+        {carregando && (
+          <p className={styles.estadoVazio}>Carregando vagas...</p>
+        )}
+
+        {!carregando && erro && <p className={styles.estadoVazio}>{erro}</p>}
+
+        {!carregando && !erro && vagas.length === 0 && (
+          <p className={styles.estadoVazio}>Nenhuma vaga cadastrada ainda.</p>
+        )}
+
+        {!carregando && !erro && vagas.length > 0 && (
+          <div className={styles.grid}>
+            {vagas.map((vaga) => {
+              const skills = normalizarSkills(vaga.skills)
+
+              return (
+                <div key={vaga.id ?? vaga.titulo} className={styles.vagaCard}>
+                  <div className={styles.vagaTopo}>
+                    <strong className={styles.vagaTitulo}>
+                      {vaga.titulo ?? "Vaga sem titulo"}
+                    </strong>
+
+                    <span className={styles.statusBadge}>
+                      {vaga.ativo === false ? "Inativa" : "Ativa"}
+                    </span>
+                  </div>
+
+                  <p className={styles.vagaInfo}>
+                    {vaga.cargo ?? "Cargo nao informado"}
+                  </p>
+                  <p className={styles.vagaInfo}>
+                    {vaga.modalidade ?? "Modalidade nao informada"}
+                  </p>
+                  <p className={styles.vagaInfo}>
+                    {vaga.nivel ?? "Nivel nao informado"}
+                  </p>
+                  <p className={styles.vagaInfo}>
+                    {vaga.regiao ?? "Regiao nao informada"}
+                  </p>
+
+                  {skills.length > 0 && (
+                    <div className={styles.skillsRow}>
+                      {skills.map((skill) => (
+                        <span key={skill} className={styles.skillTag}>
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className={styles.vagaAcoes}>
+                    <button
+                      type="button"
+                      className={styles.btnExcluir}
+                      onClick={() => excluirVaga(vaga.id)}
+                      >
+                        🗑️ Excluir
+                      </button>
+                  </div>
+                </div>
+
+              )
+            })}
+          </div>
+        )}
+      </section>
+
+      <div className={styles.avisoRodape}>
+        Conectado como {nomeEmpresa}. Rotas protegidas e mapa agregado ativos.
+      </div>
+    </div>
+  )
+}

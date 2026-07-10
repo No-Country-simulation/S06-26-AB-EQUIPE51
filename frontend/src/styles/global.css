@@ -1,0 +1,38 @@
+html {
+  scroll-behavior: smooth; /* ← adiciona aqui */
+}
+
+:root {
+  /* Cores principais */
+  --cor-primaria:       #0d377c;
+  --cor-primaria-hover: #0a2653;
+  --cor-primaria-suave: #6c63ff22;
+
+  /* Textos */
+  --cor-texto:          #333;
+  --cor-texto-medio:    #555;
+  --cor-texto-suave:    #888;
+  --cor-texto-fraco:    #aaa;
+
+  /* Bordas */
+  --cor-borda:          #ccc;
+  --cor-borda-erro:     #e55;
+
+  /* Backgrounds */
+  --cor-bg-pagina:      #ffffff;
+  --cor-bg-card:        #eeeeee;
+
+  /* Feedback */
+  --cor-erro:           #e55;
+  --cor-sucesso:        #16a34a;
+
+  /* Raios */
+  --raio-sm:            6px;
+  --raio-md:            10px;
+  --raio-lg:            16px;
+  --raio-pill:          9999px;
+
+  /* Fonte */
+  --fonte:              'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

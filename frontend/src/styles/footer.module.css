@@ -1,0 +1,75 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 30vh;
+  background: var(--cor-bg-pagina);
+  border-top: 1px solid var(--cor-borda);
+  padding: clamp(20px, 3vw, 32px) clamp(24px, 6vw, 60px) 20px;
+  font-family: var(--fonte);
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  width: clamp(70px, 10vw, 130px);
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  gap: clamp(16px, 2vw, 32px);
+  flex-wrap: wrap;
+}
+
+.link {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cor-texto-medio);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.link:hover {
+  color: var(--cor-primaria);
+}
+
+.divisor {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin: 20px 0 14px;
+}
+
+.copy {
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+  text-align: center;
+}
+
+/* ===== Estrutural: empilha logo + nav ===== */
+@media (max-width: 768px) {
+  .logo{
+    width: 30%;
+  }
+  .topo {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .link{
+    font-size: 11px;
+  }
+
+  .nav {
+    justify-content: center;
+    gap: 16px;
+  }
+}

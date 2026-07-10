@@ -1,0 +1,522 @@
+# App-BiT — API de recrutamento inclusivo
+
+Backend do App-BiT, uma plataforma de recrutamento que conecta empresas e candidatos por compatibilidade técnica, localização, mobilidade e objetivos de diversidade.
+
+## Cenários validados
+
+Base validada em produção após importação da amostra No-Country/CDRView:
+
+| Item | Valor |
+| --- | ---: |
+| Candidatos ativos | 124 |
+| Candidatos importados da fonte No-Country/CDRView | 100 |
+| Candidatos `BACKEND_DEVELOPER` | 30 |
+| Candidatos `FRONTEND_DEVELOPER` | 14 |
+
+Vagas principais usadas nos testes com a empresa `Tech Diversity`:
+
+| Vaga | Cargo | `vagaId` | Resultado em `/insights` |
+| --- | --- | --- | ---: |
+| Backend NestJS | `BACKEND_DEVELOPER` | `144a24b9-d73a-41d5-bf6f-fef735a2a8e4` | 30 candidatos |
+| Frontend React | `FRONTEND_DEVELOPER` | `7589370f-f5af-404d-86bf-f21be1fc6695` | 14 candidatos |
+
+Esses IDs são úteis para teste em produção. Em outros bancos, ou após nova seed, use sempre os IDs retornados por `GET /vagas`.
+
+## Funcionalidades
+
+- Cadastro e gerenciamento de empresas, candidatos e vagas.
+- Autenticação JWT com access token e rotação de refresh token.
+- Controle de acesso por perfil: `ADMIN`, `EMPRESA` e `CANDIDATO`.
+- Matching de candidatos por cargo, skills, nível, modalidade, região, mobilidade e diversidade.
+- Filtro anti-viés e percentual mínimo de diversidade na shortlist.
+- Mapa/lista de talentos e indicadores para a tela de insights.
+- Dashboard com os últimos registros de cada perfil.
+- Auditoria de autenticação e alterações em empresas, candidatos e vagas.
+- Validação e normalização dos dados recebidos pela API.
+
+## Tecnologias
+
+- Node.js e TypeScript
+- NestJS 11
+- PostgreSQL
+- Prisma ORM
+- Passport e JWT
+- bcrypt
+- class-validator e class-transformer
+- Jest e Supertest
+
+## Pré-requisitos
+
+- Node.js 20 ou superior
+- npm
+- PostgreSQL em execução
+
+## Instalação
+
+Na raiz do projeto, instale as dependências:
+
+```bash
+npm install
+```
+
+Crie o arquivo `.env` na raiz do projeto:
+
+```env
+DATABASE_URL="postgresql://usuario:senha@localhost:5432/appbit?schema=public"
+JWT_SECRET="troque-por-uma-chave-segura"
+JWT_REFRESH_SECRET="troque-por-outra-chave-segura"
+IA_INTERNAL_TOKEN="token-interno-para-api-ia"
+PORT=3000
+```
+
+As chaves JWT de desenvolvimento existentes no código são apenas fallback local e não devem ser usadas em produção.
+
+Prepare o banco:
+
+```bash
+npx prisma generate
+npx prisma migrate deploy
+```
+
+Para carregar dados de demonstração em ambiente local:
+
+```bash
+npx prisma db seed
+```
+
+Inicie a aplicação:
+
+```bash
+npm run start:dev
+```
+
+A API ficará disponível em `http://localhost:3000`.
+
+## Autenticação
+
+Após o login, envie o access token nas rotas privadas:
+
+```http
+Authorization: Bearer SEU_ACCESS_TOKEN
+```
+
+A API IA pode acessar as rotas liberadas para integração usando token interno:
+
+```http
+Authorization: Bearer IA_INTERNAL_TOKEN
+```
+
+Esse valor deve estar configurado no `.env` do backend e no ambiente da API IA. O token interno não deve ser enviado para o frontend nem salvo em repositório.
+
+O access token expira em 15 minutos. O refresh token expira em 7 dias e é substituído a cada renovação.
+
+Exemplo de login:
+
+```json
+POST /auth/login
+{
+  "email": "admin@appbit.com",
+  "senha": "123456"
+}
+```
+
+Exemplo de renovação:
+
+```json
+POST /auth/refresh
+{
+  "refresh_token": "SEU_REFRESH_TOKEN"
+}
+```
+
+Exemplo de logout:
+
+```json
+POST /auth/logout
+{
+  "refresh_token": "SEU_REFRESH_TOKEN"
+}
+```
+
+O logout também pode usar o cookie `appbit_refresh_token` criado no login. Ele revoga o refresh token atual e limpa o cookie; o access token já emitido continua válido até expirar.
+
+## Perfis e permissões
+
+| Perfil      | Permissões principais                                                         |
+| ----------- | ----------------------------------------------------------------------------- |
+| `ADMIN`     | Consulta e administra todos os registros, executa matching e acessa insights. |
+| `EMPRESA`   | Gerencia a própria empresa e suas vagas, executa matching e acessa insights.  |
+| `CANDIDATO` | Gerencia o próprio perfil e consulta vagas.                                   |
+
+O cadastro de empresas é público. O cadastro de candidatos é exclusivo do administrador. As demais rotas exigem autenticação conforme a tabela de endpoints.
+
+## Endpoints
+
+As atualizações são parciais e utilizam o método `PATCH`; a API não utiliza `PUT`.
+
+### Autenticação
+
+| Método | Rota            | Acesso  | Função                                      |
+| ------ | --------------- | ------- | ------------------------------------------- |
+| `POST` | `/auth/login`   | Público | Autentica um usuário e retorna os tokens.   |
+| `POST` | `/auth/refresh` | Público | Valida, revoga e substitui o refresh token. |
+| `POST` | `/auth/logout`  | Público | Revoga o refresh token atual e limpa o cookie. |
+| `GET`  | `/auth/me`      | Usuário autenticado | Retorna dados do usuário logado. |
+
+### Empresas
+
+| Método   | Rota            | Acesso                | Função                                              |
+| -------- | --------------- | --------------------- | --------------------------------------------------- |
+| `POST`   | `/empresas`     | Público               | Cadastra o usuário e a empresa.                     |
+| `GET`    | `/empresas`     | Empresa ou admin      | Lista empresas respeitando o escopo do usuário.     |
+| `GET`    | `/empresas/me`  | Empresa               | Retorna a empresa vinculada ao usuário autenticado. |
+| `GET`    | `/empresas/:id` | Empresa dona ou admin | Busca uma empresa por ID.                           |
+| `PATCH`  | `/empresas/:id` | Empresa dona ou admin | Atualiza uma empresa.                               |
+| `DELETE` | `/empresas/:id` | Empresa dona ou admin | Remove uma empresa.                                 |
+
+Exemplo de cadastro:
+
+```json
+{
+  "nome": "Ana Souza",
+  "email": "ana@empresa.com",
+  "senha": "123456",
+  "nomeEmpresa": "Empresa Exemplo",
+  "metaDiversidade": 40,
+  "gruposPrioritarios": ["MULHER", "PCD"]
+}
+```
+
+### Candidatos
+
+| Método   | Rota              | Acesso                  | Função                                      |
+| -------- | ----------------- | ----------------------- | ------------------------------------------- |
+| `POST`   | `/candidatos`     | Admin                   | Cadastra o usuário e o perfil do candidato. |
+| `GET`    | `/candidatos`     | Empresa, admin ou API IA | Lista candidatos.                          |
+| `GET`    | `/candidatos/me`  | Candidato autenticado | Retorna o perfil do candidato logado.        |
+| `GET`    | `/candidatos/:id` | Empresa, candidato, admin ou API IA | Busca um candidato e registra o acesso.      |
+| `PATCH`  | `/candidatos/:id` | Candidato dono ou admin | Atualiza um candidato.                      |
+| `DELETE` | `/candidatos/:id` | Candidato dono ou admin | Remove um candidato.                        |
+
+Exemplo de cadastro:
+
+```json
+{
+  "nome": "Maria Silva",
+  "email": "maria@email.com",
+  "senha": "123456",
+  "skills": ["TypeScript", "NestJS", "PostgreSQL"],
+  "nivel": "PLENO",
+  "cargoDesejado": "FRONTEND_DEVELOPER",
+  "regiao": "Florianopolis",
+  "gruposDiversidade": ["MULHER", "PCD"],
+  "latitude": -27.5949,
+  "longitude": -48.5482,
+  "ageGroup": "25-34",
+  "incomeCluster": "C",
+  "mobilityPattern": "MODERADA",
+  "scoreMobilidade": 75
+}
+```
+
+O campo `cargoDesejado` é obrigatório. Os campos `gruposDiversidade`, `latitude`, `longitude`, `ageGroup`, `incomeCluster`, `mobilityPattern` e `scoreMobilidade` são opcionais.
+
+### Vagas
+
+Todas as rotas de vagas exigem token.
+
+| Método   | Rota                        | Acesso                | Função                                         |
+| -------- | --------------------------- | --------------------- | ---------------------------------------------- |
+| `POST`   | `/vagas`                    | Empresa ou admin      | Cadastra uma vaga para uma empresa autorizada. |
+| `GET`    | `/vagas`                    | Todos os perfis ou API IA | Lista vagas respeitando o escopo do usuário. |
+| `GET`    | `/vagas/empresa/:empresaId` | Todos os perfis ou API IA | Lista as vagas de uma empresa.               |
+| `GET`    | `/vagas/:id`                | Todos os perfis ou API IA | Busca uma vaga por ID.                       |
+| `PATCH`  | `/vagas/:id`                | Empresa dona ou admin | Atualiza uma vaga.                             |
+| `DELETE` | `/vagas/:id`                | Empresa dona ou admin | Remove uma vaga.                               |
+
+Exemplo de cadastro:
+
+```json
+{
+  "empresaId": "ID_DA_EMPRESA",
+  "titulo": "Pessoa Desenvolvedora Backend",
+  "cargo": "BACKEND_DEVELOPER",
+  "modalidade": "REMOTO",
+  "nivel": "PLENO",
+  "latitude": -27.5949,
+  "longitude": -48.5482,
+  "regiao": "Florianopolis",
+  "skills": ["NestJS", "Prisma", "PostgreSQL"]
+}
+```
+
+Os campos `cargo` e `modalidade` são obrigatórios. `latitude` e `longitude` são opcionais. As modalidades aceitas são `PRESENCIAL`, `HIBRIDO` e `REMOTO`.
+
+Os cargos aceitos são `FRONTEND_DEVELOPER`, `BACKEND_DEVELOPER`, `FULLSTACK_DEVELOPER`, `MOBILE_DEVELOPER`, `DATA_ANALYST`, `DATA_ENGINEER`, `DEVOPS_ENGINEER`, `QA_ENGINEER`, `UX_DESIGNER` e `PRODUCT_MANAGER`.
+
+### Matching
+
+| Método | Rota     | Acesso                | Função                                                               |
+| ------ | -------- | --------------------- | -------------------------------------------------------------------- |
+| `POST` | `/match` | Empresa dona, admin ou API IA | Analisa candidatos ativos e retorna uma shortlist de até 10 pessoas. |
+
+Exemplo:
+
+```json
+{
+  "empresa_id": "ID_DA_EMPRESA",
+  "vaga": {
+    "titulo": "Pessoa Desenvolvedora Backend",
+    "cargo": "BACKEND_DEVELOPER",
+    "modalidade": "REMOTO",
+    "skills": ["NestJS", "Prisma", "PostgreSQL"],
+    "nivel": "PLENO",
+    "regiao": "Florianopolis"
+  },
+  "filtros": {
+    "anti_vies": true,
+    "diversidade_minima": 40
+  }
+}
+```
+
+Os pesos variam conforme a modalidade:
+
+| Critério    | Remoto | Híbrido | Presencial |
+| ----------- | -----: | ------: | ---------: |
+| Cargo       |    35% |     30% |        25% |
+| Skills      |    40% |     35% |        30% |
+| Nível       |    15% |     15% |        15% |
+| Diversidade |    10% |     10% |        10% |
+| Mobilidade  |     0% |     10% |        20% |
+
+O cargo é filtrado antes do cálculo: somente candidatos cujo `cargoDesejado` corresponde ao `cargo` da vaga entram no ranking e em `total_analisados`.
+
+Em vagas remotas, região, coordenadas e mobilidade não influenciam o score. A resposta inclui `modalidade_vaga`, `candidato_id`, nome, score, destaque, `badge_diversidade`, `motivos`, o campo legado `explicacao`, skills, cargo desejado, total analisado e diversidade alcançada.
+
+
+
+A API IA também pode executar `/match` usando `IA_INTERNAL_TOKEN`.
+
+### Insights e dashboard
+
+| Método | Rota                           | Acesso           | Função                                                   |
+| ------ | ------------------------------ | ---------------- | -------------------------------------------------------- |
+| `GET`  | `/insights`                    | Empresa ou admin | Retorna mapa de talentos, total de regiões e candidatos. |
+| `GET`  | `/dashboard/ultimos-registros` | Admin            | Retorna até cinco eventos recentes do sistema.           |
+
+No dashboard, o administrador consulta os eventos recentes de autenticação do sistema.
+
+Quando `vagaId` é enviado em `/insights?vagaId=ID_DA_VAGA`, o backend valida se a vaga pertence à empresa logada e filtra candidatos ativos cujo `cargoDesejado` corresponde ao `cargo` da vaga. A resposta continua no formato `mapa_talentos`, `total_regioes` e `total_candidatos`; nesse cenário, cada item de `mapa_talentos` representa um candidato compatível, mantendo o contrato usado pelo front.
+
+`/match` e `/insights?vagaId=...` usam o mesmo critério base de elegibilidade por cargo da vaga, mas não retornam o mesmo contrato. `/match` retorna ranking com score, destaque, motivos e diversidade alcançada. `/insights?vagaId=...` retorna os candidatos compatíveis no formato de mapa/lista, sem score e sem ordenação por ranking.
+
+### Manual rápido para o front
+
+Fluxo recomendado para a página de Insights:
+
+1. Fazer login da empresa em `POST /auth/login`.
+2. Listar vagas da empresa logada em `GET /vagas`.
+3. Guardar o `id` da vaga escolhida pelo usuário.
+4. Chamar `GET /insights?vagaId=ID_DA_VAGA`.
+5. Renderizar `mapa_talentos` no mapa ou lista lateral.
+
+O front não precisa enviar `cargo` para `/insights`. O backend resolve o fluxo internamente:
+
+```text
+vagaId -> busca vaga -> lê cargo da vaga -> filtra candidatos por cargoDesejado
+```
+
+Exemplo Backend:
+
+```http
+GET /insights?vagaId=144a24b9-d73a-41d5-bf6f-fef735a2a8e4
+Authorization: Bearer ACCESS_TOKEN
+```
+
+Retorno validado:
+
+```json
+{
+  "total_regioes": 30,
+  "total_candidatos": 30
+}
+```
+
+Exemplo Frontend:
+
+```http
+GET /insights?vagaId=7589370f-f5af-404d-86bf-f21be1fc6695
+Authorization: Bearer ACCESS_TOKEN
+```
+
+Retorno validado:
+
+```json
+{
+  "total_regioes": 14,
+  "total_candidatos": 14
+}
+```
+
+Campos da resposta:
+
+| Campo | Uso no front |
+| --- | --- |
+| `mapa_talentos` | Lista de pontos/candidatos para mapa ou lista lateral. |
+| `regiao` | Nome do candidato no modo filtrado por vaga. |
+| `lat` / `lon` | Coordenadas do ponto no mapa. |
+| `concentracao` | Valor fixo `1` por candidato retornado. |
+| `perfis_disponiveis` | Valor fixo `1` por candidato retornado. |
+| `total_candidatos` | Total de candidatos compatíveis com a vaga. |
+| `total_regioes` | Total de pontos retornados. |
+
+## Auditoria e segurança
+
+- Senhas são armazenadas com hash bcrypt.
+- A API registra tentativas de login, renovação de token e logout.
+- Alterações em empresas, vagas e candidatos guardam usuário responsável, IP, user agent e dados anteriores/posteriores.
+- O acesso a dados de candidatos é auditado com sua finalidade.
+- A validação global rejeita campos não previstos nos DTOs.
+- Empresas e candidatos só podem alterar recursos próprios; o admin possui acesso global.
+
+## Dados de demonstração
+
+O comando `npx prisma db seed` recria os dados de desenvolvimento. Alguns acessos disponíveis são:
+
+| Perfil  | E-mail                  | Senha    |
+| ------- | ----------------------- | -------- |
+| Admin   | `admin@appbit.com`      | `123456` |
+| Empresa | `ana@techdiversity.com` | `123456` |
+
+Essas credenciais são exclusivamente para ambiente local.
+
+Os IDs são gerados automaticamente pelo PostgreSQL como UUID. Use os IDs retornados pelas rotas de listagem para chamadas por ID, como `/vagas/:id`, `/candidatos/:id`, `/empresas/:id` e `/insights?vagaId=...`.
+
+A seed usa automaticamente a amostra processada da fonte No-Country/CDRView quando o arquivo `data/cdrview/processados/candidatos_mobilidade_100.json` existe. Essa amostra popula 100 candidatos fictícios com dados agregados de mobilidade, mantendo UUID gerado pelo PostgreSQL e sem usar `assinante_hash` como ID do sistema.
+
+Para atualizar candidatos da amostra sem limpar o banco, use:
+
+```bash
+npm run mobilidade:importar-candidatos
+```
+
+Importante: `npx prisma db seed` limpa tabelas antes de recriar os dados. Confira o `DATABASE_URL` antes de executar, principalmente se o `.env` estiver apontando para Railway/produção.
+
+## Scripts
+
+| Comando              | Função                                            |
+| -------------------- | ------------------------------------------------- |
+| `npm run start:dev`  | Inicia em desenvolvimento com recarga automática. |
+| `npm run build`      | Compila o projeto.                                |
+| `npm run start:prod` | Executa a versão compilada.                       |
+| `npm run mobilidade:importar-candidatos` | Importa ou atualiza candidatos da amostra No-Country sem limpar o banco. |
+| `npm run mobilidade:processar` | Reprocessa agregados CDRView quando os CSVs fonte estiverem em `data/cdrview`. |
+| `npm run mobilidade:gerar-candidatos` | Gera nova amostra `candidatos_mobilidade_N.json` a partir dos dados processados. |
+
+## Postman
+
+No Postman, execute primeiro `POST /auth/login` e copie o `access_token` para o header `Authorization: Bearer SEU_ACCESS_TOKEN`. Para testar a integração da API IA, use `Authorization: Bearer IA_INTERNAL_TOKEN` nas rotas liberadas.
+
+Login de empresa usado nos testes:
+
+```json
+{
+  "email": "ana@techdiversity.com",
+  "senha": "123456"
+}
+```
+
+Body para testar `/match` Backend:
+
+```json
+{
+  "empresa_id": "b641c38f-f617-4c6d-990d-9bcea933dda3",
+  "vaga": {
+    "titulo": "Backend NestJS",
+    "cargo": "BACKEND_DEVELOPER",
+    "modalidade": "HIBRIDO",
+    "skills": ["NestJS", "Prisma", "PostgreSQL"],
+    "nivel": "PLENO",
+    "regiao": "Florianopolis",
+    "latitude": -27.590569,
+    "longitude": -48.557111
+  },
+  "filtros": {
+    "anti_vies": true,
+    "diversidade_minima": 50
+  }
+}
+```
+
+Body para testar `/match` Frontend:
+
+```json
+{
+  "empresa_id": "b641c38f-f617-4c6d-990d-9bcea933dda3",
+  "vaga": {
+    "titulo": "Frontend React",
+    "cargo": "FRONTEND_DEVELOPER",
+    "modalidade": "HIBRIDO",
+    "skills": ["React"],
+    "nivel": "JUNIOR",
+    "regiao": "Florianopolis",
+    "latitude": -27.590569,
+    "longitude": -48.557111
+  },
+  "filtros": {
+    "anti_vies": true,
+    "diversidade_minima": 50
+  }
+}
+```
+
+Para `/insights`, use método `GET` sem body:
+
+```http
+GET /insights?vagaId=144a24b9-d73a-41d5-bf6f-fef735a2a8e4
+GET /insights?vagaId=7589370f-f5af-404d-86bf-f21be1fc6695
+```
+
+Para carregar os candidatos e as vagas de demonstração antes dos testes:
+
+```bash
+npx prisma migrate deploy
+npx prisma db seed
+npm run start:dev
+```
+
+## Estrutura principal
+
+```text
+├── prisma/              # Schema, migrations e seed
+├── data/                # Amostras processadas No-Country/CDRView
+├── scripts/             # Utilitários e scripts de mobilidade
+└── src/
+    ├── auth/            # Login, tokens, guards e perfis
+    ├── candidatos/      # Cadastro e gestão de candidatos
+    ├── dashboard/       # Registros recentes por perfil
+    ├── empresas/        # Cadastro e gestão de empresas
+    ├── insights/        # Indicadores e mapa de talentos
+    ├── logs-*/          # Serviços internos de auditoria
+    ├── match/           # Cálculo e ordenação de matching
+    ├── prisma/          # Integração com o banco
+    └── vagas/           # Cadastro e gestão de vagas
+```
+
+## Alinhamentos finais com equipe
+
+- A cidade/região dos dados de demonstração está padronizada como `Florianopolis`.
+- A vaga `Frontend React` da empresa Tech Diversity está como `HIBRIDO`.
+- O endpoint `/match` retorna somente candidatos cujo `cargoDesejado` seja igual ao `cargo` informado na vaga.
+- O endpoint `/insights` sem `vagaId` retorna o mapa geral de talentos.
+- O endpoint `/insights?vagaId=ID_DA_VAGA` retorna o mapa de talentos filtrado pela vaga, mantendo o contrato documentado de `mapa_talentos`.
+- `/match` e `/insights?vagaId=...` podem ter o mesmo total de candidatos elegíveis, mas o `/match` ordena por score e o `/insights` mantém formato de mapa/lista para o front.
+- As rotas `GET` de candidatos e vagas estão liberadas para a API IA via `IA_INTERNAL_TOKEN`.
+- As rotas de escrita continuam restritas aos perfis definidos nos guards.
+- O banco usa UUID gerado pelo PostgreSQL; não usar IDs textuais fixos em testes.
+- O campo `candidato_id` retornado pelo `/match` é UUID real do banco.
+
+## Autor
+
+Ronaldo Wilson de Aguiar

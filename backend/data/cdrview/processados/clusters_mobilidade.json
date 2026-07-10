@@ -1,0 +1,911 @@
+[
+  {
+    "cluster": "CBD_BEIRAMAR",
+    "municipio": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "totalAssinantes": 17919,
+    "ageGroups": {
+      "25-34": 3599,
+      "18-24": 3507,
+      "45-54": 3624,
+      "55+": 3611,
+      "35-44": 3578
+    },
+    "incomeClusters": {
+      "C": 7433,
+      "B": 5031,
+      "A": 1448,
+      "D": 4007
+    },
+    "mobilityPatterns": {
+      "INTENSA": 3625,
+      "BAIXA": 6247,
+      "MODERADA": 8047
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 541956,
+    "fluxoSaidaTransicoes": 555715,
+    "fluxoEntradaUsuarios": 542645,
+    "fluxoEntradaTransicoes": 556455,
+    "distanciaMediaKm": 9.218,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "CENTRO_HISTORICO",
+    "municipio": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "totalAssinantes": 12841,
+    "ageGroups": {
+      "45-54": 2645,
+      "25-34": 2632,
+      "35-44": 2483,
+      "18-24": 2534,
+      "55+": 2547
+    },
+    "incomeClusters": {
+      "C": 5400,
+      "B": 3625,
+      "D": 2771,
+      "A": 1045
+    },
+    "mobilityPatterns": {
+      "BAIXA": 4442,
+      "MODERADA": 5884,
+      "INTENSA": 2515
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 76,
+    "fluxoSaidaUsuarios": 25842,
+    "fluxoSaidaTransicoes": 26248,
+    "fluxoEntradaUsuarios": 26079,
+    "fluxoEntradaTransicoes": 26455,
+    "distanciaMediaKm": 8.415,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "SAO_JOSE_CENTRO",
+    "municipio": "Sao Jose",
+    "latitude": -27.608008,
+    "longitude": -48.62685,
+    "totalAssinantes": 12696,
+    "ageGroups": {
+      "55+": 2480,
+      "45-54": 2529,
+      "35-44": 2516,
+      "18-24": 2586,
+      "25-34": 2585
+    },
+    "incomeClusters": {
+      "C": 5361,
+      "B": 3543,
+      "D": 2797,
+      "A": 995
+    },
+    "mobilityPatterns": {
+      "INTENSA": 2465,
+      "BAIXA": 4416,
+      "MODERADA": 5815
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 124739,
+    "fluxoSaidaTransicoes": 154111,
+    "fluxoEntradaUsuarios": 124735,
+    "fluxoEntradaTransicoes": 154177,
+    "distanciaMediaKm": 11.766,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "TRINDADE",
+    "municipio": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "totalAssinantes": 11809,
+    "ageGroups": {
+      "45-54": 2323,
+      "18-24": 2343,
+      "35-44": 2434,
+      "25-34": 2335,
+      "55+": 2374
+    },
+    "incomeClusters": {
+      "B": 3230,
+      "C": 5049,
+      "A": 941,
+      "D": 2589
+    },
+    "mobilityPatterns": {
+      "INTENSA": 2316,
+      "BAIXA": 4110,
+      "MODERADA": 5383
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 321696,
+    "fluxoSaidaTransicoes": 337103,
+    "fluxoEntradaUsuarios": 321383,
+    "fluxoEntradaTransicoes": 336645,
+    "distanciaMediaKm": 9.286,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "SAO_JOSE_BARREIROS",
+    "municipio": "Palhoca",
+    "latitude": -27.673358,
+    "longitude": -48.656689,
+    "totalAssinantes": 9862,
+    "ageGroups": {
+      "55+": 1919,
+      "45-54": 2039,
+      "18-24": 2045,
+      "35-44": 1872,
+      "25-34": 1987
+    },
+    "incomeClusters": {
+      "B": 2731,
+      "C": 4107,
+      "D": 2203,
+      "A": 821
+    },
+    "mobilityPatterns": {
+      "MODERADA": 4454,
+      "BAIXA": 3513,
+      "INTENSA": 1895
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 25777,
+    "fluxoSaidaTransicoes": 26141,
+    "fluxoEntradaUsuarios": 25817,
+    "fluxoEntradaTransicoes": 26197,
+    "distanciaMediaKm": 15.519,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "COQUEIROS",
+    "municipio": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "totalAssinantes": 9675,
+    "ageGroups": {
+      "55+": 1911,
+      "35-44": 1992,
+      "45-54": 1962,
+      "25-34": 1913,
+      "18-24": 1897
+    },
+    "incomeClusters": {
+      "D": 2101,
+      "C": 4054,
+      "A": 773,
+      "B": 2747
+    },
+    "mobilityPatterns": {
+      "MODERADA": 4348,
+      "BAIXA": 3408,
+      "INTENSA": 1919
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 76,
+    "fluxoSaidaUsuarios": 26097,
+    "fluxoSaidaTransicoes": 26461,
+    "fluxoEntradaUsuarios": 26183,
+    "fluxoEntradaTransicoes": 26575,
+    "distanciaMediaKm": 8.961,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "PALHOCA_CENTRO",
+    "municipio": "Palhoca",
+    "latitude": -27.637456,
+    "longitude": -48.666794,
+    "totalAssinantes": 8633,
+    "ageGroups": {
+      "18-24": 1805,
+      "45-54": 1712,
+      "55+": 1736,
+      "35-44": 1690,
+      "25-34": 1690
+    },
+    "incomeClusters": {
+      "C": 3658,
+      "D": 1841,
+      "B": 2443,
+      "A": 691
+    },
+    "mobilityPatterns": {
+      "BAIXA": 2924,
+      "MODERADA": 3987,
+      "INTENSA": 1722
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 79,
+    "fluxoSaidaUsuarios": 25913,
+    "fluxoSaidaTransicoes": 26261,
+    "fluxoEntradaUsuarios": 26117,
+    "fluxoEntradaTransicoes": 26474,
+    "distanciaMediaKm": 16.905,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "SAO_JOSE_KOBRASOL",
+    "municipio": "Sao Jose",
+    "latitude": -27.6075,
+    "longitude": -48.638889,
+    "totalAssinantes": 8594,
+    "ageGroups": {
+      "25-34": 1748,
+      "45-54": 1698,
+      "35-44": 1718,
+      "55+": 1696,
+      "18-24": 1734
+    },
+    "incomeClusters": {
+      "A": 678,
+      "C": 3611,
+      "D": 1881,
+      "B": 2424
+    },
+    "mobilityPatterns": {
+      "INTENSA": 1754,
+      "BAIXA": 2974,
+      "MODERADA": 3866
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 79,
+    "fluxoSaidaUsuarios": 321470,
+    "fluxoSaidaTransicoes": 332539,
+    "fluxoEntradaUsuarios": 321409,
+    "fluxoEntradaTransicoes": 332337,
+    "distanciaMediaKm": 12.833,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "ESTREITO_CAPOEIRAS",
+    "municipio": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "totalAssinantes": 8593,
+    "ageGroups": {
+      "35-44": 1706,
+      "25-34": 1729,
+      "55+": 1720,
+      "45-54": 1753,
+      "18-24": 1685
+    },
+    "incomeClusters": {
+      "D": 1861,
+      "B": 2445,
+      "C": 3566,
+      "A": 721
+    },
+    "mobilityPatterns": {
+      "MODERADA": 3918,
+      "BAIXA": 2944,
+      "INTENSA": 1731
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 434253,
+    "fluxoSaidaTransicoes": 443389,
+    "fluxoEntradaUsuarios": 434579,
+    "fluxoEntradaTransicoes": 443721,
+    "distanciaMediaKm": 10.226,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "UFSC",
+    "municipio": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "totalAssinantes": 8478,
+    "ageGroups": {
+      "25-34": 1682,
+      "45-54": 1684,
+      "55+": 1742,
+      "18-24": 1776,
+      "35-44": 1594
+    },
+    "incomeClusters": {
+      "B": 2387,
+      "C": 3578,
+      "D": 1831,
+      "A": 682
+    },
+    "mobilityPatterns": {
+      "BAIXA": 2965,
+      "INTENSA": 1695,
+      "MODERADA": 3818
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 77,
+    "fluxoSaidaUsuarios": 189673,
+    "fluxoSaidaTransicoes": 206583,
+    "fluxoEntradaUsuarios": 189541,
+    "fluxoEntradaTransicoes": 206460,
+    "distanciaMediaKm": 8.788,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "RESIDENCIAL_NORTE",
+    "municipio": "Florianopolis",
+    "latitude": -27.529258,
+    "longitude": -48.514072,
+    "totalAssinantes": 7577,
+    "ageGroups": {
+      "45-54": 1557,
+      "55+": 1511,
+      "18-24": 1540,
+      "25-34": 1494,
+      "35-44": 1475
+    },
+    "incomeClusters": {
+      "C": 3143,
+      "D": 1677,
+      "B": 2145,
+      "A": 612
+    },
+    "mobilityPatterns": {
+      "INTENSA": 1518,
+      "BAIXA": 2588,
+      "MODERADA": 3471
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 218499,
+    "fluxoSaidaTransicoes": 232298,
+    "fluxoEntradaUsuarios": 218834,
+    "fluxoEntradaTransicoes": 232577,
+    "distanciaMediaKm": 10.78,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "CAMPECHE",
+    "municipio": "Florianopolis",
+    "latitude": -27.656481,
+    "longitude": -48.509303,
+    "totalAssinantes": 7514,
+    "ageGroups": {
+      "18-24": 1477,
+      "45-54": 1555,
+      "35-44": 1486,
+      "25-34": 1481,
+      "55+": 1515
+    },
+    "incomeClusters": {
+      "A": 601,
+      "C": 3226,
+      "D": 1637,
+      "B": 2050
+    },
+    "mobilityPatterns": {
+      "INTENSA": 1495,
+      "BAIXA": 2700,
+      "MODERADA": 3319
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 79,
+    "fluxoSaidaUsuarios": 279917,
+    "fluxoSaidaTransicoes": 290860,
+    "fluxoEntradaUsuarios": 280208,
+    "fluxoEntradaTransicoes": 291161,
+    "distanciaMediaKm": 16.046,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "SAO_JOSE_ROCADO",
+    "municipio": "São José",
+    "latitude": null,
+    "longitude": null,
+    "totalAssinantes": 7492,
+    "ageGroups": {
+      "35-44": 1499,
+      "25-34": 1476,
+      "18-24": 1482,
+      "55+": 1507,
+      "45-54": 1528
+    },
+    "incomeClusters": {
+      "D": 1671,
+      "B": 2059,
+      "A": 597,
+      "C": 3165
+    },
+    "mobilityPatterns": {
+      "BAIXA": 2567,
+      "INTENSA": 1481,
+      "MODERADA": 3444
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 65,
+    "fluxoSaidaUsuarios": 0,
+    "fluxoSaidaTransicoes": 0,
+    "fluxoEntradaUsuarios": 0,
+    "fluxoEntradaTransicoes": 0,
+    "distanciaMediaKm": null,
+    "periodoPredominante": null
+  },
+  {
+    "cluster": "LAGOA_CONCEICAO",
+    "municipio": "Florianopolis",
+    "latitude": -27.6044,
+    "longitude": -48.4752,
+    "totalAssinantes": 6447,
+    "ageGroups": {
+      "55+": 1297,
+      "35-44": 1305,
+      "45-54": 1272,
+      "25-34": 1291,
+      "18-24": 1282
+    },
+    "incomeClusters": {
+      "C": 2741,
+      "B": 1744,
+      "D": 1450,
+      "A": 512
+    },
+    "mobilityPatterns": {
+      "INTENSA": 1292,
+      "BAIXA": 2282,
+      "MODERADA": 2873
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 240243,
+    "fluxoSaidaTransicoes": 251001,
+    "fluxoEntradaUsuarios": 239791,
+    "fluxoEntradaTransicoes": 250602,
+    "distanciaMediaKm": 12.664,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "BIGUACU_BR101_NORTE",
+    "municipio": "Biguacu",
+    "latitude": -27.531419,
+    "longitude": -48.635089,
+    "totalAssinantes": 6446,
+    "ageGroups": {
+      "18-24": 1256,
+      "55+": 1302,
+      "25-34": 1269,
+      "35-44": 1333,
+      "45-54": 1286
+    },
+    "incomeClusters": {
+      "C": 2761,
+      "D": 1352,
+      "B": 1828,
+      "A": 505
+    },
+    "mobilityPatterns": {
+      "INTENSA": 1242,
+      "BAIXA": 2328,
+      "MODERADA": 2876
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 79,
+    "fluxoSaidaUsuarios": 139728,
+    "fluxoSaidaTransicoes": 155155,
+    "fluxoEntradaUsuarios": 139627,
+    "fluxoEntradaTransicoes": 154987,
+    "distanciaMediaKm": 17.555,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "PALHOCA_PEDRA_BRANCA",
+    "municipio": "Palhoca",
+    "latitude": -27.622639,
+    "longitude": -48.674258,
+    "totalAssinantes": 6369,
+    "ageGroups": {
+      "18-24": 1290,
+      "55+": 1306,
+      "25-34": 1229,
+      "35-44": 1259,
+      "45-54": 1285
+    },
+    "incomeClusters": {
+      "A": 507,
+      "C": 2659,
+      "B": 1760,
+      "D": 1443
+    },
+    "mobilityPatterns": {
+      "BAIXA": 2248,
+      "INTENSA": 1213,
+      "MODERADA": 2908
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 79,
+    "fluxoSaidaUsuarios": 62449,
+    "fluxoSaidaTransicoes": 74421,
+    "fluxoEntradaUsuarios": 62128,
+    "fluxoEntradaTransicoes": 74155,
+    "distanciaMediaKm": 17.816,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "SC401_CORREDOR",
+    "municipio": "Florianopolis",
+    "latitude": -27.5865,
+    "longitude": -48.4968,
+    "totalAssinantes": 6363,
+    "ageGroups": {
+      "55+": 1313,
+      "25-34": 1265,
+      "35-44": 1225,
+      "18-24": 1281,
+      "45-54": 1279
+    },
+    "incomeClusters": {
+      "D": 1403,
+      "B": 1779,
+      "A": 499,
+      "C": 2682
+    },
+    "mobilityPatterns": {
+      "MODERADA": 2873,
+      "INTENSA": 1291,
+      "BAIXA": 2199
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 354074,
+    "fluxoSaidaTransicoes": 362276,
+    "fluxoEntradaUsuarios": 354093,
+    "fluxoEntradaTransicoes": 362226,
+    "distanciaMediaKm": 9.919,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "INGLESES",
+    "municipio": "Florianopolis",
+    "latitude": -27.439722,
+    "longitude": -48.387592,
+    "totalAssinantes": 5403,
+    "ageGroups": {
+      "55+": 1068,
+      "25-34": 1077,
+      "35-44": 1063,
+      "45-54": 1117,
+      "18-24": 1078
+    },
+    "incomeClusters": {
+      "A": 443,
+      "D": 1190,
+      "B": 1519,
+      "C": 2251
+    },
+    "mobilityPatterns": {
+      "MODERADA": 2466,
+      "BAIXA": 1885,
+      "INTENSA": 1052
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 80,
+    "fluxoSaidaUsuarios": 229830,
+    "fluxoSaidaTransicoes": 239072,
+    "fluxoEntradaUsuarios": 230321,
+    "fluxoEntradaTransicoes": 239511,
+    "distanciaMediaKm": 22.522,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "VIA_EXPRESSA_CORREDOR",
+    "municipio": "Florianopolis",
+    "latitude": -27.612839,
+    "longitude": -48.593017,
+    "totalAssinantes": 5396,
+    "ageGroups": {
+      "25-34": 1039,
+      "35-44": 1115,
+      "18-24": 1041,
+      "45-54": 1091,
+      "55+": 1110
+    },
+    "incomeClusters": {
+      "B": 1547,
+      "C": 2196,
+      "D": 1207,
+      "A": 446
+    },
+    "mobilityPatterns": {
+      "MODERADA": 2443,
+      "BAIXA": 1833,
+      "INTENSA": 1120
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 78,
+    "fluxoSaidaUsuarios": 134818,
+    "fluxoSaidaTransicoes": 147895,
+    "fluxoEntradaUsuarios": 134508,
+    "fluxoEntradaTransicoes": 147681,
+    "distanciaMediaKm": 10.404,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "AEROPORTO_HLZ",
+    "municipio": "Florianopolis",
+    "latitude": -27.7,
+    "longitude": -48.550647,
+    "totalAssinantes": 5371,
+    "ageGroups": {
+      "45-54": 1007,
+      "35-44": 1112,
+      "18-24": 1067,
+      "55+": 1068,
+      "25-34": 1117
+    },
+    "incomeClusters": {
+      "C": 2277,
+      "D": 1138,
+      "B": 1493,
+      "A": 463
+    },
+    "mobilityPatterns": {
+      "MODERADA": 2409,
+      "INTENSA": 1076,
+      "BAIXA": 1886
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 79,
+    "fluxoSaidaUsuarios": 200254,
+    "fluxoSaidaTransicoes": 210621,
+    "fluxoEntradaUsuarios": 200021,
+    "fluxoEntradaTransicoes": 210489,
+    "distanciaMediaKm": 13.64,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "CANASVIEIRAS",
+    "municipio": "Florianopolis",
+    "latitude": -27.4292,
+    "longitude": -48.458697,
+    "totalAssinantes": 5319,
+    "ageGroups": {
+      "18-24": 1102,
+      "55+": 1077,
+      "25-34": 1029,
+      "35-44": 1030,
+      "45-54": 1081
+    },
+    "incomeClusters": {
+      "C": 2241,
+      "A": 444,
+      "B": 1488,
+      "D": 1146
+    },
+    "mobilityPatterns": {
+      "BAIXA": 1855,
+      "MODERADA": 2419,
+      "INTENSA": 1045
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 80,
+    "fluxoSaidaUsuarios": 97125,
+    "fluxoSaidaTransicoes": 110327,
+    "fluxoEntradaUsuarios": 97080,
+    "fluxoEntradaTransicoes": 110196,
+    "distanciaMediaKm": 19.296,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "PALHOCA_BR101_SUL",
+    "municipio": "Palhoça",
+    "latitude": null,
+    "longitude": null,
+    "totalAssinantes": 5249,
+    "ageGroups": {
+      "35-44": 1041,
+      "18-24": 1102,
+      "25-34": 1041,
+      "45-54": 1029,
+      "55+": 1036
+    },
+    "incomeClusters": {
+      "C": 2198,
+      "D": 1146,
+      "B": 1458,
+      "A": 447
+    },
+    "mobilityPatterns": {
+      "MODERADA": 2422,
+      "BAIXA": 1810,
+      "INTENSA": 1017
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 65,
+    "fluxoSaidaUsuarios": 0,
+    "fluxoSaidaTransicoes": 0,
+    "fluxoEntradaUsuarios": 0,
+    "fluxoEntradaTransicoes": 0,
+    "distanciaMediaKm": null,
+    "periodoPredominante": null
+  },
+  {
+    "cluster": "JURERE",
+    "municipio": "Florianopolis",
+    "latitude": -27.489517,
+    "longitude": -48.535633,
+    "totalAssinantes": 4236,
+    "ageGroups": {
+      "45-54": 913,
+      "55+": 816,
+      "35-44": 848,
+      "25-34": 847,
+      "18-24": 812
+    },
+    "incomeClusters": {
+      "C": 1820,
+      "A": 322,
+      "B": 1165,
+      "D": 929
+    },
+    "mobilityPatterns": {
+      "BAIXA": 1495,
+      "INTENSA": 793,
+      "MODERADA": 1948
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 79,
+    "fluxoSaidaUsuarios": 159066,
+    "fluxoSaidaTransicoes": 168383,
+    "fluxoEntradaUsuarios": 159219,
+    "fluxoEntradaTransicoes": 168601,
+    "distanciaMediaKm": 17.644,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "NORTE_ILHA",
+    "municipio": "Florianopolis",
+    "latitude": -27.482269,
+    "longitude": -48.491897,
+    "totalAssinantes": 4131,
+    "ageGroups": {
+      "25-34": 871,
+      "35-44": 870,
+      "55+": 811,
+      "18-24": 772,
+      "45-54": 807
+    },
+    "incomeClusters": {
+      "B": 1137,
+      "C": 1749,
+      "D": 904,
+      "A": 341
+    },
+    "mobilityPatterns": {
+      "MODERADA": 1870,
+      "INTENSA": 812,
+      "BAIXA": 1449
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 79,
+    "fluxoSaidaUsuarios": 219400,
+    "fluxoSaidaTransicoes": 226974,
+    "fluxoEntradaUsuarios": 218961,
+    "fluxoEntradaTransicoes": 226554,
+    "distanciaMediaKm": 16.219,
+    "periodoPredominante": "MANHA"
+  },
+  {
+    "cluster": "SANTO_AMARO",
+    "municipio": "Santo Amaro da Imperatriz",
+    "latitude": null,
+    "longitude": null,
+    "totalAssinantes": 3236,
+    "ageGroups": {
+      "25-34": 646,
+      "45-54": 671,
+      "18-24": 642,
+      "35-44": 672,
+      "55+": 605
+    },
+    "incomeClusters": {
+      "B": 880,
+      "C": 1425,
+      "D": 684,
+      "A": 247
+    },
+    "mobilityPatterns": {
+      "MODERADA": 1435,
+      "INTENSA": 659,
+      "BAIXA": 1142
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 65,
+    "fluxoSaidaUsuarios": 0,
+    "fluxoSaidaTransicoes": 0,
+    "fluxoEntradaUsuarios": 0,
+    "fluxoEntradaTransicoes": 0,
+    "distanciaMediaKm": null,
+    "periodoPredominante": null
+  },
+  {
+    "cluster": "GOV_CELSO_RAMOS",
+    "municipio": "Governador Celso Ramos",
+    "latitude": null,
+    "longitude": null,
+    "totalAssinantes": 2187,
+    "ageGroups": {
+      "35-44": 473,
+      "55+": 423,
+      "25-34": 439,
+      "18-24": 426,
+      "45-54": 426
+    },
+    "incomeClusters": {
+      "B": 623,
+      "D": 488,
+      "C": 897,
+      "A": 179
+    },
+    "mobilityPatterns": {
+      "INTENSA": 427,
+      "MODERADA": 961,
+      "BAIXA": 799
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 65,
+    "fluxoSaidaUsuarios": 0,
+    "fluxoSaidaTransicoes": 0,
+    "fluxoEntradaUsuarios": 0,
+    "fluxoEntradaTransicoes": 0,
+    "distanciaMediaKm": null,
+    "periodoPredominante": null
+  },
+  {
+    "cluster": "ANTONIO_CARLOS",
+    "municipio": "Antônio Carlos",
+    "latitude": null,
+    "longitude": null,
+    "totalAssinantes": 2164,
+    "ageGroups": {
+      "18-24": 427,
+      "45-54": 427,
+      "35-44": 425,
+      "25-34": 436,
+      "55+": 449
+    },
+    "incomeClusters": {
+      "C": 931,
+      "D": 468,
+      "B": 598,
+      "A": 167
+    },
+    "mobilityPatterns": {
+      "BAIXA": 716,
+      "INTENSA": 454,
+      "MODERADA": 994
+    },
+    "mobilityPatternPredominante": "MODERADA",
+    "scoreMobilidade": 66,
+    "fluxoSaidaUsuarios": 0,
+    "fluxoSaidaTransicoes": 0,
+    "fluxoEntradaUsuarios": 0,
+    "fluxoEntradaTransicoes": 0,
+    "distanciaMediaKm": null,
+    "periodoPredominante": null
+  },
+  {
+    "cluster": "SAO_JOSE_ROÇADO",
+    "municipio": "Sao Jose",
+    "latitude": -27.567222,
+    "longitude": -48.617175,
+    "totalAssinantes": 0,
+    "ageGroups": {},
+    "incomeClusters": {},
+    "mobilityPatterns": {},
+    "mobilityPatternPredominante": "NAO_INFORMADO",
+    "scoreMobilidade": 10,
+    "fluxoSaidaUsuarios": 181061,
+    "fluxoSaidaTransicoes": 183612,
+    "fluxoEntradaUsuarios": 180601,
+    "fluxoEntradaTransicoes": 183210,
+    "distanciaMediaKm": null,
+    "periodoPredominante": "MANHA"
+  }
+]

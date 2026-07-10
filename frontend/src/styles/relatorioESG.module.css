@@ -1,0 +1,873 @@
+/* relatorioESG.module.css */
+
+.pagina {
+  font-family: var(--fonte);
+  background: var(--cor-bg-pagina);
+  min-height: 100%;
+  padding-bottom: 40px;
+}
+
+/* ── Cabeçalho ──────────────────────────────────────────── */
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    max-width:1320px;
+
+    margin:auto;
+
+    padding:24px 32px 8px;
+
+}
+
+.titulo{
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.3px;
+    color:#64748B;
+}
+
+.tituloBanner{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+.subtitulo{
+
+    margin-top:8px;
+
+    font-size:16px;
+
+    color:#64748B;
+
+}
+
+.btnOpcoes {
+  border: 1px solid var(--cor-borda);
+  background: #fff;
+  border-radius: var(--raio-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--cor-texto-medio);
+  cursor: pointer;
+  font-family: var(--fonte);
+}
+
+/* ── Faixa Relatório ESG ────────────────────────────────── */
+.faixaEmpresa{
+    display:none;
+
+    max-width:1280px;
+
+    margin:auto;
+
+    padding:16px 24px;
+
+}
+
+.empresaTitulo {
+  font-size: 14px;
+  color: var(--cor-texto);
+}
+
+.empresaDesc {
+  font-size: 12px;
+  color: var(--cor-primaria-hover);
+  margin-top: 2px;
+}
+
+.badgeEmpresa {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: 6px 14px;
+  font-size: 12px;
+  color: var(--cor-texto);
+}
+
+.gruposBadges{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:12px;
+
+}
+
+.badgeGrupo{
+
+    background:#EEF2FF;
+
+    color:#4F46E5;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* ── Conteúdo ───────────────────────────────────────────── */
+.conteudo{
+
+    max-width:1320px;
+
+    margin:auto;
+
+    padding:16px 32px 32px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/* ── Aviso alerta (laranja) ─────────────────────────────── */
+.avisoAlerta {
+  background: #fff;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #f59e0b;
+  border-radius: var(--raio-md);
+  padding: 16px 20px;
+  font-size: 13px;
+  color: var(--cor-texto);
+}
+
+.avisoAlerta p {
+  font-size: 12px;
+  color: var(--cor-texto-fraco);
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+/* ── Métricas ───────────────────────────────────────────── */
+.metricasGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+    margin-top:8px;
+
+}
+
+.metricaCard {
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricaLabel {
+  font-size: 12px;
+  color: var(--cor-primaria);
+}
+
+.metricaValor {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.metricaDesc {
+  font-size: 10px;
+  color: var(--cor-texto-fraco);
+}
+
+/* ── Duas colunas: privacidade + grupos ──────────────────── */
+.duasColunas {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 16px;
+}
+
+.bloco{
+
+    background:#fff;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    min-height:220px;
+
+}
+
+.bloco h3{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.blocoTitulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 10px;
+}
+
+.bloco p{
+
+    color:#64748B;
+
+    line-height:1.7;
+
+    font-size:15px;
+
+}
+
+.privacidadeTexto {
+  font-size: 12px;
+  color: var(--cor-texto-medio);
+  line-height: 1.7;
+}
+
+.gruposRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.grupoTag {
+  background: var(--cor-primaria-suave);
+  color: var(--cor-primaria-hover);
+  border-radius: var(--raio-pill);
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gruposTexto {
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+  line-height: 1.6;
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .metricasGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .duasColunas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header,
+  .faixaEmpresa,
+  .conteudo {
+    padding: 16px;
+  }
+
+  .faixaEmpresa {
+    max-width: 1280px;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 14px 24px;
+  }
+
+  .metricasGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .metricasGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardGrafico{
+
+    background:#fff;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:18px;
+
+    padding:18px 20px;
+
+    min-height:340px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.tituloGrafico{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.graficoContainer{
+
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    align-items:center;
+
+    gap:24px;
+
+    flex:1;
+
+}
+
+.graficoPizza{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    height:100%;
+
+}
+.legendaGrafico{
+
+    width:45%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.valorLegenda{
+
+    min-width:70px;
+
+    text-align:right;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.itemLegenda{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:42px;
+
+    padding:6px 0;
+
+}
+
+.nomeGrupo{
+
+    font-size:14px;
+    font-weight:500;
+    color:#1F2937;
+
+}
+
+.valorGrupo{
+
+    font-size:14px;
+
+    font-weight:500;
+
+    color:#111827;
+
+}
+
+.corLegenda{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    flex-shrink:0;
+
+}
+
+
+.headerEsquerda{
+    flex:1;
+}
+
+.headerDireita{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+}
+
+.cardHeader{
+
+    width:205px;
+
+    min-height:86px;
+
+    background:#fff;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    box-shadow:0 2px 10px rgba(15,23,42,.05);
+
+}
+
+.cardTitulo{
+
+    font-size:11px;
+
+    font-weight:600;
+
+    color:#64748B;
+
+    letter-spacing:.4px;
+
+    text-transform:uppercase;
+
+}
+
+.graficosGrid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:24px;
+
+    margin-top:320px;
+
+    padding:16px;
+
+}
+
+.areaGraficos{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
+    margin-top:18px;
+
+    align-items:start;
+
+}
+
+.card{
+    background:#fff;
+    border:1px solid #E5E7EB;
+    border-radius:16px;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+
+.tresColunas{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:20px;
+
+    margin-top:24px;
+
+    align-items:stretch;
+
+}
+
+.itemVaga{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+    padding:14px 0;
+
+    border-bottom:1px solid #EEF2F7;
+
+}
+
+.itemVaga strong{
+
+    font-size:16px;
+
+}
+
+.itemVaga small{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+.itemVaga:last-child{
+
+    border-bottom:none;
+
+}
+
+.itemEsquerda{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    min-width:120px;
+
+}
+
+.bannerESG{
+
+    margin-top:30px;
+
+    background:#ECFDF5;
+
+    border:1px solid #BBF7D0;
+
+    border-radius:18px;
+
+    padding:28px 42px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    grid-column:1/-1;
+
+}
+
+.textoBanner{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+.botaoIA{
+
+    min-width:250px;
+
+    height:64px;
+
+    border-radius:14px;
+
+    background:#16A34A;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    flex-shrink:0;
+
+}
+
+.botaoIA:hover{
+
+    background:#15803D;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 24px rgba(22,163,74,.25);
+
+}
+
+.cardsInferiores{
+
+    display:grid;
+
+    grid-template-columns:1.25fr .9fr 1fr;
+
+    gap:18px;
+
+    margin-top:18px;
+
+}
+
+.cardInferior{
+
+    background:#fff;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    min-height:170px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+
+}
+
+.cardInferior h3{
+
+    margin-bottom:18px;
+
+    font-size:22px;
+
+}
+
+.cardInferior p{
+
+    color:#6B7280;
+
+    line-height:1.7;
+
+}
+.textoBanner{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.textoBanner p{
+
+    margin-top:6px;
+
+    color:#4B5563;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.textoBanner small{
+
+    color:#64748B;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+}
+
+.valor{
+    font-size:22px;
+    font-weight:700;
+    line-height:1;
+}
+
+.descricao{
+    font-size:12px;
+    color:#6B7280;
+}
+
+.listaScores{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    margin-top:18px;
+
+}
+
+.linhaScore{
+
+    display:grid;
+
+    grid-template-columns:95px 1fr 70px;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.faixaTitulo{
+
+    font-size:14px;
+
+    color:#374151;
+
+}
+
+.barraScoreFundo{
+
+    height:12px;
+
+    background:#ECEFF5;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.barraScore{
+
+    height:100%;
+
+    border-radius:999px;
+
+    transition:.3s;
+
+}
+
+.valorScore{
+
+    font-size:14px;
+
+    text-align:right;
+
+    color:#475569;
+
+}
+
+
+.listaLegenda{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:22px;
+
+}
+
+.mensagemBanner{
+
+    margin:0;
+
+    font-size:18px;
+
+    color:#374151;
+
+    line-height:1.6;
+
+}
+
+.estatisticasBanner{
+
+    display:flex;
+
+    gap:40px;
+
+    margin-top:6px;
+
+}
+
+.estatisticasBanner div{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.estatisticasBanner span{
+
+    font-size:13px;
+
+    color:#64748B;
+
+}
+
+.estatisticasBanner strong{
+
+    font-size:22px;
+
+    color:#111827;
+
+}

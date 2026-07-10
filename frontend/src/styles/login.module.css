@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  background-color: var(--cor-bg-card);
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0px 0px 0px 100px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 35%;
+  min-height: 70vh;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  z-index: 1;
+}
+
+/* ── Painel lateral colorido, igual à referência ────────── */
+.painelLateral {
+  width: 30%;
+  min-height: 70%;
+  background: linear-gradient(
+    160deg,
+    var(--cor-primaria) 0%,
+    var(--cor-primaria-hover) 100%
+  );
+  border-radius: 0 var(--raio-lg) var(--raio-lg) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  color: #fff;
+  font-family: var(--fonte);
+}
+
+.painelTitulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.painelTexto {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 8px;
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+.icon {
+  width: 90px;
+}
+
+/* ── Conteúdo do card — idêntico ao original ────────────── */
+.titulo {
+  text-align: center;
+  font-family: var(--fonte);
+  color: var(--cor-texto-suave);
+  margin-bottom: 24px;
+}
+
+.titulo h2 {
+  font-size: 1.5rem;
+  color: var(--cor-texto);
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.desc {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.form {
+  width: 100%;
+  padding: 30px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  overflow: hidden;
+  margin-bottom: 14px;
+  font-family: var(--fonte);
+}
+
+.inputIcon {
+  background: var(--cor-primaria);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+.inputGroup input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 14px;
+  height: 44px;
+  font-size: 14px;
+  font-family: var(--fonte);
+}
+
+.erro {
+  font-family: var(--fonte);
+  font-size: 12px;
+  color: var(--cor-erro);
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.btnLogin {
+  width: 100%;
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  border-radius: var(--raio-sm);
+  height: 42px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  font-family: var(--fonte);
+  transition: background 0.15s;
+}
+
+.btnLogin:hover {
+  background: var(--cor-primaria-hover);
+}
+
+.btnLogin:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.register {
+  font-family: var(--fonte);
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.register a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+
+
+@media (max-width: 1400px) {
+  .painelLateral {
+    display: none;
+  }
+  .card {
+    border-radius: var(--raio-lg);
+    /* aqui sim, fluido: de 60% (perto de 1400px) até 90% (telas bem pequenas) */
+    max-width: clamp(40%, 90% - (1400px - 100vw) * -0.03, 90%);
+  }
+}
+
+@media (max-width: 850px) {
+  .painelLateral {
+    display: none;
+  }
+
+  .card {
+    border-radius: var(--raio-lg);
+    max-width: clamp(60%, 90% - (850px - 100vw) * -0.03, 90%);
+  }
+}
+
+@media (max-width: 500px) {
+  .titulo h2 {
+    font-size: 20px;
+  }
+
+  .register,
+  .subtitle,
+  .desc {
+    font-size: 11px;
+  }
+
+  .card {
+    padding: 28px 20px;
+    max-width: 95%;
+  }
+
+  .inputGroup input {
+    font-size: 11px;
+  }
+
+  .btnLogin {
+    font-size: 13px;
+  }
+}

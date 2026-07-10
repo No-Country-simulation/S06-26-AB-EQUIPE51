@@ -1,0 +1,46 @@
+/* banner.module.css */
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('../assets/imagem-banner.png') top center / cover no-repeat;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #0d387cce;
+}
+
+.conteudo {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: clamp(85%, 60vw, 50%);
+  height: fit-content;
+  padding: 0 clamp(16px, 4vw, 24px);
+  text-align: center;
+}
+
+.logo {
+  width: clamp(140px, 22vw, 320px);
+  height: auto;
+}
+
+/* ===== Telas bem pequenas: ainda mais compacto ===== */
+@media (max-width: 480px) {
+  .conteudo {
+    padding: 0 16px;
+  }
+
+  .logo {
+    width: clamp(120px, 50vw, 200px);
+  }
+}

@@ -1,0 +1,99 @@
+/* depoimentos.module.css */
+
+.section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  padding: clamp(50px, 6vw, 80px) clamp(20px, 5vw, 60px);
+  text-align: center;
+}
+
+.tag {
+  font-family: var(--fonte);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--cor-primaria);
+}
+
+.titulo {
+  font-family: var(--fonte);
+  font-size: clamp(1.4rem, 1.5vw + 1rem, 1.8rem);
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin: 10px 0 clamp(32px, 4vw, 48px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--cor-bg-pagina);
+  border-radius: var(--raio-lg);
+  padding: clamp(20px, 2.5vw, 28px);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.5vw, 20px);
+}
+
+.texto {
+  font-family: var(--fonte);
+  font-size: clamp(12px, 0.3vw + 11px, 13px);
+  color: var(--cor-texto-medio);
+  line-height: 1.7;
+}
+
+.autor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: clamp(38px, 4vw, 44px);
+  height: clamp(38px, 4vw, 44px);
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.nome {
+  display: block;
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.cargo {
+  font-family: var(--fonte);
+  font-size: 11px;
+  color: var(--cor-texto-fraco);
+}
+
+/* ===== Estrutural: 3 → 2 colunas (tablets) ===== */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== Estrutural: 2 → 1 coluna (mobile) ===== */
+@media (max-width: 600px) {
+  .section {
+    min-height: auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}

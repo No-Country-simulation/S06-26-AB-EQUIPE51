@@ -1,0 +1,35 @@
+.skillsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.skillChip {
+  background: #eef5ff;
+  color: #2563eb;
+  border: 1px solid #c7dcff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vagaInfo {
+  margin-top: 6px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.vagaItem {
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: 0.2s;
+}
+
+.vagaItem:hover {
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}

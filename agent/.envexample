@@ -1,0 +1,4 @@
+NESTJS_TOKEN= token_da_api_nestjs
+NESTJS_URL= url_da_aplicação_nestjs
+0LLAMA_URL=url_da_ollama
+OLLAMA_MODEL=modelo_espeficico_da_ollama

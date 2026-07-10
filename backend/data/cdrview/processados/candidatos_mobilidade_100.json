@@ -1,0 +1,2709 @@
+[
+  {
+    "nome": "Rafael Martins",
+    "email": "candidato.cdr.001@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "25-34",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 1,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER"
+    ]
+  },
+  {
+    "nome": "Camila Costa",
+    "email": "candidato.cdr.002@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.6044,
+    "longitude": -48.4752,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 3,
+      "homeCluster": "LAGOA_CONCEICAO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Lucas Freitas",
+    "email": "candidato.cdr.003@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.656481,
+    "longitude": -48.509303,
+    "ageGroup": "18-24",
+    "incomeCluster": "A",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 87,
+    "origemMobilidade": {
+      "assinanteHash": 4,
+      "homeCluster": "CAMPECHE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO"
+    ]
+  },
+  {
+    "nome": "Mariana Cardoso",
+    "email": "candidato.cdr.004@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 5,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Pedro Castro",
+    "email": "candidato.cdr.005@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 76,
+    "origemMobilidade": {
+      "assinanteHash": 7,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA"
+    ]
+  },
+  {
+    "nome": "Fernanda Rocha",
+    "email": "candidato.cdr.006@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "35-44",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 10,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GENERO"
+    ]
+  },
+  {
+    "nome": "Bruno Campos",
+    "email": "candidato.cdr.007@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.5865,
+    "longitude": -48.4968,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 11,
+      "homeCluster": "SC401_CORREDOR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "RACA/ETNIA"
+    ]
+  },
+  {
+    "nome": "Aline Lima",
+    "email": "candidato.cdr.008@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "25-34",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 76,
+    "origemMobilidade": {
+      "assinanteHash": 13,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GERACIONAL"
+    ]
+  },
+  {
+    "nome": "Diego Correia",
+    "email": "candidato.cdr.009@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "35-44",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 84,
+    "origemMobilidade": {
+      "assinanteHash": 16,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO SOCIOECONOMICA"
+    ]
+  },
+  {
+    "nome": "Juliana Silva",
+    "email": "candidato.cdr.010@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.656481,
+    "longitude": -48.509303,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 87,
+    "origemMobilidade": {
+      "assinanteHash": 19,
+      "homeCluster": "CAMPECHE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Gabriel Nascimento",
+    "email": "candidato.cdr.011@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "25-34",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 20,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER",
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Patricia Vieira",
+    "email": "candidato.cdr.012@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "45-54",
+    "incomeCluster": "B",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 22,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO",
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Thiago Araujo",
+    "email": "candidato.cdr.013@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "18-24",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 23,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA",
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Renata Oliveira",
+    "email": "candidato.cdr.014@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.5865,
+    "longitude": -48.4968,
+    "ageGroup": "25-34",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 25,
+      "homeCluster": "SC401_CORREDOR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": []
+  },
+  {
+    "nome": "Felipe Pereira",
+    "email": "candidato.cdr.015@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "25-34",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 67,
+    "origemMobilidade": {
+      "assinanteHash": 26,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER"
+    ]
+  },
+  {
+    "nome": "Larissa Souza",
+    "email": "candidato.cdr.016@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "18-24",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 27,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Joao Teixeira",
+    "email": "candidato.cdr.017@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 28,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO"
+    ]
+  },
+  {
+    "nome": "Bianca Nunes",
+    "email": "candidato.cdr.018@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "35-44",
+    "incomeCluster": "A",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 29,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Andre Santos",
+    "email": "candidato.cdr.019@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 85,
+    "origemMobilidade": {
+      "assinanteHash": 31,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA"
+    ]
+  },
+  {
+    "nome": "Natalia Rodrigues",
+    "email": "candidato.cdr.020@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.529258,
+    "longitude": -48.514072,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 32,
+      "homeCluster": "RESIDENCIAL_NORTE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GENERO"
+    ]
+  },
+  {
+    "nome": "Eduardo Moreira",
+    "email": "candidato.cdr.021@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "25-34",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 34,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "RACA/ETNIA"
+    ]
+  },
+  {
+    "nome": "Priscila Dias",
+    "email": "candidato.cdr.022@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "18-24",
+    "incomeCluster": "D",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 84,
+    "origemMobilidade": {
+      "assinanteHash": 35,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GERACIONAL"
+    ]
+  },
+  {
+    "nome": "Caio Almeida",
+    "email": "candidato.cdr.023@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 77,
+    "origemMobilidade": {
+      "assinanteHash": 36,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO SOCIOECONOMICA"
+    ]
+  },
+  {
+    "nome": "Isabela Alves",
+    "email": "candidato.cdr.024@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "45-54",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 37,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Gustavo Barbosa",
+    "email": "candidato.cdr.025@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.489517,
+    "longitude": -48.535633,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 69,
+    "origemMobilidade": {
+      "assinanteHash": 38,
+      "homeCluster": "JURERE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER",
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Carolina Monteiro",
+    "email": "candidato.cdr.026@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.7,
+    "longitude": -48.550647,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 79,
+    "origemMobilidade": {
+      "assinanteHash": 39,
+      "homeCluster": "AEROPORTO_HLZ",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO",
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Rodrigo Menezes",
+    "email": "candidato.cdr.027@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "25-34",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 40,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA",
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Vanessa Ferreira",
+    "email": "candidato.cdr.028@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 41,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": []
+  },
+  {
+    "nome": "Marcelo Ramos",
+    "email": "candidato.cdr.029@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.612839,
+    "longitude": -48.593017,
+    "ageGroup": "25-34",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 42,
+      "homeCluster": "VIA_EXPRESSA_CORREDOR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER"
+    ]
+  },
+  {
+    "nome": "Tatiane Gomes",
+    "email": "candidato.cdr.030@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 43,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Leandro Martins",
+    "email": "candidato.cdr.031@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "45-54",
+    "incomeCluster": "D",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 44,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO"
+    ]
+  },
+  {
+    "nome": "Sabrina Costa",
+    "email": "candidato.cdr.032@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 77,
+    "origemMobilidade": {
+      "assinanteHash": 45,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Daniel Freitas",
+    "email": "candidato.cdr.033@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.6044,
+    "longitude": -48.4752,
+    "ageGroup": "35-44",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 46,
+      "homeCluster": "LAGOA_CONCEICAO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA"
+    ]
+  },
+  {
+    "nome": "Monica Cardoso",
+    "email": "candidato.cdr.034@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.439722,
+    "longitude": -48.387592,
+    "ageGroup": "55+",
+    "incomeCluster": "A",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 80,
+    "origemMobilidade": {
+      "assinanteHash": 47,
+      "homeCluster": "INGLESES",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GENERO"
+    ]
+  },
+  {
+    "nome": "Vitor Castro",
+    "email": "candidato.cdr.035@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.4292,
+    "longitude": -48.458697,
+    "ageGroup": "18-24",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 70,
+    "origemMobilidade": {
+      "assinanteHash": 48,
+      "homeCluster": "CANASVIEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "RACA/ETNIA"
+    ]
+  },
+  {
+    "nome": "Helena Rocha",
+    "email": "candidato.cdr.036@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.4292,
+    "longitude": -48.458697,
+    "ageGroup": "18-24",
+    "incomeCluster": "A",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 80,
+    "origemMobilidade": {
+      "assinanteHash": 49,
+      "homeCluster": "CANASVIEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GERACIONAL"
+    ]
+  },
+  {
+    "nome": "Samuel Campos",
+    "email": "candidato.cdr.037@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "35-44",
+    "incomeCluster": "A",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 51,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO SOCIOECONOMICA"
+    ]
+  },
+  {
+    "nome": "Leticia Lima",
+    "email": "candidato.cdr.038@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "25-34",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 53,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Igor Correia",
+    "email": "candidato.cdr.039@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "55+",
+    "incomeCluster": "A",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 76,
+    "origemMobilidade": {
+      "assinanteHash": 55,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER",
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Raquel Silva",
+    "email": "candidato.cdr.040@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 57,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO",
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Rafael Nascimento",
+    "email": "candidato.cdr.041@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 59,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA",
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Camila Vieira",
+    "email": "candidato.cdr.042@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "18-24",
+    "incomeCluster": "A",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 61,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": []
+  },
+  {
+    "nome": "Lucas Araujo",
+    "email": "candidato.cdr.043@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 85,
+    "origemMobilidade": {
+      "assinanteHash": 62,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER"
+    ]
+  },
+  {
+    "nome": "Mariana Oliveira",
+    "email": "candidato.cdr.044@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.439722,
+    "longitude": -48.387592,
+    "ageGroup": "25-34",
+    "incomeCluster": "D",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 70,
+    "origemMobilidade": {
+      "assinanteHash": 63,
+      "homeCluster": "INGLESES",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Pedro Pereira",
+    "email": "candidato.cdr.045@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "55+",
+    "incomeCluster": "A",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 64,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO"
+    ]
+  },
+  {
+    "nome": "Fernanda Souza",
+    "email": "candidato.cdr.046@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.529258,
+    "longitude": -48.514072,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 66,
+      "homeCluster": "RESIDENCIAL_NORTE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Bruno Teixeira",
+    "email": "candidato.cdr.047@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "35-44",
+    "incomeCluster": "A",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 68,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA"
+    ]
+  },
+  {
+    "nome": "Aline Nunes",
+    "email": "candidato.cdr.048@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "35-44",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 69,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GENERO"
+    ]
+  },
+  {
+    "nome": "Diego Santos",
+    "email": "candidato.cdr.049@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.656481,
+    "longitude": -48.509303,
+    "ageGroup": "35-44",
+    "incomeCluster": "D",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 69,
+    "origemMobilidade": {
+      "assinanteHash": 70,
+      "homeCluster": "CAMPECHE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "RACA/ETNIA"
+    ]
+  },
+  {
+    "nome": "Juliana Rodrigues",
+    "email": "candidato.cdr.050@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "35-44",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 76,
+    "origemMobilidade": {
+      "assinanteHash": 72,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GERACIONAL"
+    ]
+  },
+  {
+    "nome": "Gabriel Moreira",
+    "email": "candidato.cdr.051@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 73,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO SOCIOECONOMICA"
+    ]
+  },
+  {
+    "nome": "Patricia Dias",
+    "email": "candidato.cdr.052@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 76,
+    "origemMobilidade": {
+      "assinanteHash": 75,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Thiago Almeida",
+    "email": "candidato.cdr.053@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "35-44",
+    "incomeCluster": "B",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 78,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER",
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Renata Alves",
+    "email": "candidato.cdr.054@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 79,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO",
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Felipe Barbosa",
+    "email": "candidato.cdr.055@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 80,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA",
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Larissa Monteiro",
+    "email": "candidato.cdr.056@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "18-24",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 77,
+    "origemMobilidade": {
+      "assinanteHash": 83,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": []
+  },
+  {
+    "nome": "Joao Menezes",
+    "email": "candidato.cdr.057@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 84,
+    "origemMobilidade": {
+      "assinanteHash": 84,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER"
+    ]
+  },
+  {
+    "nome": "Bianca Ferreira",
+    "email": "candidato.cdr.058@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "55+",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 85,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Andre Ramos",
+    "email": "candidato.cdr.059@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.7,
+    "longitude": -48.550647,
+    "ageGroup": "35-44",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 79,
+    "origemMobilidade": {
+      "assinanteHash": 86,
+      "homeCluster": "AEROPORTO_HLZ",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO"
+    ]
+  },
+  {
+    "nome": "Natalia Gomes",
+    "email": "candidato.cdr.060@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "35-44",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 88,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Eduardo Martins",
+    "email": "candidato.cdr.061@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 76,
+    "origemMobilidade": {
+      "assinanteHash": 89,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA"
+    ]
+  },
+  {
+    "nome": "Priscila Costa",
+    "email": "candidato.cdr.062@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.5865,
+    "longitude": -48.4968,
+    "ageGroup": "55+",
+    "incomeCluster": "D",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 90,
+      "homeCluster": "SC401_CORREDOR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GENERO"
+    ]
+  },
+  {
+    "nome": "Caio Freitas",
+    "email": "candidato.cdr.063@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "18-24",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 92,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "RACA/ETNIA"
+    ]
+  },
+  {
+    "nome": "Isabela Cardoso",
+    "email": "candidato.cdr.064@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.489517,
+    "longitude": -48.535633,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 69,
+    "origemMobilidade": {
+      "assinanteHash": 93,
+      "homeCluster": "JURERE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GERACIONAL"
+    ]
+  },
+  {
+    "nome": "Gustavo Castro",
+    "email": "candidato.cdr.065@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "55+",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 94,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO SOCIOECONOMICA"
+    ]
+  },
+  {
+    "nome": "Carolina Rocha",
+    "email": "candidato.cdr.066@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "35-44",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 95,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Rodrigo Campos",
+    "email": "candidato.cdr.067@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "45-54",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 76,
+    "origemMobilidade": {
+      "assinanteHash": 96,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER",
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Vanessa Lima",
+    "email": "candidato.cdr.068@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "35-44",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 97,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO",
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Marcelo Correia",
+    "email": "candidato.cdr.069@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.5865,
+    "longitude": -48.4968,
+    "ageGroup": "55+",
+    "incomeCluster": "A",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 98,
+      "homeCluster": "SC401_CORREDOR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA",
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Tatiane Silva",
+    "email": "candidato.cdr.070@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "18-24",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 99,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": []
+  },
+  {
+    "nome": "Leandro Nascimento",
+    "email": "candidato.cdr.071@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 100,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER"
+    ]
+  },
+  {
+    "nome": "Sabrina Vieira",
+    "email": "candidato.cdr.072@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.7,
+    "longitude": -48.550647,
+    "ageGroup": "18-24",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 79,
+    "origemMobilidade": {
+      "assinanteHash": 103,
+      "homeCluster": "AEROPORTO_HLZ",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Daniel Araujo",
+    "email": "candidato.cdr.073@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "25-34",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 106,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO"
+    ]
+  },
+  {
+    "nome": "Monica Oliveira",
+    "email": "candidato.cdr.074@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.439722,
+    "longitude": -48.387592,
+    "ageGroup": "35-44",
+    "incomeCluster": "B",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 88,
+    "origemMobilidade": {
+      "assinanteHash": 107,
+      "homeCluster": "INGLESES",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Vitor Pereira",
+    "email": "candidato.cdr.075@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.489517,
+    "longitude": -48.535633,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 69,
+    "origemMobilidade": {
+      "assinanteHash": 108,
+      "homeCluster": "JURERE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA"
+    ]
+  },
+  {
+    "nome": "Helena Souza",
+    "email": "candidato.cdr.076@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.4292,
+    "longitude": -48.458697,
+    "ageGroup": "55+",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 70,
+    "origemMobilidade": {
+      "assinanteHash": 109,
+      "homeCluster": "CANASVIEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GENERO"
+    ]
+  },
+  {
+    "nome": "Samuel Teixeira",
+    "email": "candidato.cdr.077@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.529258,
+    "longitude": -48.514072,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 111,
+      "homeCluster": "RESIDENCIAL_NORTE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "RACA/ETNIA"
+    ]
+  },
+  {
+    "nome": "Leticia Nunes",
+    "email": "candidato.cdr.078@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "45-54",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 112,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GERACIONAL"
+    ]
+  },
+  {
+    "nome": "Igor Santos",
+    "email": "candidato.cdr.079@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.529258,
+    "longitude": -48.514072,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 86,
+    "origemMobilidade": {
+      "assinanteHash": 113,
+      "homeCluster": "RESIDENCIAL_NORTE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO SOCIOECONOMICA"
+    ]
+  },
+  {
+    "nome": "Raquel Rodrigues",
+    "email": "candidato.cdr.080@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "35-44",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 114,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Rafael Moreira",
+    "email": "candidato.cdr.081@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.529258,
+    "longitude": -48.514072,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 116,
+      "homeCluster": "RESIDENCIAL_NORTE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER",
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Camila Dias",
+    "email": "candidato.cdr.082@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "25-34",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 76,
+    "origemMobilidade": {
+      "assinanteHash": 117,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO",
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Lucas Almeida",
+    "email": "candidato.cdr.083@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "25-34",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 67,
+    "origemMobilidade": {
+      "assinanteHash": 118,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA",
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Mariana Alves",
+    "email": "candidato.cdr.084@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.482269,
+    "longitude": -48.491897,
+    "ageGroup": "25-34",
+    "incomeCluster": "B",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 79,
+    "origemMobilidade": {
+      "assinanteHash": 119,
+      "homeCluster": "NORTE_ILHA",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": []
+  },
+  {
+    "nome": "Pedro Barbosa",
+    "email": "candidato.cdr.085@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.612839,
+    "longitude": -48.593017,
+    "ageGroup": "35-44",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 120,
+      "homeCluster": "VIA_EXPRESSA_CORREDOR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER"
+    ]
+  },
+  {
+    "nome": "Fernanda Monteiro",
+    "email": "candidato.cdr.086@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "35-44",
+    "incomeCluster": "A",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 121,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Bruno Menezes",
+    "email": "candidato.cdr.087@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.60395,
+    "longitude": -48.546242,
+    "ageGroup": "18-24",
+    "incomeCluster": "D",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 84,
+    "origemMobilidade": {
+      "assinanteHash": 122,
+      "homeCluster": "CENTRO_HISTORICO",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO"
+    ]
+  },
+  {
+    "nome": "Aline Ferreira",
+    "email": "candidato.cdr.088@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "35-44",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 77,
+    "origemMobilidade": {
+      "assinanteHash": 123,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Diego Ramos",
+    "email": "candidato.cdr.089@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "35-44",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 125,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA"
+    ]
+  },
+  {
+    "nome": "Juliana Gomes",
+    "email": "candidato.cdr.090@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594397,
+    "longitude": -48.556111,
+    "ageGroup": "55+",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 67,
+    "origemMobilidade": {
+      "assinanteHash": 126,
+      "homeCluster": "UFSC",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GENERO"
+    ]
+  },
+  {
+    "nome": "Gabriel Martins",
+    "email": "candidato.cdr.091@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.656481,
+    "longitude": -48.509303,
+    "ageGroup": "45-54",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 69,
+    "origemMobilidade": {
+      "assinanteHash": 127,
+      "homeCluster": "CAMPECHE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "RACA/ETNIA"
+    ]
+  },
+  {
+    "nome": "Patricia Costa",
+    "email": "candidato.cdr.092@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.489517,
+    "longitude": -48.535633,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 69,
+    "origemMobilidade": {
+      "assinanteHash": 128,
+      "homeCluster": "JURERE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "GERACIONAL"
+    ]
+  },
+  {
+    "nome": "Thiago Freitas",
+    "email": "candidato.cdr.093@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "MOBILE_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.599258,
+    "longitude": -48.579861,
+    "ageGroup": "25-34",
+    "incomeCluster": "D",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 129,
+      "homeCluster": "ESTREITO_CAPOEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO SOCIOECONOMICA"
+    ]
+  },
+  {
+    "nome": "Renata Cardoso",
+    "email": "candidato.cdr.094@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Design System"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "UX_DESIGNER",
+    "regiao": "Florianopolis",
+    "latitude": -27.5865,
+    "longitude": -48.4968,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 130,
+      "homeCluster": "SC401_CORREDOR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Felipe Castro",
+    "email": "candidato.cdr.095@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Cypress",
+      "Jest",
+      "Automacao"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "QA_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.656481,
+    "longitude": -48.509303,
+    "ageGroup": "25-34",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 69,
+    "origemMobilidade": {
+      "assinanteHash": 131,
+      "homeCluster": "CAMPECHE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER",
+      "PCD"
+    ]
+  },
+  {
+    "nome": "Larissa Rocha",
+    "email": "candidato.cdr.096@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.656481,
+    "longitude": -48.509303,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 69,
+    "origemMobilidade": {
+      "assinanteHash": 132,
+      "homeCluster": "CAMPECHE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "NEGRO",
+      "LGBTQIA+"
+    ]
+  },
+  {
+    "nome": "Joao Campos",
+    "email": "candidato.cdr.097@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "NestJS",
+      "Prisma",
+      "PostgreSQL"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "BACKEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594117,
+    "longitude": -48.571572,
+    "ageGroup": "35-44",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 66,
+    "origemMobilidade": {
+      "assinanteHash": 136,
+      "homeCluster": "COQUEIROS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "INDIGENA",
+      "INCLUSAO HUMANITARIA"
+    ]
+  },
+  {
+    "nome": "Bianca Lima",
+    "email": "candidato.cdr.098@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS"
+    ],
+    "nivel": "PLENO",
+    "cargoDesejado": "FRONTEND_DEVELOPER",
+    "regiao": "Florianopolis",
+    "latitude": -27.594028,
+    "longitude": -48.520928,
+    "ageGroup": "55+",
+    "incomeCluster": "C",
+    "mobilityPattern": "MODERADA",
+    "scoreMobilidade": 78,
+    "origemMobilidade": {
+      "assinanteHash": 137,
+      "homeCluster": "TRINDADE",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": []
+  },
+  {
+    "nome": "Andre Correia",
+    "email": "candidato.cdr.099@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI"
+    ],
+    "nivel": "SENIOR",
+    "cargoDesejado": "DATA_ANALYST",
+    "regiao": "Florianopolis",
+    "latitude": -27.591528,
+    "longitude": -48.552775,
+    "ageGroup": "55+",
+    "incomeCluster": "B",
+    "mobilityPattern": "BAIXA",
+    "scoreMobilidade": 68,
+    "origemMobilidade": {
+      "assinanteHash": 138,
+      "homeCluster": "CBD_BEIRAMAR",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "MULHER"
+    ]
+  },
+  {
+    "nome": "Natalia Silva",
+    "email": "candidato.cdr.100@appbit.local",
+    "senha": "123456",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "nivel": "JUNIOR",
+    "cargoDesejado": "DEVOPS_ENGINEER",
+    "regiao": "Florianopolis",
+    "latitude": -27.4292,
+    "longitude": -48.458697,
+    "ageGroup": "18-24",
+    "incomeCluster": "C",
+    "mobilityPattern": "INTENSA",
+    "scoreMobilidade": 88,
+    "origemMobilidade": {
+      "assinanteHash": 139,
+      "homeCluster": "CANASVIEIRAS",
+      "homeMunicipio": "Florianopolis"
+    },
+    "gruposDiversidade": [
+      "PCD"
+    ]
+  }
+]

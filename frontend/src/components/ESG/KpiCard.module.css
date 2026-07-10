@@ -1,0 +1,96 @@
+.card{
+    background:#fff;
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+
+    height:160px;
+
+    padding:22px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    box-shadow:0 2px 10px rgba(15,23,42,.05);
+}
+
+.titulo{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#334155;
+
+    text-transform:none;
+
+}
+
+.valor{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    margin-top:6px;
+
+}
+
+.descricao{
+
+    color:#64748B;
+
+    font-size:13px;
+
+    line-height:1.4;
+
+}
+
+.barraFundo{
+    height:8px;
+    border-radius:999px;
+}
+
+.barraProgresso {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.iconBox{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.iconBox svg{
+
+    width:22px;
+
+    height:22px;
+
+}
